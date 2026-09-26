@@ -34,7 +34,7 @@ npm run build && npm run test:e2e   # 실제 Chromium 브라우저(아이폰 화
 ## 배포 (GitHub Pages)
 
 - 접속 주소: **https://zzangii1020.github.io/-goldenbell/**
-- `main` 브랜치에 push하면 `.github/workflows/deploy.yml` 이 테스트 → 빌드 → GitHub Pages 배포를 자동으로 실행합니다.
+- `main` 브랜치에 push하면 `.github/workflows/deploy.yml` 이 테스트 → 빌드 → `gh-pages` 브랜치 갱신을 자동으로 실행하고, GitHub Pages가 `gh-pages` 브랜치를 게시합니다.
 - 저장소 이름을 바꾸면 `vite.config.ts` 의 `base` 를 `'/<새 저장소 이름>/'` 로 바꿔야 합니다.
 - 로컬에서 `npm run dev` 로 실행하면 `http://localhost:5173/-goldenbell/` 로 접속합니다.
 
