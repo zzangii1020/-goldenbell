@@ -9,7 +9,7 @@ Node.js 18 이상이 필요합니다.
 
 ```bash
 npm install
-npm run dev        # 개발 서버 → 터미널에 표시되는 주소(예: http://localhost:5173)로 접속
+npm run dev        # 개발 서버 → 터미널에 표시되는 주소(예: http://localhost:5173/-goldenbell/)로 접속
 ```
 
 휴대폰에서 보려면 `npm run dev -- --host` 로 실행한 뒤, 같은 와이파이에 연결된 휴대폰에서
@@ -26,8 +26,15 @@ npm run preview    # 빌드 결과 확인
 
 ```bash
 npm test           # 문제 데이터 검증 + 채점/오답/즐겨찾기 로직 단위 테스트
-npm run build && npm run test:e2e   # 실제 Chromium 브라우저에서 아이폰 화면 크기로 전체 흐름 테스트
+npm run build && npm run test:e2e   # 실제 Chromium 브라우저(아이폰 화면 크기)에서 100문제 전체 풀이 포함 흐름 테스트
 ```
+
+## 배포 (GitHub Pages)
+
+- 접속 주소: **https://zzangii1020.github.io/-goldenbell/**
+- `main` 브랜치에 push하면 `.github/workflows/deploy.yml` 이 테스트 → 빌드 → GitHub Pages 배포를 자동으로 실행합니다.
+- 저장소 이름을 바꾸면 `vite.config.ts` 의 `base` 를 `'/<새 저장소 이름>/'` 로 바꿔야 합니다.
+- 로컬에서 `npm run dev` 로 실행하면 `http://localhost:5173/-goldenbell/` 로 접속합니다.
 
 ## 주요 기능
 

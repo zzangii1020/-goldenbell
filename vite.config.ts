@@ -1,9 +1,10 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
-// base: './' 로 두면 빌드 결과(dist)를 어떤 경로(GitHub Pages 등)에 올려도 동작한다.
+// GitHub Pages 주소: https://zzangii1020.github.io/-goldenbell/
+// 저장소 이름이 바뀌면 이 값도 '/<새 저장소 이름>/' 으로 바꿔야 한다.
 export default defineConfig({
-  base: './',
+  base: '/-goldenbell/',
   plugins: [react()],
   test: {
     environment: 'node',

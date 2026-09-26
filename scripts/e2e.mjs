@@ -4,9 +4,14 @@
 import { spawn } from 'node:child_process';
 import { existsSync, mkdirSync } from 'node:fs';
 import { chromium } from 'playwright-core';
+import { build } from 'esbuild';
+
+// 실제 문제 데이터(src/data/questions.ts)를 불러와 전체 문제 풀이에 사용한다.
+const bundled = await build({ entryPoints: ['src/data/questions.ts'], bundle: true, write: false, format: 'esm' });
+const { questions } = await import('data:text/javascript;base64,' + Buffer.from(bundled.outputFiles[0].text).toString('base64'));
 
 const PORT = 4179;
-const URL = `http://127.0.0.1:${PORT}/`;
+const URL = `http://127.0.0.1:${PORT}/-goldenbell/`;
 const SHOTS = 'e2e-screenshots';
 mkdirSync(SHOTS, { recursive: true });
 
@@ -185,6 +190,74 @@ try {
   await page.getByRole('radio', { name: '랜덤' }).click();
   await page.getByRole('button', { name: /전체 문제 풀기/ }).click();
   check((await page.locator('.quiz-count').innerText()).startsWith('1 / 100'), '전체 모드: 1 / 100');
+
+
+  // ───────── 8. 전체 100문제 실제 풀이 (객관식 50 + 주관식 50) ─────────
+  await page.evaluate(() => localStorage.clear());
+  await page.goto(URL);
+  await page.getByRole('radio', { name: '순서대로' }).click();
+
+  const runAll = async (mode, list, label) => {
+    await page.getByRole('button', { name: new RegExp(label) }).click();
+    let ok = 0;
+    for (let i = 0; i < list.length; i++) {
+      const q = list[i];
+      const count = await page.locator('.quiz-count').innerText();
+      if (!count.startsWith(`${i + 1} / ${list.length}`)) throw new Error(`${q.id}: 번호 표시 오류 ${count}`);
+      const text = await page.locator('.q-text').innerText();
+      if (!text.includes(q.question.slice(0, 20))) throw new Error(`${q.id}: 문제 순서 불일치`);
+      if (mode === 'multiple') {
+        await page.locator('.choice', { hasText: q.choices[q.answer] }).first().click();
+      } else {
+        // 대표 정답 대신 인정 답안(또는 띄어쓰기를 바꾼 대표 정답)으로 채점 검증
+        const alt = q.acceptableAnswers.length && i % 2 === 0 ? q.acceptableAnswers[0] : ` ${q.answer.toUpperCase()} `;
+        await page.locator('.short-input').fill(alt);
+      }
+      await page.getByRole('button', { name: '정답 제출' }).click();
+      if (await page.getByText('정답입니다.').isVisible()) ok++;
+      else console.log(`   ✘ ${q.id} 정답 처리 실패`);
+      await page.getByRole('button', { name: i === list.length - 1 ? '결과 보기' : '다음 문제' }).click();
+    }
+    return ok;
+  };
+
+  const mcList = questions.filter((q) => q.type === 'multiple');
+  const saList = questions.filter((q) => q.type === 'short');
+  check(mcList.length === 50 && saList.length === 50, `데이터: 객관식 ${mcList.length} / 주관식 ${saList.length}`);
+  const mcOk = await runAll('multiple', mcList, '객관식만 풀기');
+  check(mcOk === 50, `객관식 50문제 전부 정답 처리 (${mcOk}/50)`);
+  check((await page.locator('.score-big').innerText()).replace(/\s/g, '') === '50/50', '객관식 결과 화면 50 / 50');
+  await page.getByRole('button', { name: '홈으로' }).click();
+  const saOk = await runAll('short', saList, '주관식만 풀기');
+  check(saOk === 50, `주관식 50문제 입력 채점 전부 정답 (${saOk}/50)`);
+  await page.getByRole('button', { name: '홈으로' }).click();
+
+  // 오답 입력 채점: 주관식 오답 3개 + 정답 확인 2개
+  await page.getByRole('button', { name: /주관식만 풀기/ }).click();
+  for (const wrong of ['센서', '감각', '']) {
+    if (wrong) await page.locator('.short-input').fill(wrong);
+    await page.getByRole('button', { name: '정답 제출' }).click();
+    if (!wrong) {
+      check(await page.getByText('답을 입력하세요.').isVisible(), '빈 답 제출 시 안내');
+      await page.getByRole('button', { name: '정답 확인' }).click();
+    } else check(await page.getByText('틀렸습니다.').isVisible(), `주관식 오답 "${wrong}" → 틀렸습니다`);
+    await page.getByRole('button', { name: '다음 문제' }).click();
+  }
+  await page.getByRole('button', { name: '홈으로' }).click();
+  // s01·s02 오답 제출 + s03 정답 확인 → 틀린 문제 3개
+  check((await statValue('틀린 문제')) === '3', '전체 풀이 후 오답·정답 확인으로 틀린 문제 3개');
+
+  await page.reload();
+  await page.getByRole('button', { name: '학습 현황' }).click();
+  const m2 = await page.locator('.meter-num').allInnerTexts();
+  check(m2[0].startsWith('100 / 100') && m2[1].startsWith('50 / 50') && m2[2].startsWith('50 / 50'), `새로고침 후 진도율 100/100·50/50·50/50 유지 (${m2.slice(0, 3).join(', ')})`);
+  check((await statValue('맞힌 문제')) === '97', '새로고침 후 맞힌 문제 97 유지');
+  check((await statValue('안 푼 문제')) === '0', '안 푼 문제 0');
+  const stored = await page.evaluate(() => Object.keys(JSON.parse(localStorage.getItem('goldenbell.extinction.v1.state')).records).length);
+  check(stored === 100, `localStorage 에 100문제 기록 저장 (${stored})`);
+  await page.getByRole('button', { name: '‹ 홈' }).click();
+  await page.getByRole('button', { name: /틀린 문제 다시 풀기/ }).click();
+  check((await page.locator('.quiz-count').innerText()).startsWith('1 / 3'), '틀린 문제 다시 풀기: 1 / 3');
 
   // 가로 스크롤 없음
   const overflow = await page.evaluate(() => document.documentElement.scrollWidth > window.innerWidth);
