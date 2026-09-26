@@ -176,6 +176,8 @@ try {
   check(meters[2].startsWith('2 / 50'), `학습 현황: 주관식 2 / 50 (${meters[2]})`);
   check((await statValue('한 번이라도 틀린 문제')) === '3', '학습 현황: 한 번이라도 틀린 문제 3 (m02·m03·s02)');
   check((await page.locator('.history li').count()) === 8, '최근 풀이 기록 8건');
+  check(await page.getByText('7장 소멸하는 장소, 개인화된 공간').isVisible(), '학습 현황: 7장 항목 표시');
+  check(await page.getByText('에필로그', { exact: true }).isVisible(), '학습 현황: 에필로그 항목 표시');
   await page.screenshot({ path: `${SHOTS}/09-progress.png`, fullPage: true });
 
   // 7. 랜덤 모드 전체 풀이

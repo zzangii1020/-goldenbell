@@ -3,7 +3,7 @@ import type { Category, Question } from './types';
 /**
  * 《경험의 멸종》(크리스틴 로젠 지음, 이영래 옮김, 어크로스) 골든벨 대비 문제
  *
- * - 첨부 PDF(책 p.1~237, 프롤로그~6장 앞부분)에 실제로 적힌 내용만으로 출제했다.
+ * - 첨부 PDF(책 p.1~331, 프롤로그~에필로그)에 실제로 적힌 내용만으로 출제했다.
  * - sourcePage 는 책(인쇄본) 쪽수이며, PDF 쪽수는 pages.ts 가 자동으로 계산해 보여준다.
  * - 문제를 추가할 때는 id 를 새로 만들고(기존 id 는 바꾸지 말 것), `npm test` 로 형식을 검사한다.
  */
@@ -15,6 +15,8 @@ const C3: Category = '3장 손으로 써야만 배울 수 있는 것';
 const C4: Category = '4장 기다림과 지루함의 기능';
 const C5: Category = '5장 감정 길들이기';
 const C6: Category = '6장 기술로 매개된 쾌락';
+const C7: Category = '7장 소멸하는 장소, 개인화된 공간';
+const EP: Category = '에필로그';
 
 export const multipleQuestions: Question[] = [
   // ───────────── 프롤로그 ─────────────
@@ -79,19 +81,6 @@ export const multipleQuestions: Question[] = [
   },
 
   // ───────────── 1장 ─────────────
-  {
-    id: 'm05',
-    type: 'multiple',
-    category: C1,
-    difficulty: 'detail',
-    sourcePage: 26,
-    question:
-      '"시곗바늘이 정오를 가리킬 때 식사한다"는 예를 들어, 사람들이 몸의 배고픔 대신 시계의 지시를 따르게 되었다고 지적한 컴퓨터 과학자는?',
-    choices: ['요제프 바이첸바움', '레이먼드 커즈와일', '제러미 베일린슨', '루이스 멈퍼드'],
-    answer: 0,
-    explanation:
-      '컴퓨터 과학자 요제프 바이첸바움은 시계로 인해 사람들이 배고픔이라는 경험 자체를 의심하고 시계의 지시를 따르게 되었다고 했다.',
-  },
   {
     id: 'm06',
     type: 'multiple',
@@ -162,18 +151,6 @@ export const multipleQuestions: Question[] = [
       '실제 경험과 디지털 경험의 차이는 시력과 시각의 차이와 같다. 시력은 눈이 얼마나 잘 포착하는가이고, 시각은 인식을 유도해 시력을 지능적으로 사용하는 것이다.',
   },
   {
-    id: 'm11',
-    type: 'multiple',
-    category: C1,
-    difficulty: 'detail',
-    sourcePage: 40,
-    question:
-      '전 세계 16~22세 청소년의 53%가 "선호하는 개인용 기술을 잃느니 차라리 이것을 잃는 편이 낫다"고 답했다. 이것은?',
-    choices: ['미각', '시각', '청각', '후각'],
-    answer: 3,
-    explanation: '16~22세 청소년의 53%가 선호하는 개인용 기술보다 후각을 잃는 편이 낫다고 답했다.',
-  },
-  {
     id: 'm13',
     type: 'multiple',
     category: C1,
@@ -201,24 +178,6 @@ export const multipleQuestions: Question[] = [
       '다윈은 《인간과 동물의 감정 표현》(1872) 집필을 위해 자료를 모으고 있었다. "확고한 결심"으로 반사반응을 이기려 했지만 결국 놀라울 정도로 빠르게 1~2미터 물러섰다.',
   },
   {
-    id: 'm16',
-    type: 'multiple',
-    category: C2,
-    difficulty: 'tricky',
-    sourcePage: 54,
-    question:
-      '창업자가 "사람과의 상호작용이 예상했던 것만큼 만족스럽지 않았다"며 박물관 투어 가이드를 대신하도록 만든 실내 위치 확인 앱은?',
-    choices: [
-      '위봇',
-      '무디스',
-      '파인더리',
-      '위파러',
-    ],
-    answer: 3,
-    explanation:
-      '위파러(Wifarer)는 건물 내부의 실내 위치 확인 시스템이다. 위봇은 의료용 챗봇, 파인더리는 장소 메모 앱, 무디스는 목소리 감정 분석 앱이다.',
-  },
-  {
     id: 'm17',
     type: 'multiple',
     category: C2,
@@ -229,18 +188,6 @@ export const multipleQuestions: Question[] = [
     answer: 3,
     explanation:
       '에크먼의 보편 감정은 분노, 공포, 슬픔, 혐오, 놀라움, 경멸, 행복이다. 당혹감, 죄책감, 수치심, 시기심, 질투, 자부심은 보편적이지만 같은 얼굴 움직임으로 표현되지 않는 감정으로 설명된다.',
-  },
-  {
-    id: 'm18',
-    type: 'multiple',
-    category: C2,
-    difficulty: 'tricky',
-    sourcePage: 62,
-    question: '인류학자 에드워드 T. 홀이 비언어적 의사소통을 가리켜 부른 말은?',
-    choices: ['침묵의 언어', '암시적 커뮤니케이션', '준언어 단서', '원시의 언어'],
-    answer: 0,
-    explanation:
-      '에드워드 T. 홀은 "침묵의 언어(silent language)"라 불렀고, 심리학자 앨버트 메레이비언은 "암시적 커뮤니케이션"이라 불렀다. 준언어 단서는 목소리 높낮이·크기·억양이다.',
   },
   {
     id: 'm19',
@@ -298,19 +245,6 @@ export const multipleQuestions: Question[] = [
     answer: 1,
     explanation:
       '금문교는 자동화로 800만 달러를 절감했다. 18년 일한 한 징수원은 "저희의 미소는 때로 사람들이 그날 처음으로 마주하는 미소였을 것입니다"라고 말했다.',
-  },
-  {
-    id: 'm24',
-    type: 'multiple',
-    category: C2,
-    difficulty: 'hard',
-    sourcePage: 75,
-    question:
-      "'미래 모니터링' 조사에서 친구를 '거의 매일' 직접 만난 12학년 학생 비율은 2010년에서 2022년 사이 어떻게 변했나?",
-    choices: ['63% → 35%', '35% → 25%', '44% → 32%', '53% → 40%'],
-    answer: 2,
-    explanation:
-      '2010년 44%에서 2022년 32%로 줄었다. (문자를 주고받는 10대 63%, 직접 만나 대화하는 10대 35%는 퓨 리서치 센터의 다른 조사 수치다.)',
   },
   {
     id: 'm26',
@@ -403,18 +337,6 @@ export const multipleQuestions: Question[] = [
       '노트북 필기는 "인지 처리 과정의 깊이가 얕아져" 학습 능력을 해친다. 손으로 적으면 속도가 느려 요약하게 되고, 그 과정에서 정보가 더 잘 유지된다.',
   },
   {
-    id: 'm33',
-    type: 'multiple',
-    category: C3,
-    difficulty: 'detail',
-    sourcePage: 103,
-    question:
-      '도시락 가족 기업 타마고야가 주문 방식을 온라인으로 바꿨다가 매출이 급감하자 "손으로 쓴 상세한 요청서"를 받기 위해 되돌아간 방식은?',
-    choices: ['팩스', '전화', '우편', '방문 접수'],
-    answer: 0,
-    explanation: '타마고야는 손으로 쓴 요청서를 받기 위해 팩스로 되돌아갔다.',
-  },
-  {
     id: 'm34',
     type: 'multiple',
     category: C3,
@@ -499,23 +421,6 @@ export const multipleQuestions: Question[] = [
     answer: 1,
     explanation:
       '기다림 인식은 기다림에 관한 정보의 양과 공정성에 좌우된다. 설명되지 않은 불확실한 기다림은 더 길게 느껴진다(연옥이 불편한 이유는 언제까지 있어야 할지 모르기 때문).',
-  },
-  {
-    id: 'm43',
-    type: 'multiple',
-    category: C4,
-    difficulty: 'detail',
-    sourcePage: 136,
-    question: 'MIT 교수 리처드 라슨이 소개한 휴스턴 국제공항의 수하물 대기 불만 해결 방법은?',
-    choices: [
-      '수하물 찾는 곳을 더 멀리 옮겨 걷는 시간을 늘렸다',
-      '대기 구역에 TV를 설치했다',
-      '남은 대기 시간을 전광판에 표시했다',
-      '수하물 처리 직원을 두 배로 늘렸다',
-    ],
-    answer: 0,
-    explanation:
-      '1분 걷고 오래 기다리던 승객들이 불만을 제기하자, 수하물 찾는 곳을 더 멀리 옮겨 6분을 걷게 했더니 불만이 크게 줄었다.',
   },
   {
     id: 'm44',
@@ -649,19 +554,6 @@ export const multipleQuestions: Question[] = [
       '약 40% 낮으며, 가장 급격한 감소세는 스마트폰 보급 추세와 일치한다.',
   },
   {
-    id: 'm54',
-    type: 'multiple',
-    category: C5,
-    difficulty: 'tricky',
-    sourcePage: 203,
-    question:
-      '목소리로 감정을 분석하는 무디스(Moodies) 앱에 히틀러의 폴란드 침공 연설 녹음을 넣었더니, 앱은 히틀러의 기분을 무엇으로 해석했나?',
-    choices: ['분노', '두려움', '슬픔', '친근감'],
-    answer: 3,
-    explanation:
-      '구글 플레이 스토어 리뷰에 따르면 앱은 히틀러의 기분을 "친근감"으로 해석했다. 무디스는 15~20초마다 감정 분석 결과를 전달한다.',
-  },
-  {
     id: 'm55',
     type: 'multiple',
     category: C5,
@@ -675,19 +567,6 @@ export const multipleQuestions: Question[] = [
   },
 
   // ───────────── 6장 ─────────────
-  {
-    id: 'm56',
-    type: 'multiple',
-    category: C6,
-    difficulty: 'detail',
-    sourcePage: 219,
-    question:
-      '인스타그램 팔로어들과 연락하며 혼자 해외여행을 떠났다가 2013년 비극적으로 숨진 사라이 시에라가 여행한 나라는?',
-    choices: ['그리스', '튀르키예', '이탈리아', '모로코'],
-    answer: 1,
-    explanation:
-      '뉴욕주 스태튼아일랜드에 살던 33세의 사라이 시에라는 혼자 튀르키예로 여행을 떠났고, 이스탄불 술탄아흐메트 근처에서 시신으로 발견되었다.',
-  },
   {
     id: 'm57',
     type: 'multiple',
@@ -741,6 +620,134 @@ export const multipleQuestions: Question[] = [
     answer: 1,
     explanation:
       '올리버 웬들 홈스다. 헨리 제임스는 베네치아를 "위로의 저장소"라 했고, 웬들 베리는 시 <휴가>를, 헨리 슈크먼은 그랜드캐니언에 실망한 경험을 남겼다.',
+  },
+  {
+    id: 'm61',
+    type: 'multiple',
+    category: C6,
+    difficulty: 'detail',
+    sourcePage: 239,
+    question: '책에 따르면 미술관 방문자들이 작품 하나를 보는 데 쓰는 평균 시간은?',
+    choices: ['5~10초', '15~30초', '1~2분', '3~5분'],
+    answer: 1,
+    explanation:
+      '방문자들은 작품 하나에 평균 15~30초를 쓴다. 반면 하버드 미술사학자 제니퍼 L. 로버츠는 학생들에게 한 작품을 세 시간 동안 살피게 한 뒤 분석하게 했다. "시선을 두었다고(looking) 해서 보았다는(seeing) 의미는 아니"기 때문이다.',
+  },
+  {
+    id: 'm62',
+    type: 'multiple',
+    category: C7,
+    difficulty: 'basic',
+    sourcePage: 285,
+    question:
+      '카페, 동네 술집 같은 "좋은 장소"를 공동체의 근간이 되는 "제3의 장소"라 부르며, 진정한 공동체에는 대면 상호작용과 상호 의존성이 필요하다고 한 사회학자는?',
+    choices: ['레이 올든버그', '키스 햄프턴', '윌리엄 H. 화이트', '조슈아 메이로위츠'],
+    answer: 0,
+    explanation:
+      '저자는 레이 올든버그와 함께 장소 관련 학술회의 패널로 참여한 적이 있다. 올든버그는 제3의 장소는 대면 상호작용을 제공하는 데 탁월하지만 가상 세계는 그러지 못한다고 강조했다.',
+  },
+  {
+    id: 'm63',
+    type: 'multiple',
+    category: C7,
+    difficulty: 'tricky',
+    sourcePage: 292,
+    question:
+      '사람들이 함께하는 즐거움 이외에 다른 이유 없이 모이는 것을 가리켜 사회학자 게오르크 지멜이 붙인 이름은?',
+    choices: ['평준화 영향력', '공적 교제의 몸짓', '사회적 무관심', '순수한 사교성'],
+    answer: 3,
+    explanation:
+      '지멜의 "순수한 사교성(pure sociability)"이다. 올든버그는 목적 없는 순수한 사교성이 "가장 민주적인 경험을 장려"한다고 했다. 저자는 소셜 미디어 플랫폼이 순수한 사교성을 정량화된 인기로 대체한다고 말한다. "평준화 영향력"은 올든버그가 제3의 장소에 대해 쓴 말이다.',
+  },
+  {
+    id: 'm64',
+    type: 'multiple',
+    category: C7,
+    difficulty: 'hard',
+    sourcePage: 291,
+    question:
+      '2023년 미국 보건부 장관 비벡 머시의 보고서 "외로움과 고립의 전염병"은 외로움이 건강에 미치는 영향을 하루에 담배 몇 개비를 피우는 것에 비교했나?',
+    choices: ['5개비', '15개비', '10개비', '20개비'],
+    answer: 1,
+    explanation:
+      '하루 15개비의 담배에 비교했다. 보고서의 첫 번째 권고는 도서관이나 공원 같은 공적 공간에서 직접 만나는 것을 장려하는 "사회적 인프라의 강화"였다.',
+  },
+  {
+    id: 'm65',
+    type: 'multiple',
+    category: C7,
+    difficulty: 'detail',
+    sourcePage: 287,
+    question: '저자가 설명한 가라오케의 기원으로 옳은 것은?',
+    choices: [
+      '1960년대 후반 고베에서 클럽 가수 이노우에 다이스케가 만들었다',
+      '1970년대 초반 도쿄에서 전자 회사 기술자가 만들었다',
+      '1960년대 후반 오키나와에서 미군 기지 군인들이 퍼뜨렸다',
+      '1980년대 오사카의 한 술집 주인이 고안했다',
+    ],
+    answer: 0,
+    explanation:
+      '가라오케는 1960년대 후반 고베에서 시작되었고, 만든 사람은 클럽 가수 이노우에 다이스케다. 그는 가라오케를 "평범한 사람들의 형편없는 노래를 견디고 어쨌든 즐기도록 가르치는 발명품"이라고 했다. 저자는 오키나와에서 미국식과 일본식 가라오케를 모두 경험하며 장소가 행동에 미치는 영향을 생각했다.',
+  },
+  {
+    id: 'm66',
+    type: 'multiple',
+    category: C7,
+    difficulty: 'detail',
+    sourcePage: 297,
+    question: '2010년 키스 햄프턴 교수 연구팀이 공적 공간의 와이파이 사용자를 관찰한 결과로 옳은 것은?',
+    choices: [
+      '사용자 대부분이 일행과 함께 와서 대화하고 있었다',
+      '사용자의 거의 80%가 혼자였고, 와이파이 사용 밀도가 높을 때 공적 사교성이 감소했다',
+      '와이파이 사용자가 낯선 사람에게 먼저 말을 거는 경우가 더 많았다',
+      '와이파이가 설치된 광장일수록 방문자가 줄어들었다',
+    ],
+    answer: 1,
+    explanation:
+      '햄프턴은 필라델피아·뉴욕·샌프란시스코·토론토의 공적 공간을 관찰했다. 사용자의 거의 80%가 혼자였고 낯선 사람들의 정중한 접근을 무시했으며, "와이파이 사용 밀도가 높을 때는 공적 사교성이 감소하는" 현상이 뚜렷했다.',
+  },
+  {
+    id: 'm67',
+    type: 'multiple',
+    category: EP,
+    difficulty: 'tricky',
+    sourcePage: 316,
+    question: '2018년 연구자들이 로버트 노직의 "경험 기계"를 다시 실험한 결과로 옳은 것은?',
+    choices: [
+      '침습적 기계를 "경험 알약"으로 바꾸자 복용하겠다는 사람이 더 많아졌다',
+      '사람들은 여전히 경험 기계와 경험 알약을 똑같이 강하게 거부했다',
+      '40년 전과 달리 대부분의 사람이 경험 기계에 연결하겠다고 답했다',
+      '경험 알약보다 기계를 받아들이겠다는 사람이 더 많았다',
+    ],
+    answer: 0,
+    explanation:
+      '연구자들은 "개입이 덜 침습적일수록(현실과의 단절이 덜 할수록) 더 많은 사람이 받아들인다"는 가설을 세웠고, 가설은 옳은 것으로 드러났다. 노직은 《아나키에서 유토피아로》에서 경험 기계 사고실험을 제시했다(6장).',
+  },
+  {
+    id: 'm68',
+    type: 'multiple',
+    category: EP,
+    difficulty: 'tricky',
+    sourcePage: 317,
+    question:
+      '1950년대 MIT에서 "그 모든 일을 기계들을 위해 하겠다고요? 그럼 사람들을 위해서는 뭘 할 겁니까?"라고 되물은 "지능 증강(Intelligent Augmentation)"의 지지자는?',
+    choices: ['마빈 민스키', '요제프 바이첸바움', '앨릭스 펜틀랜드', '더글러스 엥겔바트'],
+    answer: 3,
+    explanation:
+      '더글러스 엥겔바트다. 인공지능의 선구자 마빈 민스키는 "우리는 지능이 있는 기계를 만들 것입니다. 의식이 있는 기계를 만들 것입니다!"라고 단언했다. 지능 증강은 기계가 인간의 지능과 능력을 대체하기보다 향상시키도록 설계되어야 한다는 생각이다.',
+  },
+  {
+    id: 'm69',
+    type: 'multiple',
+    category: EP,
+    difficulty: 'hard',
+    sourcePage: 325,
+    question:
+      '리부트 재단 조사에서 "1년 동안 소셜 미디어 사용을 중단할 것인지, 투표권을 포기할 것인지" 묻자 투표권을 포기하겠다고 답한 10대의 비율은?',
+    choices: ['23%', '37%', '64%', '70%'],
+    answer: 2,
+    explanation:
+      '압도적 다수인 64%가 투표권을 포기하겠다고 답했다. 같은 재단 조사에서 10대 틱톡 사용자의 23%는 하루 네 시간 이상 앱을 사용했다.',
   },
 ];
 
@@ -836,17 +843,6 @@ export const shortQuestions: Question[] = [
       '"베자 듀(vêja du)"다. 제러미 베일린슨은 가상현실 헤드셋과 베자 듀 기법으로, 예컨대 담배를 계속 피우면 10년 후 어떻게 될지 노화 과정을 모델링했다.',
   },
   {
-    id: 's09',
-    type: 'short',
-    category: C1,
-    difficulty: 'basic',
-    sourcePage: 32,
-    question: '연인을 구하려고 온라인에서 자신에 대해 거짓말을 하는 행위를 가리키는 말은?',
-    answer: '캣피싱',
-    acceptableAnswers: ['catfishing', 'cat-fishing', '캣 피싱'],
-    explanation: '가짜 뉴스, 음모론과 함께 매개된 경험이 낳는 현상으로 캣피싱(cat-fishing)이 언급된다.',
-  },
-  {
     id: 's11',
     type: 'short',
     category: C1,
@@ -897,17 +893,6 @@ export const shortQuestions: Question[] = [
 
   // ───────────── 2장 ─────────────
   {
-    id: 's20',
-    type: 'short',
-    category: C2,
-    difficulty: 'hard',
-    sourcePage: 57,
-    question: '강렬한 눈 맞춤을 할 때 분비된다고 책에서 설명한, 기분과 스트레스를 조절하는 유기 화합물은?',
-    answer: '페닐에틸아민',
-    acceptableAnswers: ['phenylethylamine', '페닐 에틸 아민'],
-    explanation: '강렬한 눈 맞춤은 심박수를 높이고 신경전달물질과 페닐에틸아민 분비를 일으킨다.',
-  },
-  {
     id: 's22',
     type: 'short',
     category: C2,
@@ -942,18 +927,6 @@ export const shortQuestions: Question[] = [
     acceptableAnswers: ['motivational enhancement effect', '동기향상효과'],
     explanation:
       '"동기 향상 효과"다. 대면 상황에서는 경련이나 눈 움직임으로 진실이 드러나기 때문에 거짓말을 망설이게 된다.',
-  },
-  {
-    id: 's25',
-    type: 'short',
-    category: C2,
-    difficulty: 'detail',
-    sourcePage: 62,
-    question:
-      '1957년 상원 다수당 대표 린든 존슨이 90세 가까운 시어도어 그린 의원에게 바짝 다가가 압박하는 모습을 가리키는 말은?',
-    answer: '존슨 방식',
-    acceptableAnswers: ['johnson treatment', '존슨 트리트먼트', '존슨식'],
-    explanation: '근접성이 소통에서 얼마나 중요한지 보여주는 사례로 "존슨 방식(Johnson treatment)"이 소개된다.',
   },
   {
     id: 's26',
@@ -1045,17 +1018,6 @@ export const shortQuestions: Question[] = [
       '버닝거는 2017년 후속 연구에서 방추형회를 "마음의 눈"이라 불렀고, 4학년 무렵부터 필기체 사용 능력이 철자와 작문 모두에 도움이 된다고 했다.',
   },
   {
-    id: 's38',
-    type: 'short',
-    category: C3,
-    difficulty: 'detail',
-    sourcePage: 106,
-    question: '손 도면 대신 컴퓨터 설계에만 매달리게 된 신입 건축가들이 스스로를 자조적으로 부르는 별칭은?',
-    answer: 'CAD 자키',
-    acceptableAnswers: ['캐드 자키', 'cad jockey', '캐드자키', 'CAD자키'],
-    explanation: '저자의 여동생(건축학 학위)이 전한 말로, 신입 건축가들은 스스로를 "CAD 자키"라 부른다.',
-  },
-  {
     id: 's39',
     type: 'short',
     category: C3,
@@ -1094,18 +1056,6 @@ export const shortQuestions: Question[] = [
       '1955년 애너하임에 첫 테마파크를 연 디즈니는 이매지니어링으로 줄서기 심리학의 새 시대를 열었다.',
   },
   {
-    id: 's45',
-    type: 'short',
-    category: C4,
-    difficulty: 'detail',
-    sourcePage: 132,
-    question:
-      '시인 W. H. 오든이 "대죄는 ○○, 그것뿐인지도 모르겠다. ○○ 때문에 우리는 낙원에서 쫓겨났다"고 한 ○○는?',
-    answer: '성급함',
-    acceptableAnswers: ['성급', 'impatience'],
-    explanation: '오든은 성급함을 유일한 대죄일지 모른다고 했다. 4장의 소제목 "성급하게 화가 난 사람들"과도 이어진다.',
-  },
-  {
     id: 's46',
     type: 'short',
     category: C4,
@@ -1131,17 +1081,6 @@ export const shortQuestions: Question[] = [
       '"소몰입(microflow) 활동"은 일상의 우울함을 극복하게 해주지만, 소소한 반복적 게임은 경험의 질을 높여주지는 못한다.',
   },
   {
-    id: 's49',
-    type: 'short',
-    category: C4,
-    difficulty: 'detail',
-    sourcePage: 150,
-    question: '경제학자 허버트 사이먼: "정보는 수용자의 주의를 소비한다. 따라서 많은 정보는 ○○을 낳는다." ○○은?',
-    answer: '주의의 빈곤',
-    acceptableAnswers: ['poverty of attention', '주의 빈곤'],
-    explanation: '정보 과잉은 "주의의 빈곤"을 낳는다. 존 이스트우드는 지루함을 주의의 문제로 본다.',
-  },
-  {
     id: 's50',
     type: 'short',
     category: C4,
@@ -1152,19 +1091,6 @@ export const shortQuestions: Question[] = [
     acceptableAnswers: ['편리'],
     explanation:
       '"우리 죄의 주된 원인은 무엇입니까? 편리함입니다." 겟세마니는 토머스 머튼이 머물렀던 켄터키의 트라피스트 수도원이다.',
-  },
-  {
-    id: 's53',
-    type: 'short',
-    category: C4,
-    difficulty: 'detail',
-    sourcePage: 168,
-    question:
-      '1964년 뉴욕 세계 박람회를 위해 디즈니가 직접 디자인한 오디오 애니메트로닉스 공연으로, 로봇들이 "아름답고 대단한 내일이 있어!"라고 노래하는 놀이기구는?',
-    answer: '진보의 회전 극장',
-    acceptableAnswers: ['carousel of progress', '진보의 회전극장'],
-    explanation:
-      '진보의 회전 극장(Carousel of Progress)은 줄 서지 않고 즐길 수 있는 놀이기구다. 저자가 갔을 때 관객 대다수는 휴대전화를 보고 있었다.',
   },
   {
     id: 's54',
@@ -1219,18 +1145,6 @@ export const shortQuestions: Question[] = [
       '디즈니는 직원을 "캐스트 멤버"라 부르고 "고객학(guestology)"으로 교육한다. 강요된 행복은 "표면 연기"와 정서적 피로를 낳는다.',
   },
   {
-    id: 's63',
-    type: 'short',
-    category: C5,
-    difficulty: 'detail',
-    sourcePage: 183,
-    question: '디지털(digital)과 비질란테(vigilante, 자경단 단원)를 합성한 말로, 온라인에서 즉각적인 보복을 가하는 사람을 뜻하는 말은?',
-    answer: '디질란테',
-    acceptableAnswers: ['digilante'],
-    explanation:
-      '과거라면 창피를 당하는 데서 끝났을 실수에 전 세계적인 즉각 보복이 가해진다. 15세 때 스냅챗 영상 때문에 대학 입학과 장학금이 취소된 버지니아주 치어리더 사례가 소개된다.',
-  },
-  {
     id: 's64',
     type: 'short',
     category: C5,
@@ -1241,19 +1155,6 @@ export const shortQuestions: Question[] = [
     acceptableAnswers: ['schadenfreude', '샤덴 프로이데'],
     explanation:
       '다른 사람이 온라인에 올린 경험을 소비할 때의 느낌은 공감이라기보다 동정, 연민, 부러움, 샤덴프로이데에 가깝다.',
-  },
-  {
-    id: 's65',
-    type: 'short',
-    category: C5,
-    difficulty: 'detail',
-    sourcePage: 187,
-    question:
-      '저자가 페이스북 같은 소셜 미디어를 비유한 것으로, 병을 옮기는 모기는 죽이지만 새알 껍데기를 약화시켜 새끼 새를 살아남지 못하게 한 금지된 살충제는?',
-    answer: 'DDT',
-    acceptableAnswers: ['디디티'],
-    explanation:
-      '소셜 미디어는 멀리 떨어진 사람과 연락을 유지하게 해주지만(좋은 점), 행동에 대한 책임감과 기꺼이 감정적 위험을 감수하려는 마음을 약화시킨다.',
   },
   {
     id: 's69',
@@ -1367,6 +1268,120 @@ export const shortQuestions: Question[] = [
     acceptableAnswers: ['사진 트로피', 'photograph-trophy', 'photograph trophy'],
     explanation:
       '수전 손택의 표현 "사진-트로피(photograph-trophy)"다. 인스타그램에서는 마추픽추에서 찍은 셀카가 고속도로 출구의 맥도날드만큼 흔하다.',
+  },
+  {
+    id: 's80',
+    type: 'short',
+    category: C6,
+    difficulty: 'detail',
+    sourcePage: 243,
+    question:
+      '페어필드대학교 심리학자 린다 헨켈의 연구에서, 미술관 작품을 사진으로 찍은 관람객이 그 작품을 더 적게 기억한 현상을 가리키는 말은?',
+    answer: '사진 손상 효과',
+    acceptableAnswers: ['photo-impairment effect', 'photo impairment effect', '사진손상효과'],
+    explanation:
+      '헨켈은 이를 "사진 손상 효과(photo-impairment effect)"라 불렀다. "카메라의 \'눈\'은 \'마음의 눈\'이 아니"라는 것이다.',
+  },
+  {
+    id: 's81',
+    type: 'short',
+    category: C6,
+    difficulty: 'tricky',
+    sourcePage: 260,
+    question: '저자가 고안한, 요리를 이용한 일종의 로르샤흐 테스트의 이름은?',
+    answer: '벨비타 테스트',
+    acceptableAnswers: ['velveeta test', '벨비타테스트', '벨비타'],
+    explanation:
+      '초가공 "치즈 음식"인 벨비타의 이름을 딴 테스트다. 저자는 음식 대체 음료 소이렌트를 "와이파이 요리(Wi-Fi cuisines)" 시대의 논리적 귀결로 보며, 쾌락이 쾌락주의자보다 엔지니어에 의해 고안되고 있다고 말한다.',
+  },
+  {
+    id: 's82',
+    type: 'short',
+    category: C7,
+    difficulty: 'basic',
+    sourcePage: 278,
+    question:
+      '"공간은 정의와 의미를 얻을 때 ○○로 변한다." 이-푸 투안의 이 말을 인용하며 저자는 "사이버 공간은 있지만 사이버 ○○는 없다"고 했다. ○○에 공통으로 들어갈 말은?',
+    answer: '장소',
+    acceptableAnswers: ['place'],
+    explanation:
+      '장소(place)가 공간(space)으로 대체되고 있다. 공간은 "경계가 생기고 인적 요소가 가미"될 때 장소가 된다. 페이스북 이전 시대의 지배적인 소셜 네트워크가 마이플레이스가 아닌 마이스페이스였던 이유도 여기에 있다.',
+  },
+  {
+    id: 's83',
+    type: 'short',
+    category: C7,
+    difficulty: 'hard',
+    sourcePage: 279,
+    question: '작가 제임스 조이스가 1939년 작품 《피네간의 경야》에서 만들어낸 단어로, 공간이 시간에 의해 방해받을 수 있음을 표현한 말은?',
+    answer: '아이스페이스',
+    acceptableAnswers: ['ispace', 'i-space', 'i space'],
+    explanation:
+      '"아이스페이스(iSpace)"는 공간이 시간에 의해 방해받을 수 있음을 표현하는 단어인 동시에 장소에는 한계가 있지만 공간에는 제한이 없음을 인정하는 말이기도 했다.',
+  },
+  {
+    id: 's84',
+    type: 'short',
+    category: C7,
+    difficulty: 'detail',
+    sourcePage: 286,
+    question: '모바일 기술이 발명되기 훨씬 전에 프랑스 철학자 시몬 베유가 "현대의 질병"이라 부른 것은?',
+    answer: '뿌리 뽑힘',
+    acceptableAnswers: ['uprootedness', '뿌리뽑힘'],
+    explanation:
+      '베유는 현대인의 지역사회 참여 부족과 장소에 기반한 유대 관계의 부족을 우려했다. 오늘날 우리는 기술이 가져온 뿌리 뽑힘을 "연결" 또는 "이동성"으로 재정의해 일과 여가의 표준으로 삼았다.',
+  },
+  {
+    id: 's85',
+    type: 'short',
+    category: C7,
+    difficulty: 'detail',
+    sourcePage: 289,
+    question:
+      '인류학자 에드워드 T. 홀이 창시한 학문으로, 공간 속 우리의 물리적 위치와 다른 사람과의 관계를 연구하는 "근접공간학"을 영어식으로 부르는 이름은?',
+    answer: '프록시믹스',
+    acceptableAnswers: ['proxemics', '근접공간학'],
+    explanation:
+      '프록시믹스는 누군가 "사적인 공간"에 침입하면 불안해지는 이유, 붐비는 비행기 승객이 "기내 분노(air rage)"를 표출하는 이유를 설명해준다.',
+  },
+  {
+    id: 's86',
+    type: 'short',
+    category: C7,
+    difficulty: 'tricky',
+    sourcePage: 295,
+    question:
+      '저널리스트 윌리엄 H. 화이트는 영화 <작은 도시 공간의 사회생활>에서 사람들이 광장을 수많은 교차 패턴으로 지나다니면서도 결코 충돌하지 않는 모습을 무엇이라는 말로 묘사했나?',
+    answer: '안무',
+    acceptableAnswers: ['choreography', '코레오그래피'],
+    explanation:
+      '화이트는 광장에서 펼쳐지는 일을 "안무(choreography)"라 묘사했다. "아주 작은 손짓. 잠깐의 지연. 0.1초. 타이밍은 기가 막혔습니다." 오늘날 광장의 패턴은 기술에 몰두한 보행자들이 부딪히는, 통제되지 않은 움직임에 가깝다.',
+  },
+  {
+    id: 's87',
+    type: 'short',
+    category: EP,
+    difficulty: 'basic',
+    sourcePage: 315,
+    question:
+      '벤처 캐피털리스트 마크 앤드리슨이 "현실과 비현실을 구분하는 능력이 사라지면 해가 되지 않겠느냐"는 우려를 가리켜 부른 말은?',
+    answer: '현실 특권',
+    acceptableAnswers: ['reality privilege', '현실특권'],
+    explanation:
+      '앤드리슨은 의미 있는 경험으로 가득한 현실 세계에 사는 것은 소수뿐이고, 나머지 사람들은 온라인 세계에서 더 행복할 것이라 주장했다. 저자는 "현실을 지키는 것이 특권으로 여겨져서는 안 된다"고 반박한다.',
+  },
+  {
+    id: 's88',
+    type: 'short',
+    category: EP,
+    difficulty: 'detail',
+    sourcePage: 323,
+    question:
+      '저자는 "기술에 대한 접근에서는 ○○가 되어야 한다"고 했다. 새로운 것을 받아들이기 전에 공동체·가정·가치관에 미칠 영향을 먼저 묻는 재침례파 계통의 생활 공동체를 가리키는 ○○는?',
+    answer: '아미시',
+    acceptableAnswers: ['amish', '아미쉬'],
+    explanation:
+      '새로운 기기와 앱을 엄격하게 거부하지 않더라도 강한 회의적 시선을 가질 필요가 있다는 뜻이다. 비슷한 예로 부모들은 "8학년까지(Wait Until 8th)" 모임을 만들어 중학교 2학년이 되기 전까지 자녀에게 스마트폰을 주지 않겠다고 서약한다.',
   },
 ];
 

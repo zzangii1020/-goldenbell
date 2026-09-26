@@ -118,7 +118,7 @@ export default function Home({
       </nav>
 
       <footer className="home-footer">
-        문제는 첨부된 《경험의 멸종》 PDF(책 p.1~237)의 내용만으로 출제되었습니다.
+        문제는 첨부된 《경험의 멸종》 PDF(책 p.1~331, 프롤로그~에필로그)의 내용만으로 출제되었습니다.
         <br />
         학습 기록은 이 기기의 브라우저에 자동 저장됩니다.
       </footer>

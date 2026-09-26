@@ -55,18 +55,18 @@ describe('문제 데이터', () => {
     for (const q of questions) {
       expect(q.explanation.length, q.id).toBeGreaterThan(10);
       expect(q.sourcePage, q.id).toBeGreaterThanOrEqual(0);
-      expect(q.sourcePage, q.id).toBeLessThanOrEqual(237);
+      expect(q.sourcePage, q.id).toBeLessThanOrEqual(331);
       expect(['basic', 'detail', 'tricky', 'hard']).toContain(q.difficulty);
       expect(q.category.length).toBeGreaterThan(0);
     }
   });
 
-  it('출처 쪽수가 PDF(220쪽) 범위 안으로 변환된다', () => {
+  it('출처 쪽수가 PDF(317쪽) 범위 안으로 변환된다', () => {
     for (const q of questions) {
       if (q.sourcePage === 0) continue;
       const pdf = toPdfPage(q.sourcePage);
       expect(pdf, q.id).toBeGreaterThanOrEqual(1);
-      expect(pdf, q.id).toBeLessThanOrEqual(220);
+      expect(pdf, q.id).toBeLessThanOrEqual(317);
     }
   });
 
@@ -78,6 +78,10 @@ describe('문제 데이터', () => {
     expect(toPdfPage(173)).toBe(162);
     expect(toPdfPage(214)).toBe(198);
     expect(toPdfPage(235)).toBe(218);
+    expect(toPdfPage(238)).toBe(221); // 추가 zip 01-55.pdf 첫 쪽
+    expect(toPdfPage(278)).toBe(261);
+    expect(toPdfPage(315)).toBe(298); // 에필로그
+    expect(toPdfPage(334)).toBe(317); // zip 56-97.pdf 마지막 쪽
   });
 
   it('난이도 분포가 대략 기본30/세부40/헷갈림20/고난도10 에 가깝다', () => {
@@ -92,7 +96,7 @@ describe('문제 데이터', () => {
   it('모든 장에서 고르게 출제된다', () => {
     const byCat = new Map<string, number>();
     for (const q of questions) byCat.set(q.category, (byCat.get(q.category) ?? 0) + 1);
-    expect(byCat.size).toBe(7);
-    for (const n of byCat.values()) expect(n).toBeGreaterThanOrEqual(8);
+    expect(byCat.size).toBe(9);
+    for (const [cat, n] of byCat) expect(n, cat).toBeGreaterThanOrEqual(cat === '에필로그' ? 5 : 8);
   });
 });

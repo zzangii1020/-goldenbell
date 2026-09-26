@@ -24,7 +24,9 @@ describe('주관식 채점', () => {
     expect(gradeShort(short('s79'), '"사진-트로피"')).toBe(true);
     expect(gradeShort(short('s08'), 'veja du')).toBe(true);
     expect(gradeShort(short('s08'), 'vêja du')).toBe(true);
-    expect(gradeShort(short('s65'), 'ddt')).toBe(true);
+    expect(gradeShort(short('s85'), 'Proxemics')).toBe(true);
+    expect(gradeShort(short('s84'), '뿌리뽑힘')).toBe(true);
+    expect(gradeShort(short('s83'), 'iSpace')).toBe(true);
     expect(gradeShort(short('s04'), '선택이다')).toBe(true);
     expect(gradeShort(short('s23'), '200가지')).toBe(true);
   });
@@ -36,6 +38,8 @@ describe('주관식 채점', () => {
     expect(gradeShort(short('s27'), '사회적 유리')).toBe(false);
     expect(gradeShort(short('s75'), '쾌락 원리')).toBe(false);
     expect(gradeShort(short('s23'), '20')).toBe(false);
+    expect(gradeShort(short('s82'), '공간')).toBe(false);
+    expect(gradeShort(short('s87'), '특권')).toBe(false);
   });
 
   it('normalizeAnswer', () => {
