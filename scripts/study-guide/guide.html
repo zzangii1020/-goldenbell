@@ -1,0 +1,544 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<title>《경험의 멸종》 골든벨 요약 노트</title>
+<style>
+  @page { size: A4; margin: 16mm 15mm 16mm 15mm; }
+  :root { --ink:#1d1f23; --muted:#5f646b; --accent:#1f4e79; --soft:#eef3f8; --line:#d9dde3; --star:#b8860b; --warn:#9a3412; --warnbg:#fff4ec; }
+  * { box-sizing: border-box; }
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body { font-family: 'Noto Sans CJK KR', 'Noto Sans KR', sans-serif; color: var(--ink); font-size: 10pt; line-height: 1.62; word-break: keep-all; margin: 0; }
+  h1, h2, h3 { line-height: 1.3; margin: 0; }
+  .cover { height: 255mm; display: flex; flex-direction: column; justify-content: center; page-break-after: always; }
+  .cover .eyebrow { color: var(--accent); font-weight: 700; letter-spacing: .08em; font-size: 11pt; }
+  .cover h1 { font-size: 30pt; margin: 6mm 0 3mm; letter-spacing: -.02em; }
+  .cover .sub { font-size: 12.5pt; color: var(--muted); }
+  .cover .box { margin-top: 14mm; border: 1px solid var(--line); border-radius: 4mm; padding: 6mm 7mm; background: #fafbfc; }
+  .cover .box h3 { font-size: 11pt; margin-bottom: 2mm; color: var(--accent); }
+  .cover ul { margin: 0; padding-left: 5mm; }
+  .thesis { margin-top: 10mm; font-size: 13pt; font-weight: 700; border-left: 2mm solid var(--accent); padding: 2mm 0 2mm 5mm; }
+  .thesis small { display: block; font-size: 9.5pt; font-weight: 400; color: var(--muted); margin-top: 1mm; }
+
+  section.chapter { page-break-before: always; }
+  .chap-head { border-bottom: .6mm solid var(--accent); padding-bottom: 2mm; margin-bottom: 4mm; display: flex; justify-content: space-between; align-items: baseline; gap: 4mm; }
+  .chap-head h2 { font-size: 17pt; color: var(--accent); }
+  .chap-head span { color: var(--muted); font-size: 9pt; white-space: nowrap; }
+  .claim { background: var(--soft); border-radius: 2.5mm; padding: 3mm 4mm; margin-bottom: 4mm; }
+  .claim b { color: var(--accent); }
+  h3 { font-size: 11.5pt; margin: 4.5mm 0 1.5mm; padding-left: 2.2mm; border-left: 1.2mm solid var(--accent); }
+  ul.items { margin: 0; padding-left: 4.5mm; }
+  ul.items li { margin: .6mm 0; }
+  .p { color: var(--muted); font-size: 8.5pt; white-space: nowrap; }
+  .star { color: var(--star); font-weight: 700; }
+  .term { font-weight: 700; }
+  .q { color: #333; }
+  .tip { background: var(--warnbg); border-left: 1.2mm solid var(--warn); padding: 2mm 3.5mm; margin: 3mm 0; border-radius: 1.5mm; font-size: 9.5pt; }
+  .tip b { color: var(--warn); }
+  table { width: 100%; border-collapse: collapse; font-size: 9.2pt; margin: 2mm 0 4mm; }
+  th, td { border: 1px solid var(--line); padding: 1.6mm 2.2mm; vertical-align: top; text-align: left; }
+  th { background: var(--soft); color: var(--accent); }
+  tr { page-break-inside: avoid; }
+  .two { columns: 2; column-gap: 7mm; }
+  .two li { break-inside: avoid; }
+  .toc td:first-child { width: 36mm; font-weight: 700; }
+  .toc td:last-child { width: 14mm; text-align: right; color: var(--muted); }
+  .legend { font-size: 9pt; color: var(--muted); }
+</style>
+</head>
+<body>
+
+<!-- ─────────── 표지 ─────────── -->
+<div class="cover">
+  <div class="eyebrow">독서 골든벨 대비 요약 노트</div>
+  <h1>《경험의 멸종》</h1>
+  <div class="sub">크리스틴 로젠 지음 · 이영래 옮김 · 어크로스<br/>원제 <i>The Extinction of Experience</i> · 부제 “기술이 경험을 대체하는 시대, 인간은 계속 인간일 수 있을까”</div>
+
+  <div class="thesis">“경험의 소멸은 불가피한 것이 아니다. 그것은 선택이다.”
+    <small>저자는 기술이 경험을 금지한 것이 아니라 경험의 중요성과 의미를 약화시킴으로써 변화시켰다고 말한다. (p.18–19)</small>
+  </div>
+
+  <div class="box">
+    <h3>이 노트 활용법</h3>
+    <ul>
+      <li>장마다 <b>핵심 주장 → 꼭 외울 용어 → 인물 → 사례 → 숫자</b> 순서로 정리했습니다.</li>
+      <li><span class="star">★</span> 표시는 문제풀이 앱(100문제)에 실제로 출제된 내용입니다. ★부터 외우고 나머지로 넓히세요.</li>
+      <li><b>(p.00)</b>은 책 쪽수입니다. 헷갈리면 책에서 바로 확인할 수 있습니다.</li>
+      <li>마지막에 <b>헷갈리기 쉬운 짝 비교표 · 숫자/연도 총정리 · 인물 색인</b>이 있습니다. 시험 직전에는 여기만 보세요.</li>
+      <li>모든 내용은 책 본문에서만 가져왔습니다. (감사의 말, 6장 성인 내용 부분은 제외)</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ─────────── 책 구조 ─────────── -->
+<section class="chapter" style="page-break-before: auto;">
+  <div class="chap-head"><h2>한눈에 보는 책 구조</h2><span>장 제목 · 핵심 한 줄 · 시작 쪽</span></div>
+  <table class="toc">
+    <tr><td>프롤로그<br/>경험이 사라져가는 시대</td><td>직접 경험은 우리의 첫 번째 선생님이다. 기술은 경험을 막지 않고 의미를 약화시킨다. 소멸은 “선택”이다.</td><td>11</td></tr>
+    <tr><td>1장<br/>직접 경험의 내리막</td><td>몸 없이 경험할 수 있다는 착각, 경험의 마케팅화, “너 자신을 알라” → “너 자신을 보여라”.</td><td>21</td></tr>
+    <tr><td>2장<br/>대면 상호작용의 필요성</td><td>얼굴은 인간 감정의 지도. 화면이 대면을 대체하며 사회적 기술·공감·관심이 약해진다.</td><td>49</td></tr>
+    <tr><td>3장<br/>손으로 써야만 배울 수 있는 것</td><td>손 글씨·그림·수공예 같은 몸의 경험이 학습과 사고를 만든다(체화인지).</td><td>89</td></tr>
+    <tr><td>4장<br/>기다림과 지루함의 기능</td><td>줄 서기·지루함·기대는 인내, 백일몽, 창의성의 토대. 기술은 이를 “문제”로 없앤다.</td><td>125</td></tr>
+    <tr><td>5장<br/>감정 길들이기</td><td>감정을 측정·아웃소싱·조작하는 기술(감성 컴퓨팅, 설득 기술). 공감의 약화.</td><td>171</td></tr>
+    <tr><td>6장<br/>기술로 매개된 쾌락</td><td>여행·예술·음식·놀이의 쾌락이 데이터화·치명성 제거되어 “눈으로만” 소비된다.</td><td>217</td></tr>
+    <tr><td>7장<br/>소멸하는 장소, 개인화된 공간</td><td>장소(place)가 공간(space)으로 대체. 제3의 장소, 공적 공간의 사교성이 사라진다.</td><td>275</td></tr>
+    <tr><td>에필로그<br/>이 혼란에 저항하라</td><td>현실은 특권이 되어선 안 된다. 기술에 대해 “아미시”처럼 질문하고, 매끄러운 삶에 마찰을 되살려라.</td><td>315</td></tr>
+  </table>
+
+  <h3>책 전체를 관통하는 키워드</h3>
+  <div class="two"><ul class="items">
+    <li><span class="term">매개(mediation)</span> — 기술이 우리와 세상 사이에 끼어든다</li>
+    <li><span class="term">사용자 경험 vs 인간의 조건</span> — “우리는 개인이 아닌 사용자다”</li>
+    <li><span class="term">마찰 없음(frictionless)</span> — 우연·불화를 없애려는 기술의 논리</li>
+    <li><span class="term">편리함·효율성</span> — 경험을 해결할 “문제”로 보는 태도</li>
+    <li><span class="term">데이터화·정량화</span> — 감정·쾌락·관계까지 측정</li>
+    <li><span class="term">몸·얼굴·손·장소</span> — 직접 경험이 일어나는 물리적 토대</li>
+    <li><span class="term">뜻밖의 경험(우연)</span> — 알고리즘이 “설계”하려는 것</li>
+    <li><span class="term">선택</span> — 경험의 소멸은 불가피하지 않다</li>
+  </ul></div>
+</section>
+
+<!-- ─────────── 프롤로그 ─────────── -->
+<section class="chapter">
+  <div class="chap-head"><h2>프롤로그 · 경험이 사라져가는 시대</h2><span>p.11–20</span></div>
+  <div class="claim"><b>핵심 주장</b> — 직접 경험은 우리의 “첫 번째 선생님”이다. 기술은 경험을 막거나 금지하지 않고 <b>그 중요성과 의미를 약화</b>시킴으로써 변화시켰다. 경험의 소멸은 불가피하지 않으며 <b>선택</b>이다.</div>
+
+  <h3>꼭 외울 용어</h3>
+  <ul class="items">
+    <li><span class="star">★</span> <span class="term">센서리엄(sensorium)</span>: 감각 정보, 자극을 해석하는 생리적 과정, 감각을 통해 이해를 도출하는 문화적 과정을 모두 설명하는 말. 과거 기술은 감각을 <b>증폭</b>했지만 오늘날 기술은 자기 감각을 <b>불신</b>하고 기술에 의존하도록 훈련시킨다. <span class="p">(p.17–18)</span></li>
+    <li><span class="star">★</span> <span class="term">가짜 사건(pseudo-event)</span>: 역사학자 <b>대니얼 부어스틴</b>《이미지와 환상》. 저절로 일어나지 않고 누군가 계획·배치·선동한 사건. 오늘날은 알고리즘이 개인화된 <b>가짜 현실(pseudo-reality)</b>을 만든다. <span class="p">(p.14)</span></li>
+    <li><span class="star">★</span> <span class="term">허위의 사실성(false realism)</span>: 철학자 <b>테오도어 아도르노</b>가 1954년 텔레비전을 비판한 말. <span class="p">(p.16)</span></li>
+    <li><span class="term">‘기술’의 범위</span>: 컴퓨터, 스마트폰, 스마트 스피커, 웨어러블, 삽입형 기구 + 알고리즘·플랫폼, 가상현실·증강현실까지. 기술 = <b>매개자</b>. <span class="p">(p.12)</span></li>
+    <li><span class="term">‘우리’</span>: 특이점이나 AI가 대체하는 날까지 실체를 가진 모든 인간 공동체의 약칭. <span class="p">(p.20)</span></li>
+  </ul>
+
+  <h3>인물 · 사례</h3>
+  <ul class="items">
+    <li><span class="star">★</span> <b>GPS vs 종이 지도·육분의</b>: GPS는 더 정확하지만 사용자를 <b>조종사가 아닌 방관자</b>로 만든다. 저자는 캘리포니아 외딴 곳에서 GPS가 꺼지자 아들과 낡은 지도·표지판으로 길을 찾으며 보람을 느꼈다. <span class="p">(p.17)</span></li>
+    <li><span class="star">★</span> “인스타그램의 정신적 지주는 <b>루미</b>가 아닌 <b>홉스</b>다.” 루미 = 영성·사랑을 말한 13세기 시인, 홉스 = 인간은 이기적이라 본 17세기 철학자. <span class="p">(p.15)</span></li>
+    <li><span class="star">★</span> 큐어논 음모론: <b>매슈 라이트</b>(2018, 방탄 트럭 몰고 후버댐), <b>더그 젠슨</b>(2021.1.6 의사당 습격, “나에게 일어난 모든 일이 영화와 같다”), <b>마이크 스파크스</b>(“손에 성경보다 휴대전화를 들고 있는 때가 많다”). <span class="p">(p.13)</span></li>
+    <li><span class="star">★</span> 제사(題詞): <b>막스 프리슈</b>《호모 파버》 — “기술…… 세상을 깔끔하게 정리해서 경험의 필요성을 없애는 재주”.</li>
+    <li>세컨드 라이프는 메타버스·일론 머스크의 뉴럴링크에 밀려남. “이 새로운 세계에서 우리는 <b>개인이 아닌 사용자</b>다.” <span class="p">(p.15)</span></li>
+    <li>저자는 <b>X세대</b>(냉소주의·디지털 이전 향수). 반기술주의가 아니다. <span class="p">(p.18–19)</span></li>
+  </ul>
+</section>
+
+<!-- ─────────── 1장 ─────────── -->
+<section class="chapter">
+  <div class="chap-head"><h2>1장 · 직접 경험의 내리막</h2><span>p.21–48</span></div>
+  <div class="claim"><b>핵심 주장</b> — 경험은 특정한 시간·공간에서 <b>몸</b>을 통해 일어난다. 기술은 위험을 싫어하는 소심함을 키우고, 경험을 마케팅 상품으로 만들며, “너 자신을 알라”를 <b>“너 자신을 보여라”</b>로 바꾸었다.</div>
+
+  <h3>소제목</h3>
+  <p style="margin:0">육체 없이 경험할 수 있다는 착각 · 날씨 앱 뒤에는 기상학자가 없다 · 마케팅이 된 경험 · “너 자신을 보여라”</p>
+
+  <h3>꼭 외울 용어</h3>
+  <ul class="items">
+    <li><span class="star">★</span> <span class="term">베자 듀(vêja du)</span>: 스탠퍼드대 가상 인간 상호작용 연구소의 말. 해본 적 없는 일을 (가상으로) 해본 것 같은 느낌 = <b>데자 뷰의 반대</b>. 제러미 베일린슨이 VR로 노화 모델링. <span class="p">(p.30–31)</span></li>
+    <li><span class="star">★</span> <span class="term">부재의 현존</span>: 물리적으로 한 공간에 있지만 정신적·감정적으로 집중하지 못하는 상태. <span class="p">(p.33)</span></li>
+    <li><span class="star">★</span> <span class="term">경험 경제(experience economy)</span>: 1997년 <b>B. 조지프 파인 2세 & 제임스 H. 길모어</b>. “기억에 남는 개인화된” 경험을 판다. 20세기 = ‘라이프스타일’, 21세기 = ‘경험’. <span class="p">(p.37)</span></li>
+    <li><span class="star">★</span> <span class="term">마찰 없이(frictionless)</span>: 메타의 <b>마크 저커버그</b>가 즐겨 쓰는 표현. <span class="p">(p.41)</span></li>
+    <li><span class="star">★</span> <span class="term">자연 결핍 장애</span>: 자연주의자 <b>로버트 마이클 파일</b>이 1990년대 “경험의 멸종”을 애석해하며 젊은 세대를 염려. <span class="p">(p.35)</span></li>
+    <li><span class="star">★</span> <span class="term">시력(eyesight) vs 시각(vision)</span>: 실제 경험과 디지털 경험의 차이. 시력 = 눈이 얼마나 잘 포착하는가, 시각 = 인식을 유도해 시력을 지능적으로 쓰는 것. <span class="p">(p.39)</span></li>
+    <li><span class="term">캣피싱</span>: 연인을 구하려고 온라인에서 자신에 대해 거짓말하는 것. <span class="p">(p.32)</span></li>
+    <li><span class="term">리액션 영상</span> = “직접 경험을 간접적으로 경험하는 방법”, 경험의 표절. <span class="p">(p.30)</span></li>
+  </ul>
+
+  <h3>인물 · 사례</h3>
+  <ul class="items">
+    <li><b>요제프 바이첸바움</b>(컴퓨터 과학자): 시계 때문에 배고픔을 의심하고 “시곗바늘이 정오를 가리킬 때” 먹게 되었다. <span class="p">(p.26)</span></li>
+    <li><span class="star">★</span> <b>날씨 앱</b>: 캐피털 웨더 갱 기상학자 — 스마트폰 날씨 앱 예보는 <b>컴퓨터가 만들며 현지 기상학자의 전문 지식을 활용하지 않는다</b>. 아들의 2학년 발표 인물 = <b>벤저민 배너커</b>(자유인으로 태어난 아프리카계 미국인, 18세기 연감). <span class="p">(p.26–28)</span></li>
+    <li><span class="star">★</span> <b>이-푸 투안</b>(지리학자): “경험은 <b>위험을 극복하는 것</b>”. ‘경험’은 실험·전문가·위험한(perilous)과 어원이 같다 → 남의 위험을 배경으로 찍은 셀카는 경험이 아니다. <span class="p">(p.44)</span></li>
+    <li><span class="star">★</span> 2010년 한국 부부가 온라인 게임 <b>프리우스</b>에서 가상 아이를 키우다 실제 아이를 굶겨 죽임. (2009년 일본 남성은 <b>러브 플러스</b> 캐릭터와 “결혼”) <span class="p">(p.31–32)</span></li>
+    <li><b>버트런드 러셀</b>: “과학은 미덕의 대체물이 아니다. 바람직한 삶에는 머리만큼이나 마음도 필요하다.” <span class="p">(p.42)</span></li>
+    <li><b>발터 벤야민</b>(1930년대): 경험과 분리된 문화의 “경험의 빈곤”. <b>레이먼드 커즈와일</b>: 트랜스휴머니스트, 정신 업로드·특이점. <b>수학자 아이작 밀너</b>(1794): 계몽주의 시대엔 영혼을, 오늘날엔 <b>몸</b>이 있음을 잊는다. <span class="p">(p.25, 32)</span></li>
+    <li><b>리처드 세넷</b>: 우연과 불화는 앱으로 해결할 문제가 아니라 인간 경험의 필수 요소(새로운 인본주의). <b>네이선 유르겐슨</b>: 오프라인 상실을 애통해하는 이들을 비판, 셰리 터클 비판. <b>루이스 멈퍼드</b>(1934): 발명 이전의 태도 변화. <span class="p">(p.41–46)</span></li>
+    <li>델포이 신탁 “너 자신을 알라” → 오늘날 <b>“너 자신을 보여라”</b><span class="star">★</span>. 2016년 코멧 핑 퐁 피자집 총격(가짜 뉴스). <span class="p">(p.45)</span></li>
+    <li>틴더 슬로건 “실제 삶과 비슷하지만 더 낫습니다”, 아이폰5 광고 “더 좋은 사진가가 들어 있습니다”. <span class="p">(p.29, 40)</span></li>
+  </ul>
+
+  <h3>숫자</h3>
+  <ul class="items">
+    <li><span class="star">★</span> 2012년 미국인 스마트폰 사용: 12개월 만에 <b>31% → 44%</b>. 구글 엔그램 “네가 거기 있었어야 해”는 1960년대~2012년 상승 후 급락. <span class="p">(p.29)</span></li>
+    <li>16~22세 청소년 <b>53%</b>: 개인용 기술보다 <b>후각</b>을 잃는 편이 낫다. <span class="p">(p.40)</span></li>
+  </ul>
+</section>
+
+<!-- ─────────── 2장 ─────────── -->
+<section class="chapter">
+  <div class="chap-head"><h2>2장 · 대면 상호작용의 필요성</h2><span>p.49–88</span></div>
+  <div class="claim"><b>핵심 주장</b> — 인간의 몸은 <b>대면 의사소통</b>을 위해 진화했다. “표정은 원시의 언어다.” 화면·기계가 대면을 대신하면서 공감, 신뢰, 관심이 약해진다. “기본적 생물학적 능력인 대면 상호작용은 정기적으로 하지 않으면 결국 사라진다.”</div>
+
+  <h3>소제목</h3>
+  <p style="margin:0">얼굴이 가지는 힘 · 상호작용 능력의 소멸 · 투명 인간들의 사회 · 인간을 대체한 기계 · 친구를 만나지 않는 10대들 · 직관을 방해하는 기술 · 우리, 물리적 존재</p>
+
+  <h3>꼭 외울 용어</h3>
+  <ul class="items">
+    <li><span class="star">★</span> <span class="term">미세 표정</span>: <b>폴 에크먼</b>이 발견. 감정을 감추려 할 때 순간적으로 나타나는 표정. 1978년 <b>얼굴 표정 코딩 시스템(FACS)</b>. <span class="p">(p.58–59)</span></li>
+    <li><span class="star">★</span> <span class="term">에크먼의 보편 감정 7가지</span>: 분노·공포·슬픔·혐오·놀라움·경멸·행복. (당혹감·죄책감·수치심·시기심·<b>질투</b>·자부심은 같은 표정으로 표현되지 않음) <span class="p">(p.58–59)</span></li>
+    <li><span class="star">★</span> <span class="term">동기 향상 효과</span>: 코넬대 <b>제프 행콕</b>. 컴퓨터 매개 소통에서 더 능란한 거짓말쟁이가 된다. <span class="p">(p.60)</span></li>
+    <li><span class="star">★</span> <span class="term">사회적 무관심(civil inattention)</span>: <b>어빙 고프먼</b>. 상대를 보기는 했으나 특별한 호기심의 대상은 아닌 것처럼 대하는 예의. <span class="p">(p.66)</span></li>
+    <li><span class="star">★</span> <span class="term">사회적 유리(civil disengagement)</span>: 저자. 스마트폰 화면에만 집중하는 태도 → 공적 공간의 표준이 됨. <span class="p">(p.67)</span></li>
+    <li><span class="star">★</span> <span class="term">경험 보상 효과</span>: 저자. (위험 보상 효과처럼) 대면이 줄고 만족감이 떨어질수록 매개된 경험에 더 빠지는 악순환. <span class="p">(p.87)</span></li>
+    <li><span class="term">침묵의 언어</span>(에드워드 T. 홀) · <span class="term">암시적 커뮤니케이션</span>(앨버트 메레이비언) · <span class="term">준언어 단서</span>(목소리 높낮이·크기·억양) · <span class="term">존슨 방식</span>(1957, 린든 존슨이 바짝 다가가 압박). <span class="p">(p.62)</span></li>
+    <li><span class="term">미주신경 긴장도</span>: 바버라 프레드릭슨. 뇌와 심장을 잇는 신경, 높을수록 연결 능력↑. <span class="p">(p.63)</span></li>
+    <li><span class="term">페닐에틸아민</span>: 강렬한 눈 맞춤 때 분비. <span class="term">방관자 효과</span>: 사람이 많을수록 책임감 희석(달리·라타네 1968). <span class="p">(p.57, 84)</span></li>
+  </ul>
+
+  <h3>인물 · 사례</h3>
+  <ul class="items">
+    <li><span class="star">★</span> <b>찰스 다윈</b>: 런던 동물원 독사 우리 유리에 얼굴을 대고 반사반응 시험 → 1~2m 물러섬. 《<b>인간과 동물의 감정 표현</b>》(1872) 자료 수집. “다윈에게 얼굴은 인간 감정의 지도였다.” <span class="p">(p.51–53)</span></li>
+    <li><span class="star">★</span> <b>고프먼</b>: 말로는 정보를 <b>“준다”</b>, 눈·어조·몸짓으로는 <b>“풍긴다”</b>. 《상호작용 의례》. <span class="p">(p.64–65)</span></li>
+    <li><span class="star">★</span> <b>마리나 아브라모비치</b>: 2010년 뉴욕 현대 미술관 700시간 <b>&lt;작가가 있음&gt;</b>, 50만 명 가까이 관람. <span class="p">(p.64)</span></li>
+    <li><span class="star">★</span> <b>스마일스캔</b>(일본 오므론 기술): 얼굴 스캔으로 미소의 강도·진실성을 <b>0~100</b> 척도로 평가, 게이힌 전철역 직원 근무 전 스캔 = “자동화된 폴 에크먼”. <span class="p">(p.77–78)</span></li>
+    <li><span class="star">★</span> <b>시몬 베유</b>: “관심은 가장 희귀하고 순수한 형태의 관대함이다.” (2장 마지막) <span class="p">(p.87)</span></li>
+    <li><b>위파러</b>: 실내 위치 확인 앱, 창업자 “사람과의 상호작용이 예상만큼 만족스럽지 않았다”. <b>크리니크</b>: “쇼핑 바구니 든 고객을 방해하지 않겠습니다”. <b>금문교</b>(2013) 징수원 자동화 “저희의 미소는 그날 처음 마주하는 미소였을 것”. <span class="p">(p.54, 68, 71–72)</span></li>
+    <li>의료 로봇: RP-VITA(아이로봇), 퇴원 도우미 <b>루이스</b>(환자들이 진짜 간호사보다 선호), 코봇 목시, 휴머노이드 그레이스, 챗봇 위봇. 의사 <b>에이브러햄 버기즈</b>: “얼굴만 봐도 많은 의학적 단서”. <span class="p">(p.72–74)</span></li>
+    <li>클리포드 나스: 대면을 피하면 사회적 기술·감정을 배우지 못한다. 2013 샌프란시스코 통근 열차 총격(승객들 화면에 몰두). 키티 제노비스 이야기는 거짓으로 드러남. <span class="p">(p.76–84)</span></li>
+  </ul>
+
+  <h3>숫자</h3>
+  <ul class="items">
+    <li><span class="star">★</span> 얼굴은 분노를 표현하는 <b>200가지 이상</b>의 표정을 가진다(분노를 뜻하는 단어 수보다 많다). <span class="p">(p.59)</span></li>
+    <li><span class="star">★</span> 2019 케이프타운·암스테르담 공적 공간 폭력 영상: <b>10건 중 9건</b> 개입, 사람이 많을수록 개입↑ → “무관심한 방관자가 아니라 잔인한 관음증 환자”. <span class="p">(p.84–85)</span></li>
+    <li>금문교 자동화 절감 <b>800만 달러</b>. 12학년 친구 ‘거의 매일’ 만남 <b>44%(2010) → 32%(2022)</b>. 8~12세 소녀 전자 매체 하루 6.9시간 vs 대면 2.1시간. <span class="p">(p.72–76)</span></li>
+  </ul>
+</section>
+
+<!-- ─────────── 3장 ─────────── -->
+<section class="chapter">
+  <div class="chap-head"><h2>3장 · 손으로 써야만 배울 수 있는 것</h2><span>p.89–124</span></div>
+  <div class="claim"><b>핵심 주장</b> — 손 글씨, 그림, 수공예, 놀이처럼 <b>몸을 쓰는 경험</b>이 기억·읽기·사고를 만든다. 효율을 위해 이를 버리는 것은 “고의적 탈숙련화”다. “세상에서 가장 높은 왕좌에 앉아 있는 사람도 결국 제 엉덩이 위에 앉아 있을 뿐이다.”(<b>몽테뉴</b>)<span class="star">★</span></div>
+
+  <h3>소제목</h3>
+  <p style="margin:0">손 글씨의 나비 효과 · 물성의 힘 · 그림 그리기의 쇠퇴 · 만지고 느끼고 소비하고 · 어린이들의 학습에는 사람이 필요하다 · 육체성의 소멸 앞에서</p>
+
+  <h3>꼭 외울 용어</h3>
+  <ul class="items">
+    <li><span class="star">★</span> <span class="term">자동 서명기(오토펜)</span>: 기계 팔이 펜으로 서명 복제. <b>버락 오바마</b> = 법안 서명에 쓴 <b>최초의 대통령</b>(2011 애국자법 연장). 부시는 합법 자문만 받고 법안엔 안 씀. <span class="p">(p.91–93)</span></li>
+    <li><span class="star">★</span> <span class="term">제필망자(提筆忘字)</span>: 펜을 들었으되 글자가 생각나지 않는다 — 중국의 ‘문자 기억 상실’. <span class="p">(p.95)</span></li>
+    <li><span class="star">★</span> <span class="term">체화인지(embodied cognition)</span>: 메를로퐁티, 조지 레이코프. 위쪽=행복, 따뜻함=애정. <span class="p">(p.96–97)</span></li>
+    <li><span class="star">★</span> <span class="term">방추형회(fusiform gyrus)</span> = “마음의 눈” (버지니아 버닝거). <span class="p">(p.99)</span></li>
+    <li><span class="term">CAD 자키</span>: 컴퓨터 설계에 매달리는 신입 건축가의 자조적 별칭. <span class="term">상황적 인지</span>(리처드 세넷). <span class="term">블롭 건축</span>. <span class="p">(p.106–110)</span></li>
+  </ul>
+
+  <h3>인물 · 연구</h3>
+  <ul class="items">
+    <li><span class="star">★</span> <b>카린 제임스</b>: 5세 아이 MRI — 읽기 회로가 동원된 건 <b>손 글씨</b>로 익혔을 때뿐. <span class="p">(p.98)</span></li>
+    <li><span class="star">★</span> <b>팸 뮬러 & 대니얼 오펜하이머</b>: 노트북 필기는 강의를 그대로 받아 적어 <b>개념적 질문에 약함</b>. 손 필기는 느려서 요약 → 더 잘 기억. <span class="p">(p.99–100)</span></li>
+    <li><span class="star">★</span> <b>프랭크 게리</b>: 컴퓨터도 못 켜던 CAD 얼리어답터 → 빌바오 구겐하임, 월트 디즈니 콘서트홀. 반대편: <b>마이클 그레이브스</b>(“건축은 드로잉과 분리될 수 없다”), <b>유하니 팔라스마</b>(“가짜 정확성”), <b>제임스 와인스</b>(“목탄 자국”). <span class="p">(p.105–108)</span></li>
+    <li><span class="star">★</span> <b>퍼트리샤 쿨</b>: 녹음·TV로는 학습이 전혀 안 됨. “아기의 학습에는 사람이 필요합니다.” <span class="p">(p.114–115)</span></li>
+    <li><span class="star">★</span> 저자는 <b>여덟 살</b>에 <b>바순</b>을 시작(첫 소리 “고문당하는 오리의 비명”), 음악 장학금으로 대학. <span class="p">(p.109)</span></li>
+    <li><b>타마고야</b>: 도시락 기업, 온라인 전환 후 매출 급감 → 손으로 쓴 요청서를 받으려고 <b>팩스</b>로 복귀. <span class="p">(p.102–103)</span></li>
+    <li>밥 딜런 한정판 사인이 자동 서명기로 드러남 · 럼즈펠드의 전사자 조의 서한 · 펜스 “자동 서명기나 다름없는 대통령” · 디킨스《황폐한 집》레이디 데드록. <span class="p">(p.92–102)</span></li>
+    <li>B. F. 스키너 1968 “교육 기계” · 캐시 허쉬-파섹: 놀이 부족은 지구온난화 못지않은 위기 · 2020~21 원격 학습 약 5000만 명 → “실패”. <span class="p">(p.115–118)</span></li>
+    <li>처칠은 마흔에 그림 시작 · 레이 브래드버리 “그림은 머리를 비워준다” · 마르셀 모스 “몸은 최초의 기술적 대상”. <span class="p">(p.108–121)</span></li>
+  </ul>
+
+  <h3>숫자</h3>
+  <ul class="items">
+    <li><span class="star">★</span> 보통 미국인 분당 <b>타이핑 40단어 vs 손 글씨 13단어</b>. 캘리그라피스트 폴 안토니오: 가르치는 건 “속도를 늦추는 방법”. <span class="p">(p.103)</span></li>
+    <li>중국 젊은이 <b>4%</b> “이미 손 글씨 없이 생활”. 미국 학생 33% 이상 필기체 어려움. 시애틀 초등생 700명(버닝거). <span class="p">(p.94–98)</span></li>
+  </ul>
+</section>
+
+<!-- ─────────── 4장 ─────────── -->
+<section class="chapter">
+  <div class="chap-head"><h2>4장 · 기다림과 지루함의 기능</h2><span>p.125–170</span></div>
+  <div class="claim"><b>핵심 주장</b> — 줄 서기·지루함·기다림은 없애야 할 문제가 아니라 <b>인내, 백일몽, 창의성, 기대</b>를 키우는 시간이다. 기술은 기다림을 “지연”으로만 느끼게 만들어 성급함과 분노를 키운다.</div>
+
+  <h3>소제목</h3>
+  <p style="margin:0">디즈니월드에서 배운 줄 서기의 논리 · 성급하게 화가 난 사람들 · 지루함을 없앤 대가 · 인내의 열매 · 회전 극장에서</p>
+
+  <h3>꼭 외울 용어</h3>
+  <ul class="items">
+    <li><span class="star">★</span> <span class="term">이매지니어링</span>: 디즈니, 상상력 + 기술 결합 전략. 대기 공간 = “장면 1”. <span class="p">(p.128–131)</span></li>
+    <li><span class="star">★</span> <span class="term">패스트패스(FastPass)</span>: 디즈니 <b>1999년</b> 가상 대기 시스템 = <b>테일러의 과학적 관리 원칙</b>의 재림(공장 대신 휴가에). ≠ 유니버설의 <i>프런트 오브 더 라인 패스</i>, ≠ 통행료 <i>EZ 패스</i>. <span class="p">(p.128–129)</span></li>
+    <li><span class="star">★</span> <span class="term">로드 레이지</span>: 운전 중 다른 운전자에게 느끼는 분노. 뿌리는 <b>성급함</b>. <span class="p">(p.138–140)</span></li>
+    <li><span class="star">★</span> <span class="term">소몰입(microflow)</span>: 칙센트미하이. 지루함은 줄이지만 경험의 질은 못 높임. (‘몰입(flow)’도 칙센트미하이) <span class="p">(p.147, 151)</span></li>
+    <li><span class="term">주의의 빈곤</span>: 허버트 사이먼 “많은 정보는 주의의 빈곤을 낳는다”. <span class="term">기대의 기다림</span>: 퀘이커교도. <span class="term">시간 선호</span>, <span class="term">상상 반응</span>(다마지오). <span class="p">(p.150–165)</span></li>
+  </ul>
+
+  <h3>인물 · 사례</h3>
+  <ul class="items">
+    <li><span class="star">★</span> 기다림 인식을 좌우하는 두 요소 = <b>기다림에 관한 정보의 양</b>과 <b>공정성</b>. 불확실한 기다림이 더 길게 느껴짐(연옥). <span class="p">(p.134)</span></li>
+    <li><b>W. H. 오든</b>: “대죄는 <b>성급함</b>, 그것뿐인지도 모르겠다.” <span class="p">(p.132)</span></li>
+    <li><span class="star">★</span> 1949 <b>올더스 헉슬리 → 조지 오웰</b> 편지: “《1984》의 악몽이 《멋진 신세계》를 닮은 세상으로… 변화는 효율성에 대한 욕구가 불러올 것”. <span class="p">(p.145)</span></li>
+    <li><span class="star">★</span> 백일몽의 발견: <b>데카르트</b>–천장의 파리–좌표 기하학 / <b>아인슈타인</b>–전차·베른 탑–특수 상대성 이론 / <b>테슬라</b>–숲 산책–교류 전류. <span class="p">(p.153–154)</span></li>
+    <li><span class="star">★</span> 겟세마니 수도원(토머스 머튼이 머문 곳) <b>카를로스 신부</b>: “우리 죄의 주된 원인은? <b>편리함</b>입니다.” 머튼: “침묵을 깨뜨리는 것은 말이 아니라 <b>인정받고자 하는 열망</b>이다.” <span class="p">(p.156–159)</span></li>
+    <li><span class="star">★</span> 네덜란드인 1000명+ 연구: 휴가 <b>전</b> 행복도↑, 휴가 <b>후</b> 차이 없음 → 행복의 원천은 <b>기대</b>. <span class="p">(p.163)</span></li>
+    <li><b>진보의 회전 극장</b>: 1964 뉴욕 세계 박람회용 디즈니 애니매트로닉스, “아름답고 대단한 내일이 있어!” <span class="p">(p.168)</span></li>
+    <li><span class="star">★</span> <b>슬로 메신저</b>: 줄리언 블리커, 메시지를 아주 느리게 전달하는 장치(연애편지에서 영감). <span class="p">(p.164)</span></li>
+    <li>리처드 라슨(MIT): 휴스턴 공항 수하물 찾는 곳을 멀리 옮겨 6분 걷게 하자 불만 감소 · 선착순이 공정. 제롬 L. 싱어: 백일몽 연구의 시조(세 유형). 몽테뉴 “아무도 자기 자신에게 이르지 못했기 때문이다.” <span class="p">(p.135–169)</span></li>
+  </ul>
+
+  <h3>숫자</h3>
+  <ul class="items">
+    <li>미국인 줄 서기 연 <b>370억 시간</b> · 인식 대기 시간 실제보다 약 <b>30%</b> 길다 · 처음 2~3분만 정확, 여성 3분·남성 2분에 포기. <span class="p">(p.134–135)</span></li>
+    <li>AAA(2019) 운전자 거의 <b>80%</b> 최근 30일 분노 · 2019 로드 레이지 446건·502명 사망. 아마존 100밀리초 ↓ → 매출 1%↑ · 구글 400밀리초도 길다 · 2초 안 재생 안 되면 포기. <span class="p">(p.139–143)</span></li>
+    <li>2011 이후 스마트폰 보유 <b>35% → 85%</b> · 18~29세 72% 지루함 때문에 휴대전화. 저녁 식사 20분 이하 가정 32%. <span class="p">(p.145–148)</span></li>
+  </ul>
+</section>
+
+<!-- ─────────── 5장 ─────────── -->
+<section class="chapter">
+  <div class="chap-head"><h2>5장 · 감정 길들이기</h2><span>p.171–216</span></div>
+  <div class="claim"><b>핵심 주장</b> — “기술자들은 시계가 시간에 한 일을 감정에 하려고 한다.” 감정을 측정하고(감성 컴퓨팅), 행동을 조종하고(설득 기술), 감정 노동을 앱에 아웃소싱하면서 공감과 자기 인식이 약해진다. “우리는 때로 뒤섞인 감정을 좋아한다.”</div>
+
+  <h3>소제목</h3>
+  <p style="margin:0">인간이라는 감정적 존재 · 우리 내부의, 숨겨진, 우리 자신 · 여섯 번째 감각 · 감정 아웃소싱의 결과</p>
+
+  <h3>꼭 외울 용어</h3>
+  <ul class="items">
+    <li><span class="star">★</span> <span class="term">밈(meme)</span>: <b>리처드 도킨스</b>(1970년대), 유전자(gene) + 그리스어 미메메(mimeme). <span class="p">(p.173)</span></li>
+    <li><span class="star">★</span> <span class="term">감성 컴퓨팅</span>: 감정을 인식·해석·대응하는 시스템 (창시자 중 한 명 MIT <b>로잘린드 피카드</b>). ≠ <span class="term">설득형 기술</span>: 감정에 호소해 행동을 바꾸도록 설계된 기술. <span class="p">(p.177, 212)</span></li>
+    <li><span class="star">★</span> <span class="term">느낌 vs 감정</span>(안토니오 다마지오): 느낌(feeling) = <b>내향적·사적</b>, 감정(emotion) = <b>외향적·공적</b>. <span class="p">(p.179)</span></li>
+    <li><span class="star">★</span> <span class="term">묵시적 지식</span>: <b>마이클 폴라니</b> “말할 수 있는 것보다 더 많은 것을 알 수 있다”. <span class="p">(p.179)</span></li>
+    <li><span class="star">★</span> <span class="term">표면 연기</span>: 디즈니 직원이 진짜 감정을 누르고 행복을 꾸밈 → 정서적 피로. 디즈니 직원 = “캐스트 멤버”, 교육 = “고객학(guestology)”. <span class="p">(p.180–181)</span></li>
+    <li><span class="star">★</span> <span class="term">샤덴프로이데</span>: 남의 불행을 보고 얻는 쾌감(독일어). <span class="p">(p.188)</span></li>
+    <li><span class="star">★</span> <span class="term">소시오메트릭 배지</span>: MIT <b>앨릭스 펜틀랜드</b>, 위치·가속도·근접 센서·마이크. 뱅크오브아메리카가 직원에게 지급. 펜틀랜드 《어니스트 시그널》, “현실 마이닝”. <span class="p">(p.198–201)</span></li>
+    <li><span class="star">★</span> <span class="term">조작적 조건화</span>: <b>B. F. 스키너</b> = “설득 기술의 수호성인”. (B. J. 포그 = “대규모 대인 설득”, 설득 기술의 선구자) <span class="p">(p.205–206)</span></li>
+    <li><span class="star">★</span> <span class="term">PPLKPR</span>(“people keeper”): GPS + 심박수 손목 밴드로 관계를 “자동 관리”, 스트레스 주는 사람을 친구 목록에서 삭제. 제작자 로런 매카시 & 카일 맥도널드. <span class="p">(p.210–211)</span></li>
+    <li><span class="term">디질란테</span>(디지털+자경단) · <span class="term">불쾌한 영향(nasty effect)</span> · <span class="term">DDT 비유</span>(소셜 미디어는 모기는 죽이지만 새알 껍데기를 약하게 한 살충제) · <span class="term">여섯 번째 디지털 감각</span>(퀄컴 CEO). <span class="p">(p.183–197)</span></li>
+  </ul>
+
+  <h3>인물 · 사례</h3>
+  <ul class="items">
+    <li><span class="star">★</span> <b>프랜시스 하우건</b>(전 페이스북 직원): 2021 영국 의회 “분노와 증오는 페이스북 내에서 성장하는 가장 쉬운 방법”. (캐머런 말로 = 페이스북 데이터팀, 크리스천 러더 = OK큐피드 “우리는 인간을 대상으로 실험을 합니다!”) <span class="p">(p.185–186)</span></li>
+    <li><span class="star">★</span> <b>빅터 프랭클</b>《죽음의 수용소에서》: 모든 것을 빼앗아도 “마지막 남은 인간의 자유”, 자신의 태도를 선택할 자유는 빼앗을 수 없다. <span class="p">(p.209)</span></li>
+    <li>무디스 앱: 히틀러의 폴란드 침공 연설을 “친근감”으로 해석. 오우라 링 “배려는 새로운 공유” ↔ 에거스《더 서클》“공유는 배려”. <span class="p">(p.203–204)</span></li>
+    <li>어펙티바(라나 엘 칼리우비): 원래 자폐 스펙트럼용 → 기업 마케팅으로 방향 전환, “긍정의 순간”을 수익화(슬플 때 크리넥스 쿠폰). 우리는 기업의 “디지털 유부녀”. <span class="p">(p.212–213)</span></li>
+    <li>&lt;블레이드 러너&gt;(1982) · 메커니컬 터크 · 애덤 스미스(남의 팔에 타격이 가면 내 팔을 뺀다) · 에밀리 디킨슨 “우리 내부의, 숨겨진, 우리 자신”. <span class="p">(p.184–197)</span></li>
+  </ul>
+
+  <h3>숫자</h3>
+  <ul class="items">
+    <li><span class="star">★</span> 대학생 공감 능력 20~30년 전보다 약 <b>40%</b> 낮음(미시간대), 급감 시기가 스마트폰 보급과 일치. <span class="p">(p.188)</span></li>
+    <li>Z세대 32%가 이모티콘으로 관계를 끝냄 · 유니코드 2022년 31개 이모티콘 · 감탄·연민 반응까지 6~8초 · 공감 마케팅 광고 조회수 500%↑. <span class="p">(p.174–193)</span></li>
+  </ul>
+</section>
+
+<!-- ─────────── 6장 ─────────── -->
+<section class="chapter">
+  <div class="chap-head"><h2>6장 · 기술로 매개된 쾌락</h2><span>p.217–274</span></div>
+  <div class="claim"><b>핵심 주장</b> — 여행·예술·음식·놀이의 쾌락이 데이터로 축소되고 위험이 제거되어(<b>치명성 제거</b>) 균질해졌다. 촉각·후각·미각 대신 <b>“손이 아닌 눈으로 봐”</b>가 우리 시대 쾌락의 슬로건이 되었다.</div>
+
+  <h3>소제목</h3>
+  <p style="margin:0">데이터로 축소된 쾌락 · 기록되기 위한 여행과 픽셀화된 예술 · (포르노로 대체된 섹스) · 미식 없는 식사, 현장 없는 경기 · 다시 도래한 쾌락주의 · 사진 안에 박제된 경험 · 대체 불가능한 쾌락</p>
+
+  <h3>꼭 외울 용어</h3>
+  <ul class="items">
+    <li><span class="star">★</span> <span class="term">디지털 버블</span>: 혼자 튀르키예를 여행하며 모두와 연락한 <b>사라이 시에라</b>(33세, 스태튼아일랜드)가 머문 “안전해 보이는” 공간. 2013년 이스탄불에서 숨진 채 발견. <span class="p">(p.219–220)</span></li>
+    <li><span class="star">★</span> <span class="term">치명성 제거(delethalization)</span>: 항공 업계 용어(불연성 쿠션, 비상등) → 디지털 쾌락에 적용. <span class="p">(p.222)</span></li>
+    <li><span class="star">★</span> <span class="term">쾌락 원리 vs 현실 원리</span>(프로이트): 이드의 쾌락 원리를 에고의 <b>현실 원리</b>가 통제. 프로이트: 쾌락 = <b>“삶의 파수꾼”</b>, 벤담: 쾌락 = 인류의 <b>“통치권자”</b>. <span class="p">(p.223–224)</span></li>
+    <li><span class="star">★</span> <span class="term">사진 손상 효과</span>: 린다 헨켈. 작품을 찍은 관람객이 덜 기억한다. “카메라의 ‘눈’은 ‘마음의 눈’이 아니다.” <span class="p">(p.243)</span></li>
+    <li><span class="star">★</span> <span class="term">벨비타 테스트</span>: 저자가 고안한 요리 로르샤흐 테스트(초가공 치즈). 소이렌트 = “와이파이 요리” 시대의 귀결. <span class="p">(p.258–260)</span></li>
+    <li><span class="star">★</span> <span class="term">여피 911</span>: 미숙한 오지 탐험가의 위성 전화 구조 요청(데이비드 로버츠). <span class="p">(p.229)</span></li>
+    <li><span class="star">★</span> <span class="term">사진-트로피</span>: 수전 손택. “우리는 탐험을 하지 않는다. 포즈를 취한다.” <span class="p">(p.234)</span></li>
+    <li><span class="term">경험 기계</span>: 로버트 노직《아나키에서 유토피아로》. 끝없는 쾌락 기계에 연결하겠는가? “우리는 그것을 실제로 하는 것을 원한다.” <span class="p">(p.265)</span></li>
+    <li><span class="term">탈육신(excarnation)</span>(리처드 카니) · <span class="term">증거 사회</span>(이안 커) · <span class="term">디지털 레벤스라움</span> · <span class="term">점보트론</span>. <span class="p">(p.253–272)</span></li>
+  </ul>
+
+  <h3>인물 · 사례</h3>
+  <ul class="items">
+    <li><span class="star">★</span> <b>헨리 제임스</b>: 베네치아 = <b>“위로의 저장소”</b> → 오늘날 위로의 저장소 = 스마트폰 사진. <span class="p">(p.228)</span></li>
+    <li><span class="star">★</span> <b>폴 서로</b>《여행자의 책》: “최고의 여행에는 <b>단절</b>이 필수다.” (피터 매티슨은 편지도 안 읽음) <span class="p">(p.229)</span></li>
+    <li><span class="star">★</span> <b>고프로</b> 슬로건 “영웅이 되라”. 유나이티드 항공 “멀리 있지만 친근한”, 쉐보레 “편안한 실내에서 대자연을 탐험하라”. <span class="p">(p.228–233)</span></li>
+    <li><span class="star">★</span> <b>올리버 웬들 홈스</b>: 1859 사진이 너무 대단해 여행이 쓸모없어질 것, 사진 = “기억을 담은 거울”. <span class="p">(p.237, 244)</span></li>
+    <li>로버트 새폴스키: 인위적 강렬함의 홍수 → “순식간에 지나가는 쾌락의 속삭임”을 못 느낌. 존 버거: “이제 그림이 관객에게로 온다.” 발터 벤야민《기술적 복제시대의 예술작품》(1936). <span class="p">(p.226–246)</span></li>
+    <li>구글 아트 프로젝트(2011) · 제드 펄 “사본은 사본일 뿐” · 미술관 셀카 데이(2014.1.22) · 서블리모션(파코 론세로, 1인 약 1600달러) · 먹방(한국에서 시작) · 미국 조류관찰협회 녹음 새소리 금지. <span class="p">(p.242–264)</span></li>
+    <li>헉슬리 에스코리알 방문: “무지의 즐거움은 지식의 즐거움만큼이나 크다.” <span class="p">(p.272–273)</span></li>
+  </ul>
+
+  <h3>숫자</h3>
+  <ul class="items">
+    <li><span class="star">★</span> 미술관 작품 하나 관람 평균 <b>15~30초</b>(제니퍼 L. 로버츠는 한 작품을 3시간 보게 함). <span class="p">(p.239–241)</span></li>
+    <li>가족 일주일 휴가 소셜 업데이트 200개+ (하루 15번+) · 폴 살로펙 ‘아웃 오브 에덴’ 약 3만 3800km · 1849년까지 파리 다게레오타이프 초상 10만 장+. <span class="p">(p.230, 267)</span></li>
+  </ul>
+</section>
+
+<!-- ─────────── 7장 ─────────── -->
+<section class="chapter">
+  <div class="chap-head"><h2>7장 · 소멸하는 장소, 개인화된 공간</h2><span>p.275–313</span></div>
+  <div class="claim"><b>핵심 주장</b> — 의미와 경계가 있는 <b>장소(place)</b>가 기술 기업이 설계한 경계 없는 <b>공간(space)</b>으로 대체되고 있다. 제3의 장소와 공적 공간에서 낯선 사람과 나누던 순수한 사교성이 사라지고, 연결된 시대에 오히려 고립이 늘었다. “사람들이 거리에서 서로 대화하지 않는다면 자신들이 집단으로서 어떤 존재인지를 어떻게 알겠는가?”(리처드 세넷)</div>
+
+  <h3>소제목</h3>
+  <p style="margin:0">장소가 뿌리 뽑힌 사회 · 공간의 규칙 · 연결되지 않은 사람들 · 우리는 같이 있지 않다 · 우리가 서 있는 곳은 어딘가</p>
+
+  <h3>꼭 외울 용어</h3>
+  <ul class="items">
+    <li><span class="star">★</span> <span class="term">장소 vs 공간</span>: 이-푸 투안 “공간은 정의와 의미를 얻을 때 <b>장소</b>로 변한다.” 사이버 공간은 있지만 사이버 장소는 없다 → 마이플레이스가 아닌 <b>마이스페이스</b>. <span class="p">(p.278)</span></li>
+    <li><span class="star">★</span> <span class="term">아이스페이스(iSpace)</span>: 제임스 조이스《피네간의 경야》(1939). <span class="p">(p.279)</span></li>
+    <li><span class="star">★</span> <span class="term">제3의 장소</span>: 사회학자 <b>레이 올든버그</b>. 카페·동네 술집 등 공동체의 근간. 가상 세계는 대면·상호 의존을 제공하지 못함. 올든버그의 <span class="term">평준화 영향력</span>. <span class="p">(p.285, 291)</span></li>
+    <li><span class="star">★</span> <span class="term">뿌리 뽑힘(uprootedness)</span>: <b>시몬 베유</b>가 부른 “현대의 질병”. 오늘날엔 ‘연결’·‘이동성’으로 재정의. <span class="p">(p.286)</span></li>
+    <li><span class="star">★</span> <span class="term">프록시믹스(proxemics, 근접공간학)</span>: <b>에드워드 T. 홀</b>(《침묵의 언어》) 창시. 사적 공간 침해 불안, “기내 분노(air rage)”. <span class="p">(p.289)</span></li>
+    <li><span class="star">★</span> <span class="term">순수한 사교성(pure sociability)</span>: <b>게오르크 지멜</b>. 함께하는 즐거움 외에 이유 없이 모이는 것 → “가장 민주적인 경험”. 소셜 미디어는 이를 정량화된 인기로 대체. <span class="p">(p.292)</span></li>
+    <li><span class="star">★</span> <span class="term">안무(choreography)</span>: <b>윌리엄 H. 화이트</b>가 광장의 사람 흐름을 묘사한 말(“0.1초. 타이밍은 기가 막혔습니다”). <span class="p">(p.294–295)</span></li>
+    <li><span class="term">메타버스</span> = 메타(그 너머) + 유니버스(우주). <span class="term">형언할 수 없는 것의 산업화</span>(니콜라스 카). <span class="term">공인(public character)</span>(제인 제이컵스). <span class="term">공적 교제의 몸짓</span>. <span class="p">(p.281–305)</span></li>
+  </ul>
+
+  <h3>인물 · 사례</h3>
+  <ul class="items">
+    <li><span class="star">★</span> <b>가라오케</b>: <b>1960년대 후반 고베</b>, 클럽 가수 <b>이노우에 다이스케</b> — “평범한 사람들의 형편없는 노래를 견디고 즐기도록 가르치는 발명품”. 저자는 오키나와에서 규칙 없는 미국식 vs 공연장 같은 일본식을 모두 경험. <span class="p">(p.287–288)</span></li>
+    <li><span class="star">★</span> <b>키스 햄프턴</b>(2010): 공적 공간 와이파이 사용자 <b>거의 80%가 혼자</b>, 와이파이 밀도↑ → 공적 사교성↓. <span class="p">(p.297)</span></li>
+    <li><span class="star">★</span> 2023 미국 보건부 장관 <b>비벡 머시</b> “외로움과 고립의 전염병”: 외로움 = 하루 담배 <b>15개비</b>. 첫 권고 “사회적 인프라의 강화”. <span class="p">(p.291)</span></li>
+    <li>맥솔리 올드 에일 하우스(조지프 미첼, 먼지 쌓인 위시본) · 에릭 슈미트 “우리는 당신이 누구인지 대략 압니다… 뜻밖의 경험을 계산할 수 있습니다” · 2016 저커버그 VR 2억 5000만 달러 발표장(모두 헤드셋 착용). <span class="p">(p.277–283)</span></li>
+    <li>화이트《조직인》, 스트리트 라이프 프로젝트, 시그램 빌딩 광장 · 워크맨 “사람들을 만나는 일이 끝났습니다”(수전 블론드), 윌리엄 깁슨 “워크맨은 VR 기기보다 영향력이 크다”. <span class="p">(p.294–295)</span></li>
+    <li>나가오카대·도쿄대 보행 실험(27명씩 노란/빨간 비니): 스마트폰 보는 사람이 한 명만 있어도 뒤 모든 보행자가 지장. 저자의 출근길 부딪히기 실험(“똑바로 보고 다니세요!”). <span class="p">(p.302–304)</span></li>
+    <li>고프먼 “자신의 신전에 끊임없이 절을 하는 섬” · 세넷: 예의 = “내가 타인에게 짐이 되지 않도록 타인을 보호하는 것”. <span class="p">(p.304–305)</span></li>
+    <li>지아코메티 &lt;피아자&gt;(네 남자 + 홀로 선 여자) · 파스퇴르 “우연은 준비된 사람에게” · 셰리 터클·피터 블록 “페이스북은 이웃집 아이 이름을 아는 동네를 대체할 수 없다” · 유도라 웰티 “자신이 어디에 서 있는지 알아야 자신이 누구인지 안다”. <span class="p">(p.300–312)</span></li>
+  </ul>
+
+  <h3>숫자</h3>
+  <ul class="items">
+    <li>퓨 리서치: 이웃 모두/대부분 이름 아는 미국인 <b>43%</b>(29% 일부, 28% 전혀) · SNS 사용자는 이웃과 관계 맺을 가능성 26%↓ · 15~24세 친구와의 상호작용 <b>70%</b> 감소. <span class="p">(p.290–291)</span></li>
+  </ul>
+</section>
+
+<!-- ─────────── 에필로그 ─────────── -->
+<section class="chapter">
+  <div class="chap-head"><h2>에필로그 · 이 혼란에 저항하라</h2><span>p.315–331</span></div>
+  <div class="claim"><b>핵심 주장</b> — “현실을 지키는 것이 특권으로 여겨져서는 안 된다.” 기술을 완전히 거부할 필요는 없지만 <b>아미시처럼 질문</b>하고, 매끄러운 삶에 다시 <b>마찰</b>을 도입하고, 대면 상호작용과 공적 공간을 되살려야 한다. 삶은 유한하며, 우리는 “육신이 있는, 기발하고 모순적이며 회복력 있고 창의적인 인간”으로 살아야 한다.</div>
+
+  <h3>꼭 외울 용어 · 인물</h3>
+  <ul class="items">
+    <li><span class="star">★</span> <span class="term">현실 특권(Reality Privilege)</span>: <b>마크 앤드리슨</b>. 소수만 의미 있는 현실을 누리니 나머지는 온라인 세계가 더 행복할 것이라는 주장 → 저자는 반박. <span class="p">(p.315–318)</span></li>
+    <li><span class="star">★</span> <span class="term">경험 알약(Experience Pill)</span>: 2018년 노직의 경험 기계 재실험 — 기계를 알약으로 바꾸자 받아들이는 사람↑ (“개입이 덜 침습적일수록 더 많은 사람이 받아들인다”). <span class="p">(p.316)</span></li>
+    <li><span class="star">★</span> <span class="term">지능 증강(Intelligent Augmentation)</span>: <b>더글러스 엥겔바트</b> — “그 모든 일을 기계들을 위해 하겠다고요? 사람들을 위해서는 뭘 할 겁니까?” ↔ <b>마빈 민스키</b>(AI 선구자) “의식이 있는 기계를 만들 것입니다!” <span class="p">(p.317)</span></li>
+    <li><span class="star">★</span> <span class="term">아미시(Amish)</span>: “기술에 대한 접근에서는 아미시가 되어야 한다” — 새것을 받아들이기 전 공동체·가정·가치관에 미칠 영향을 묻는다. 부모들의 “8학년까지(Wait Until 8th)” 서약. <span class="p">(p.323–324)</span></li>
+    <li><span class="term">인간 참여형(human in the loop)</span> · <span class="term">비트 로트(bit rot)</span>(지원 하드웨어·프로그램이 사라져 디지털 자료를 못 여는 것) · <span class="term">디지털 무덤</span> · 심리스 “제로 휴먼 콘택트”. <span class="p">(p.317–329)</span></li>
+    <li>《레디 플레이어 원》(어니스트 클라인, 2011) 오아시스 · 비리얼(BeReal, 2022 반인스타그램 앱, 하루 한 장·필터 없음) · 제스 조호(틱톡 “디지털 신탁”) · 루이스 멈퍼드《기술과 문명》“기술은 해방의 도구이자 억압의 도구” · 케이트 글래드스톤 손 글씨 코칭(고객 대부분 18~35세) · 에릭 케셀스 “사진 속의 24시간” · 피터 틸 므두셀라 재단(2030년까지 90세를 50세로) · 알코어 생명 연장 재단. <span class="p">(p.316–330)</span></li>
+  </ul>
+
+  <h3>숫자</h3>
+  <ul class="items">
+    <li><span class="star">★</span> 리부트 재단: 1년 소셜 미디어 중단 vs 투표권 포기 → 10대 <b>64%</b>가 투표권 포기. 10대 틱톡 매일 2시간+, 23%는 4시간+. <span class="p">(p.325)</span></li>
+    <li>친구와 보내는 시간: 2019년 주당 4시간, 2014년 대비 <b>37%</b> 감소 · 미국 어린이 10명 중 7명 12세부터 스마트폰, 하루 약 8시간 온라인 · 아이폰 등장 “2008년”부터 신뢰 위축. <span class="p">(p.321–325)</span></li>
+  </ul>
+</section>
+
+<!-- ─────────── 헷갈리는 짝 ─────────── -->
+<section class="chapter">
+  <div class="chap-head"><h2>시험 직전 ① 헷갈리기 쉬운 짝</h2><span>오답 보기로 자주 나오는 조합</span></div>
+  <table>
+    <tr><th style="width:30%">A</th><th style="width:30%">B</th><th>구별 포인트</th></tr>
+    <tr><td>사회적 무관심 (고프먼)</td><td>사회적 유리 (저자)</td><td>무관심 = 보되 호기심 없는 예의 / 유리 = 화면만 보는 단절</td></tr>
+    <tr><td>감성 컴퓨팅</td><td>설득형 기술</td><td>감정을 인식·해석·대응 / 감정에 호소해 행동을 바꿈</td></tr>
+    <tr><td>느낌 (feeling)</td><td>감정 (emotion)</td><td>느낌 = 내향적·사적 / 감정 = 외향적·공적 (다마지오)</td></tr>
+    <tr><td>쾌락 원리</td><td>현실 원리</td><td>이드의 원동력 / 에고가 쾌락을 통제 (프로이트)</td></tr>
+    <tr><td>프로이트: 쾌락 = “삶의 파수꾼”</td><td>벤담: 쾌락 = “통치권자”</td><td>인물과 표현을 바꿔 내는 문제 주의</td></tr>
+    <tr><td>가짜 사건 (부어스틴)</td><td>허위의 사실성 (아도르노)</td><td>+ “경험의 빈곤” = 벤야민, “경험의 멸종” = 로버트 마이클 파일</td></tr>
+    <tr><td>침묵의 언어 (에드워드 T. 홀)</td><td>암시적 커뮤니케이션 (메레이비언)</td><td>홀은 프록시믹스(근접공간학) 창시자이기도 함</td></tr>
+    <tr><td>순수한 사교성 (지멜)</td><td>평준화 영향력 (올든버그)</td><td>이유 없이 모이는 즐거움 / 제3의 장소가 가진 힘</td></tr>
+    <tr><td>몰입(flow)</td><td>소몰입(microflow)</td><td>둘 다 칙센트미하이. 소몰입은 경험의 질을 높이지 못함</td></tr>
+    <tr><td>패스트패스 (디즈니, 1999)</td><td>프런트 오브 더 라인 패스 (유니버설)</td><td>+ EZ 패스 = 통행료 자동 징수</td></tr>
+    <tr><td>B. F. 스키너</td><td>B. J. 포그</td><td>설득 기술의 “수호성인”·조작적 조건화 / “대규모 대인 설득” 선구자</td></tr>
+    <tr><td>엥겔바트 (지능 증강)</td><td>민스키 (인공지능)</td><td>인간을 향상시키자 / 의식 있는 기계를 만들자</td></tr>
+    <tr><td>프리우스 (2010, 한국 부부)</td><td>러브 플러스 (2009, 일본 남성 “결혼”)</td><td>게임 이름과 사건 연결</td></tr>
+    <tr><td>프랭크 게리 (CAD 찬성)</td><td>그레이브스·팔라스마·와인스 (드로잉 옹호)</td><td>게리 = 구겐하임 빌바오, 디즈니 콘서트홀</td></tr>
+    <tr><td>데카르트 – 파리 – 좌표 기하학</td><td>아인슈타인 – 전차 – 특수 상대성 / 테슬라 – 숲 – 교류 전류</td><td>인물·장면·발견 3개를 섞어 내는 문제 주의</td></tr>
+    <tr><td>헉슬리 → 오웰 (1949 편지)</td><td>《멋진 신세계》 / 《1984》</td><td>보낸 사람 = 헉슬리</td></tr>
+    <tr><td>시몬 베유 (2장): “관심은 가장 희귀하고 순수한 관대함”</td><td>시몬 베유 (7장): “뿌리 뽑힘” = 현대의 질병</td><td>같은 인물의 다른 인용</td></tr>
+    <tr><td>이-푸 투안 (1장): 경험 = 위험을 극복하는 것</td><td>이-푸 투안 (7장): 공간 → 장소</td><td>같은 인물의 다른 인용</td></tr>
+    <tr><td>오바마: 법안에 자동 서명기 최초</td><td>부시: 합법 자문만, 법안엔 안 씀</td><td>트루먼 때부터 편지·선언문에 사용</td></tr>
+  </table>
+</section>
+
+<!-- ─────────── 숫자 총정리 ─────────── -->
+<section class="chapter">
+  <div class="chap-head"><h2>시험 직전 ② 숫자·연도 총정리</h2><span>★ = 앱 출제</span></div>
+  <table>
+    <tr><th style="width:24%">숫자</th><th>내용</th><th style="width:12%">쪽</th></tr>
+    <tr><td>★ 31% → 44%</td><td>2012년 미국인 스마트폰 사용률 (12개월 만에)</td><td>29</td></tr>
+    <tr><td>53%</td><td>16~22세가 기술 대신 후각을 잃겠다</td><td>40</td></tr>
+    <tr><td>★ 200가지 이상</td><td>분노를 표현하는 얼굴 표정 수 (에크먼)</td><td>59</td></tr>
+    <tr><td>7가지</td><td>에크먼의 보편 감정</td><td>58</td></tr>
+    <tr><td>700시간 · 50만 명</td><td>아브라모비치 &lt;작가가 있음&gt; (2010)</td><td>64</td></tr>
+    <tr><td>800만 달러</td><td>금문교 징수원 자동화 절감 (2013, 76년 제도)</td><td>72</td></tr>
+    <tr><td>44% → 32%</td><td>12학년 친구 ‘거의 매일’ 대면 (2010→2022)</td><td>75</td></tr>
+    <tr><td>★ 10건 중 9건</td><td>공적 공간 폭력에 개입한 비율 (2019)</td><td>85</td></tr>
+    <tr><td>★ 40단어 / 13단어</td><td>분당 타이핑 / 손 글씨</td><td>103</td></tr>
+    <tr><td>4%</td><td>중국 젊은이 “이미 손 글씨 없이 생활”</td><td>95</td></tr>
+    <tr><td>★ 1999년</td><td>디즈니 패스트패스 도입 (첫 테마파크 1955년 애너하임)</td><td>128</td></tr>
+    <tr><td>370억 시간</td><td>미국인이 매년 줄 서서 기다리는 시간</td><td>134</td></tr>
+    <tr><td>약 30%</td><td>인식 대기 시간이 실제보다 긴 정도</td><td>135</td></tr>
+    <tr><td>6분</td><td>휴스턴 공항, 수하물 찾는 곳까지 걷게 한 시간</td><td>136</td></tr>
+    <tr><td>80% · 446건 · 502명</td><td>AAA 운전자 분노 · 2019 로드 레이지 충돌 · 사망</td><td>139</td></tr>
+    <tr><td>100 / 400밀리초 · 2초</td><td>아마존 매출 1% / 구글 지연 한계 / 동영상 포기</td><td>142–143</td></tr>
+    <tr><td>★ 1949년</td><td>헉슬리가 오웰에게 보낸 편지</td><td>145</td></tr>
+    <tr><td>35% → 85%</td><td>2011년 이후 미국인 스마트폰 보유율</td><td>148</td></tr>
+    <tr><td>★ 1000명 이상</td><td>휴가와 행복 연구 네덜란드인 (기대가 행복)</td><td>163</td></tr>
+    <tr><td>1964년</td><td>진보의 회전 극장 (뉴욕 세계 박람회)</td><td>168</td></tr>
+    <tr><td>★ 약 40%</td><td>대학생 공감 능력 감소 (20~30년 전 대비)</td><td>188</td></tr>
+    <tr><td>32%</td><td>이모티콘으로 관계를 끝낸 Z세대</td><td>175</td></tr>
+    <tr><td>★ 15~30초</td><td>미술관 작품 하나 평균 관람 시간</td><td>239</td></tr>
+    <tr><td>1859년</td><td>올리버 웬들 홈스, 사진 때문에 여행이 쓸모없어질 것</td><td>237, 244</td></tr>
+    <tr><td>★ 1960년대 후반 · 고베</td><td>가라오케의 시작 (이노우에 다이스케)</td><td>287</td></tr>
+    <tr><td>43% · 29% · 28%</td><td>이웃 이름을 모두/일부/전혀 모름</td><td>290</td></tr>
+    <tr><td>★ 15개비</td><td>외로움의 건강 영향 = 하루 담배 (머시, 2023)</td><td>291</td></tr>
+    <tr><td>70%</td><td>15~24세 친구와의 사회적 상호작용 감소</td><td>291</td></tr>
+    <tr><td>★ 거의 80%</td><td>공적 공간 와이파이 사용자 중 혼자인 비율 (햄프턴 2010)</td><td>297</td></tr>
+    <tr><td>27명</td><td>보행 실험 그룹 인원 (노란/빨간 비니)</td><td>303</td></tr>
+    <tr><td>★ 2018년</td><td>경험 기계 재실험 → 경험 알약</td><td>316</td></tr>
+    <tr><td>37% · 주당 4시간</td><td>친구와 보내는 시간 감소 (2014→2019)</td><td>321</td></tr>
+    <tr><td>★ 64%</td><td>소셜 미디어 대신 투표권을 포기하겠다는 10대</td><td>325</td></tr>
+    <tr><td>10명 중 7명 · 8시간</td><td>12세부터 스마트폰 · 하루 온라인</td><td>325</td></tr>
+  </table>
+</section>
+
+<!-- ─────────── 인물 색인 ─────────── -->
+<section class="chapter">
+  <div class="chap-head"><h2>시험 직전 ③ 인물 색인</h2><span>인물 → 이 책에서 연결되는 것</span></div>
+  <table>
+    <tr><th style="width:24%">인물</th><th>연결</th></tr>
+    <tr><td>테오도어 아도르노</td><td>1954 TV의 “허위의 사실성”, 경험의 약화 (프롤로그·1장)</td></tr>
+    <tr><td>대니얼 부어스틴</td><td>“가짜 사건”《이미지와 환상》</td></tr>
+    <tr><td>막스 프리슈</td><td>《호모 파버》 제사</td></tr>
+    <tr><td>요제프 바이첸바움</td><td>시계와 배고픔 · “존중, 이해, 사랑은 기술이 다룰 문제가 아니다”</td></tr>
+    <tr><td>로버트 마이클 파일</td><td>“경험의 멸종”, 자연 결핍 장애</td></tr>
+    <tr><td>이-푸 투안</td><td>경험 = 위험 극복 · 공간 → 장소</td></tr>
+    <tr><td>B. 조지프 파인 2세 & 제임스 H. 길모어</td><td>경험 경제 (1997)</td></tr>
+    <tr><td>버트런드 러셀</td><td>“과학은 미덕의 대체물이 아니다”</td></tr>
+    <tr><td>리처드 세넷</td><td>새로운 인본주의 · 상황적 인지·공예 · 예의 = 타인 보호 · 거리에서 대화</td></tr>
+    <tr><td>찰스 다윈</td><td>독사 실험, 《인간과 동물의 감정 표현》, 얼굴 = 감정의 지도</td></tr>
+    <tr><td>폴 에크먼</td><td>FACS, 미세 표정, 보편 감정 7가지, 분노 표정 200가지+</td></tr>
+    <tr><td>제프 행콕</td><td>동기 향상 효과 · 블로그 외향성 실험</td></tr>
+    <tr><td>어빙 고프먼</td><td>준다/풍긴다, 사회적 무관심, 분리된 경계 상태, “신전에 절하는 섬”</td></tr>
+    <tr><td>마리나 아브라모비치</td><td>&lt;작가가 있음&gt;</td></tr>
+    <tr><td>시몬 베유</td><td>관심 = 관대함 · 뿌리 뽑힘 = 현대의 질병</td></tr>
+    <tr><td>카린 제임스 / 버지니아 버닝거</td><td>손 글씨와 읽기 회로 / 방추형회 = 마음의 눈</td></tr>
+    <tr><td>팸 뮬러 & 대니얼 오펜하이머</td><td>노트북 필기 vs 손 필기</td></tr>
+    <tr><td>프랭크 게리</td><td>CAD 얼리어답터, 빌바오 구겐하임</td></tr>
+    <tr><td>퍼트리샤 쿨</td><td>“아기의 학습에는 사람이 필요합니다”</td></tr>
+    <tr><td>미셸 드 몽테뉴</td><td>“제 엉덩이 위에 앉아 있을 뿐” · 눈으로 말하는 연인들 · 아무도 자기 자신에게 이르지 못함</td></tr>
+    <tr><td>W. H. 오든</td><td>대죄는 성급함</td></tr>
+    <tr><td>미하이 칙센트미하이</td><td>몰입(flow), 소몰입(microflow)</td></tr>
+    <tr><td>토머스 머튼</td><td>겟세마니 수도원, 침묵 · 인정받고자 하는 열망</td></tr>
+    <tr><td>리처드 도킨스</td><td>밈(meme)</td></tr>
+    <tr><td>안토니오 다마지오</td><td>느낌 vs 감정, 상상 반응, 환자 엘리엇</td></tr>
+    <tr><td>마이클 폴라니</td><td>묵시적 지식</td></tr>
+    <tr><td>프랜시스 하우건</td><td>페이스북 내부 고발 (분노와 증오)</td></tr>
+    <tr><td>앨릭스 펜틀랜드</td><td>소시오메트릭 배지, 현실 마이닝, 《어니스트 시그널》</td></tr>
+    <tr><td>B. F. 스키너 / B. J. 포그</td><td>조작적 조건화·설득 기술의 수호성인 / 대규모 대인 설득</td></tr>
+    <tr><td>빅터 프랭클</td><td>《죽음의 수용소에서》, 마지막 남은 인간의 자유</td></tr>
+    <tr><td>로잘린드 피카드 / 라나 엘 칼리우비</td><td>감성 컴퓨팅 창시자 중 한 명 / 어펙티바</td></tr>
+    <tr><td>지그문트 프로이트 / 제러미 벤담</td><td>쾌락 = 삶의 파수꾼, 쾌락·현실 원리 / 쾌락 = 통치권자</td></tr>
+    <tr><td>헨리 제임스</td><td>베네치아 = 위로의 저장소</td></tr>
+    <tr><td>폴 서로</td><td>《여행자의 책》, 최고의 여행에는 단절</td></tr>
+    <tr><td>수전 손택</td><td>사진-트로피</td></tr>
+    <tr><td>로버트 노직</td><td>경험 기계 (6장) → 2018 경험 알약 재실험 (에필로그)</td></tr>
+    <tr><td>레이 올든버그</td><td>제3의 장소, 평준화 영향력</td></tr>
+    <tr><td>게오르크 지멜</td><td>순수한 사교성</td></tr>
+    <tr><td>에드워드 T. 홀</td><td>침묵의 언어, 프록시믹스</td></tr>
+    <tr><td>윌리엄 H. 화이트</td><td>스트리트 라이프 프로젝트, 광장의 “안무”</td></tr>
+    <tr><td>키스 햄프턴</td><td>와이파이 사용자 80% 혼자</td></tr>
+    <tr><td>비벡 머시</td><td>외로움과 고립의 전염병 (담배 15개비)</td></tr>
+    <tr><td>제임스 조이스</td><td>아이스페이스 (《피네간의 경야》)</td></tr>
+    <tr><td>마크 앤드리슨</td><td>현실 특권</td></tr>
+    <tr><td>더글러스 엥겔바트 / 마빈 민스키</td><td>지능 증강 / 인공지능</td></tr>
+    <tr><td>루이스 멈퍼드</td><td>발명 이전의 태도 변화(1934) · 《기술과 문명》 해방과 억압의 도구</td></tr>
+  </table>
+  <p class="legend" style="margin-top:6mm">문제풀이 앱: https://zzangii1020.github.io/-goldenbell/ — 이 노트로 먼저 훑고, 앱에서 ★ 문제를 풀어보세요.</p>
+</section>
+
+</body>
+</html>

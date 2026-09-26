@@ -259,6 +259,13 @@ try {
   await page.getByRole('button', { name: /틀린 문제 다시 풀기/ }).click();
   check((await page.locator('.quiz-count').innerText()).startsWith('1 / 3'), '틀린 문제 다시 풀기: 1 / 3');
 
+  // 요약 노트 PDF 링크
+  await page.getByRole('button', { name: '홈으로' }).click().catch(() => {});
+  await page.goto(URL);
+  const pdfHref = await page.getByRole('link', { name: /요약 노트 PDF/ }).getAttribute('href');
+  const pdfRes = await page.request.get(new globalThis.URL(pdfHref, URL).href);
+  check(pdfRes.ok() && (pdfRes.headers()['content-type'] || '').includes('pdf'), `요약 노트 PDF 링크 동작 (${pdfHref})`);
+
   // 가로 스크롤 없음
   const overflow = await page.evaluate(() => document.documentElement.scrollWidth > window.innerWidth);
   check(!overflow, '모바일 화면에서 가로 스크롤 없음');

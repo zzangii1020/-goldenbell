@@ -115,6 +115,9 @@ export default function Home({
         <button type="button" className="btn btn-lg btn-ghost" onClick={onProgress}>
           학습 현황
         </button>
+        <a className="btn btn-lg btn-ghost" href={`${import.meta.env.BASE_URL}study-guide.pdf`} target="_blank" rel="noopener">
+          📄 요약 노트 PDF <small>문제 풀기 전에 먼저 읽어보세요</small>
+        </a>
       </nav>
 
       <footer className="home-footer">

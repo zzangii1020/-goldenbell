@@ -38,6 +38,11 @@ npm run build && npm run test:e2e   # 실제 Chromium 브라우저(아이폰 화
 - 저장소 이름을 바꾸면 `vite.config.ts` 의 `base` 를 `'/<새 저장소 이름>/'` 로 바꿔야 합니다.
 - 로컬에서 `npm run dev` 로 실행하면 `http://localhost:5173/-goldenbell/` 로 접속합니다.
 
+## 요약 노트 PDF
+
+- 사이트: https://zzangii1020.github.io/-goldenbell/study-guide.pdf (홈 화면의 "📄 요약 노트 PDF" 버튼)
+- 원본: `scripts/study-guide/guide.html` → `node scripts/study-guide/build.mjs` 로 `public/study-guide.pdf` 를 다시 만듭니다.
+
 ## 주요 기능
 
 - 메인: 전체/객관식/주관식/틀린 문제/즐겨찾기 개수, 랜덤·순서대로 선택, 이어서 풀기
