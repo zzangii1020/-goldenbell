@@ -234,19 +234,6 @@ export const multipleQuestions: Question[] = [
       '스마트폰 화면에만 집중하는 것은 사회적 무관심이 아니라 "사회적 유리(civil disengagement)"이며, 이것이 공적 공간의 표준이 되었다고 저자는 말한다.',
   },
   {
-    id: 'm23',
-    type: 'multiple',
-    category: C2,
-    difficulty: 'hard',
-    sourcePage: 72,
-    question:
-      '2013년 3월 샌프란시스코 금문교가 76년 동안 유지한 통행료 징수원 제도를 없애고 자동화하면서 절감한 비용은?',
-    choices: ['80만 달러', '800만 달러', '8000만 달러', '8억 달러'],
-    answer: 1,
-    explanation:
-      '금문교는 자동화로 800만 달러를 절감했다. 18년 일한 한 징수원은 "저희의 미소는 때로 사람들이 그날 처음으로 마주하는 미소였을 것입니다"라고 말했다.',
-  },
-  {
     id: 'm26',
     type: 'multiple',
     category: C2,
@@ -503,7 +490,7 @@ export const multipleQuestions: Question[] = [
     ],
     answer: 3,
     explanation:
-      '감성 컴퓨팅(affective computing)이다. 설득형 기술(persuasive technology)은 감정에 호소해 사용자의 행동을 바꾸도록 설계된 기술이다.',
+      '감성 컴퓨팅(affective computing)이다. 이 분야의 창시자 중 한 명인 MIT의 로잘린드 피카드는 이를 "감정과 관련되거나 감정을 유발하거나 감정에 영향을 미치는" 컴퓨팅이라 설명했다(p.212). 설득형 기술(persuasive technology)은 감정에 호소해 사용자의 행동을 바꾸도록 설계된 기술이다.',
   },
   {
     id: 'm49',
@@ -749,6 +736,19 @@ export const multipleQuestions: Question[] = [
     explanation:
       '압도적 다수인 64%가 투표권을 포기하겠다고 답했다. 같은 재단 조사에서 10대 틱톡 사용자의 23%는 하루 네 시간 이상 앱을 사용했다.',
   },
+  {
+    id: 'm70',
+    type: 'multiple',
+    category: C5,
+    difficulty: 'detail',
+    sourcePage: 209,
+    question:
+      '《죽음의 수용소에서》에서 "인간에게서 모든 것을 빼앗을 수 있겠지만 단 한 가지, 마지막 남은 인간의 자유, 즉 주어진 상황에서 자신의 태도를 선택하고 자신의 방식을 선택하는 자유만은 빼앗을 수 없다"고 한 인물은?',
+    choices: ['빅터 프랭클', '에리히 프롬', '알베르 카뮈', '브랜 놀스'],
+    answer: 0,
+    explanation:
+      '홀로코스트 생존자이자 정신과 의사인 빅터 프랭클이다. 저자는 설득 기술이 인간의 의도를 전복하고 감정을 조작하는 파괴적인 기술로 여겨지기 쉽다며 이 말을 인용한다. 알베르 카뮈는 p.211~212에서 "그는 간음을 하고 신문을 읽었다"는 문장으로, 영국 랭커스터대학교의 브랜 놀스는 설득 기술 윤리가 "우리를 믿어라" 식이라는 비판으로 등장한다.',
+  },
 ];
 
 export const shortQuestions: Question[] = [
@@ -927,19 +927,6 @@ export const shortQuestions: Question[] = [
     acceptableAnswers: ['motivational enhancement effect', '동기향상효과'],
     explanation:
       '"동기 향상 효과"다. 대면 상황에서는 경련이나 눈 움직임으로 진실이 드러나기 때문에 거짓말을 망설이게 된다.',
-  },
-  {
-    id: 's26',
-    type: 'short',
-    category: C2,
-    difficulty: 'detail',
-    sourcePage: 63,
-    question:
-      '심리학자 바버라 프레드릭슨이 연구한, 뇌와 심장을 연결하며 긴장도가 높을수록 타인과 연결되는 능력이 커진다는 신경은?',
-    answer: '미주신경',
-    acceptableAnswers: ['미주 신경', 'vagus nerve', '미주신경계'],
-    explanation:
-      '미주신경 긴장도는 사용하지 않으면 저하된다. "기본적 생물학적 능력인 대면 상호작용은 정기적으로 하지 않으면 결국 사라진다."',
   },
   {
     id: 's27',
@@ -1382,6 +1369,19 @@ export const shortQuestions: Question[] = [
     acceptableAnswers: ['amish', '아미쉬'],
     explanation:
       '새로운 기기와 앱을 엄격하게 거부하지 않더라도 강한 회의적 시선을 가질 필요가 있다는 뜻이다. 비슷한 예로 부모들은 "8학년까지(Wait Until 8th)" 모임을 만들어 중학교 2학년이 되기 전까지 자녀에게 스마트폰을 주지 않겠다고 서약한다.',
+  },
+  {
+    id: 's89',
+    type: 'short',
+    category: C5,
+    difficulty: 'detail',
+    sourcePage: 210,
+    question:
+      'GPS와 심박수 모니터링 손목 밴드로 인간관계를 추적해, 스트레스를 주는 사람을 친구 목록에서 삭제하고 팔로우를 취소해주는 "people keeper"의 줄임말 이름을 가진 앱은?',
+    answer: 'PPLKPR',
+    acceptableAnswers: ['people keeper', '피플키퍼', '피플 키퍼'],
+    explanation:
+      '로런 매카시와 카일 맥도널드가 만든 PPLKPR은 "자동으로 일정에 추가해야 할 사람과 제거해야 할 사람을 결정"해준다고 홍보했다. 카네기멜론대학교 학생들은 열광했고, 한 학생은 데이터를 보고 "마크와 어울리지 말아야겠어요. 이기적인 놈 같아요"라고 말했다. 저자는 일상의 감정 노동을 앱과 알고리즘에 아웃소싱하는 것을 감정적 용병을 만드는 일이라고 본다.',
   },
 ];
 

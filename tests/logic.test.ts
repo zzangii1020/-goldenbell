@@ -25,6 +25,8 @@ describe('주관식 채점', () => {
     expect(gradeShort(short('s08'), 'veja du')).toBe(true);
     expect(gradeShort(short('s08'), 'vêja du')).toBe(true);
     expect(gradeShort(short('s85'), 'Proxemics')).toBe(true);
+    expect(gradeShort(short('s89'), 'pplkpr')).toBe(true);
+    expect(gradeShort(short('s89'), 'People Keeper')).toBe(true);
     expect(gradeShort(short('s84'), '뿌리뽑힘')).toBe(true);
     expect(gradeShort(short('s83'), 'iSpace')).toBe(true);
     expect(gradeShort(short('s04'), '선택이다')).toBe(true);
