@@ -53,7 +53,12 @@ export default function QuestionCard({
     feedbackRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
     nextRef.current?.focus({ preventScroll: true });
   }, [done]);
-  const order = q.type === 'multiple' ? (choiceOrder ?? [0, 1, 2, 3]) : [];
+  const order =
+    q.type !== 'multiple'
+      ? []
+      : choiceOrder && choiceOrder.length === 4 && [...choiceOrder].sort().join() === '0,1,2,3'
+        ? choiceOrder
+        : [0, 1, 2, 3];
 
   // 이 문제의 누적 기록(이번 풀이 이전 포함). 오답 노트 상태 표시용.
   const wrongNow = record?.lastResult === 'wrong' || record?.lastResult === 'revealed';
