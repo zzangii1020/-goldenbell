@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { questions } from '../src/data/extinction/questions';
 import { questions as plantQuestions } from '../src/data/plant/questions';
+import { questions as cityQuestions } from '../src/data/city/questions';
 import type { ShortQuestion } from '../src/data/types';
 import { gradeAnswer, gradeShort, normalizeAnswer } from '../src/lib/grading';
 import {
@@ -132,6 +133,22 @@ describe('식물의 사회생활 주관식 채점', () => {
   });
   it('다른 문제의 정답은 틀린 것으로 처리한다', () => {
     const shorts = plantQuestions.filter((q): q is ShortQuestion => q.type === 'short');
+    for (let i = 0; i < shorts.length; i++) {
+      const other = shorts[(i + 1) % shorts.length];
+      expect(gradeShort(shorts[i], other.answer), `${shorts[i].id} ← ${other.answer}`).toBe(false);
+    }
+  });
+});
+
+describe('도시는 무엇으로 사는가 주관식 채점', () => {
+  const shorts = cityQuestions.filter((q): q is ShortQuestion => q.type === 'short');
+  it('인정 답안과 표기 차이를 허용한다', () => {
+    for (const q of shorts) {
+      for (const a of [q.answer, ` ${q.answer.toUpperCase()} `, ...q.acceptableAnswers])
+        expect(gradeShort(q, a), `${q.id}:${a}`).toBe(true);
+    }
+  });
+  it('다른 문제의 정답은 틀린 것으로 처리한다', () => {
     for (let i = 0; i < shorts.length; i++) {
       const other = shorts[(i + 1) % shorts.length];
       expect(gradeShort(shorts[i], other.answer), `${shorts[i].id} ← ${other.answer}`).toBe(false);

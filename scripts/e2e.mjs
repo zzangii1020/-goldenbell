@@ -13,6 +13,7 @@ const loadData = async (entry) => {
 };
 const { questions } = await loadData('src/data/extinction/questions.ts');
 const { questions: plantQuestions } = await loadData('src/data/plant/questions.ts');
+const { questions: cityQuestions } = await loadData('src/data/city/questions.ts');
 
 const PORT = 4179;
 const URL = `http://127.0.0.1:${PORT}/-goldenbell/`;
@@ -85,7 +86,7 @@ try {
 
   // 0. 첫 화면: 책 선택
   check(await page.getByRole('heading', { name: '어떤 책을 공부할까요?' }).isVisible(), '첫 화면: 책 선택');
-  check((await page.locator('.book-card').count()) === 2, '책 선택: 2권');
+  check((await page.locator('.book-card').count()) === 3, '책 선택: 3권');
   await page.screenshot({ path: `${SHOTS}/00-book-select.png`, fullPage: true });
   await page.locator('.book-card', { hasText: '경험의 멸종' }).click();
   check(await page.getByRole('heading', { name: '《경험의 멸종》' }).isVisible(), '경험의 멸종 선택 → 홈');
@@ -325,6 +326,35 @@ try {
   check(await page.getByText('13장 미래의 식물과 사람의 관계').isVisible(), '식물 학습 현황: 13장 표시');
   check(await page.getByText('맺음말', { exact: true }).isVisible(), '식물 학습 현황: 맺음말 표시');
   await page.getByRole('button', { name: '‹ 홈' }).click();
+
+  // ───────── 10. 도시는 무엇으로 사는가 ─────────
+  await page.getByRole('button', { name: '‹ 책 선택' }).click();
+  await page.locator('.book-card', { hasText: '도시는 무엇으로 사는가' }).click();
+  check(await page.getByRole('heading', { name: '《도시는 무엇으로 사는가》' }).isVisible(), '도시는 무엇으로 사는가 선택 → 홈');
+  check((await statValue('전체 문제')) === '100', '도시: 전체 문제 100');
+  check((await statValue('틀린 문제')) === '0', '도시: 다른 책과 기록이 분리됨 (틀린 문제 0)');
+  await page.screenshot({ path: `${SHOTS}/13-city-home.png`, fullPage: true });
+  await page.getByRole('radio', { name: '순서대로' }).click();
+  const cMc = cityQuestions.filter((q) => q.type === 'multiple');
+  const cSa = cityQuestions.filter((q) => q.type === 'short');
+  check(cMc.length === 50 && cSa.length === 50, `도시 데이터: 객관식 ${cMc.length} / 주관식 ${cSa.length}`);
+  const cMcOk = await runAll('multiple', cMc, '객관식만 풀기');
+  check(cMcOk === 50, `도시 객관식 50문제 전부 정답 처리 (${cMcOk}/50)`);
+  await page.getByRole('button', { name: '홈으로' }).click();
+  const cSaOk = await runAll('short', cSa, '주관식만 풀기');
+  check(cSaOk === 50, `도시 주관식 50문제 입력 채점 전부 정답 (${cSaOk}/50)`);
+  await page.getByRole('button', { name: '홈으로' }).click();
+  await page.getByRole('button', { name: /주관식만 풀기/ }).click();
+  await page.getByRole('button', { name: '정답 확인' }).click();
+  check(await page.getByText(/책 p\.16 · PDF p\.12 \(001-075 파일, 파일 안 12쪽\)/).isVisible(), '도시: 출처에 책/PDF 쪽수 표시');
+  await page.screenshot({ path: `${SHOTS}/14-city-reveal.png`, fullPage: true });
+  await page.getByRole('button', { name: '홈으로' }).click();
+  await checkGuide('study-guide-city.pdf');
+  await page.getByRole('button', { name: '학습 현황' }).click();
+  check(await page.getByText('15장 건축이 자연을 대하는 방식').isVisible(), '도시 학습 현황: 장별 진행 표시');
+  await page.getByRole('button', { name: '‹ 홈' }).click();
+  const cityKeys = await page.evaluate(() => Object.keys(localStorage).filter((k) => k.endsWith('.state')).sort());
+  check(cityKeys.includes('goldenbell.city.v1.state'), `세 번째 책도 따로 저장 (${cityKeys.join(', ')})`);
 
   // 앱을 새로 열면 책 선택 화면부터
   const fresh = await context.newPage();

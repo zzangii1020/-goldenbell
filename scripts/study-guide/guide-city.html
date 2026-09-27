@@ -1,0 +1,390 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<title>《도시는 무엇으로 사는가》 골든벨 요약 노트</title>
+<style>
+  @page { size: A4; margin: 16mm 15mm 16mm 15mm; }
+  :root { --ink:#1d1f23; --muted:#5f646b; --accent:#1f4e79; --soft:#eef3f8; --line:#d9dde3; --star:#b8860b; --warn:#9a3412; --warnbg:#fff4ec; }
+  * { box-sizing: border-box; }
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body { font-family: 'Noto Sans CJK KR', 'Noto Sans KR', sans-serif; color: var(--ink); font-size: 10pt; line-height: 1.62; word-break: keep-all; margin: 0; }
+  h1, h2, h3 { line-height: 1.3; margin: 0; }
+  .cover { height: 255mm; display: flex; flex-direction: column; justify-content: center; page-break-after: always; }
+  .cover .eyebrow { color: var(--accent); font-weight: 700; letter-spacing: .08em; font-size: 11pt; }
+  .cover h1 { font-size: 30pt; margin: 6mm 0 3mm; letter-spacing: -.02em; }
+  .cover .sub { font-size: 12.5pt; color: var(--muted); }
+  .cover .box { margin-top: 14mm; border: 1px solid var(--line); border-radius: 4mm; padding: 6mm 7mm; background: #fafbfc; }
+  .cover .box h3 { font-size: 11pt; margin-bottom: 2mm; color: var(--accent); }
+  .cover ul { margin: 0; padding-left: 5mm; }
+  .thesis { margin-top: 10mm; font-size: 13pt; font-weight: 700; border-left: 2mm solid var(--accent); padding: 2mm 0 2mm 5mm; }
+  .thesis small { display: block; font-size: 9.5pt; font-weight: 400; color: var(--muted); margin-top: 1mm; }
+
+  section.chapter { page-break-before: always; }
+  .chap-head { border-bottom: .6mm solid var(--accent); padding-bottom: 2mm; margin-bottom: 4mm; display: flex; justify-content: space-between; align-items: baseline; gap: 4mm; }
+  .chap-head h2 { font-size: 17pt; color: var(--accent); }
+  .chap-head span { color: var(--muted); font-size: 9pt; white-space: nowrap; }
+  .claim { background: var(--soft); border-radius: 2.5mm; padding: 3mm 4mm; margin-bottom: 4mm; }
+  .claim b { color: var(--accent); }
+  h3 { font-size: 11.5pt; margin: 4.5mm 0 1.5mm; padding-left: 2.2mm; border-left: 1.2mm solid var(--accent); }
+  ul.items { margin: 0; padding-left: 4.5mm; }
+  ul.items li { margin: .6mm 0; }
+  .p { color: var(--muted); font-size: 8.5pt; white-space: nowrap; }
+  .star { color: var(--star); font-weight: 700; }
+  .term { font-weight: 700; }
+  .q { color: #333; }
+  .tip { background: var(--warnbg); border-left: 1.2mm solid var(--warn); padding: 2mm 3.5mm; margin: 3mm 0; border-radius: 1.5mm; font-size: 9.5pt; }
+  .tip b { color: var(--warn); }
+  table { width: 100%; border-collapse: collapse; font-size: 9.2pt; margin: 2mm 0 4mm; }
+  th, td { border: 1px solid var(--line); padding: 1.6mm 2.2mm; vertical-align: top; text-align: left; }
+  th { background: var(--soft); color: var(--accent); }
+  tr { page-break-inside: avoid; }
+  .two { columns: 2; column-gap: 7mm; }
+  .two li { break-inside: avoid; }
+  .toc td:first-child { width: 36mm; font-weight: 700; }
+  .toc td:last-child { width: 14mm; text-align: right; color: var(--muted); }
+  .legend { font-size: 9pt; color: var(--muted); }
+</style>
+</head>
+<body>
+<div class="cover">
+  <div class="eyebrow">독서 골든벨 대비 요약 노트</div>
+  <h1>《도시는 무엇으로 사는가》</h1>
+  <div class="sub">유현준 지음 · 을유문화사<br/>도시를 보는 열다섯 가지 인문적 시선</div>
+  <div class="thesis">“사람은 도시를 만들고 도시는 사람을 만든다.”
+    <small>건축과 도시는 경제·사회·권력·기술·문화가 모인 결정체이고, 다시 우리의 삶을 바꾼다. (추천사, 5장)</small>
+  </div>
+  <div class="box">
+    <h3>이 노트 활용법</h3>
+    <ul>
+      <li>장마다 <b>핵심 → 용어·개념 → 사례·인물 → 숫자</b> 순서로 정리했습니다.</li>
+      <li><span class="star">★</span> 표시는 문제풀이 앱(100문제)에 실제로 출제된 내용입니다. ★부터 외우고 나머지로 넓히세요.</li>
+      <li><b>(p.00)</b>은 책 쪽수입니다. 마지막에 <b>헷갈리기 쉬운 짝 · 숫자 총정리 · 인물/건축물 색인</b>이 있습니다.</li>
+      <li>받은 PDF는 책 p.11~245(추천사~10장 중간)와 p.325~383(14장 중간~맺음말)입니다. <b>p.246~324(10장 뒷부분, 11~13장, 14장 앞부분)는 PDF에 없어 넣지 않았습니다.</b></li>
+    </ul>
+  </div>
+</div>
+
+<section class="chapter" style="page-break-before: auto;">
+  <div class="chap-head"><h2>한눈에 보는 책 구조</h2><span>장 · 핵심 한 줄 · 시작 쪽</span></div>
+  <table class="toc">
+    <tr><td>추천사·머리말</td><td>건축은 통섭의 학문, 건축물은 사람이다. 괴테 “건축은 얼려진 음악”.</td><td>11</td></tr>
+    <tr><td>1장 걷고 싶은 거리</td><td>이벤트 밀도와 공간의 속도로 거리를 정량화한다.</td><td>21</td></tr>
+    <tr><td>2장 아름답지 않은 현대 도시</td><td>재료의 혼란, 골목 대신 복도, 빨래가 사라진 도시, 스카이라인, 감정 시장.</td><td>49</td></tr>
+    <tr><td>3장 펜트하우스가 비싼 이유</td><td>팬옵티콘, 시선과 보안 단계가 만드는 공간의 권력, 창문, 체적.</td><td>71</td></tr>
+    <tr><td>4장 뉴욕 이야기</td><td>로프트, 깨진 유리창, 냉장고와 교외, 도시 재생, 하이라인, 남대문.</td><td>97</td></tr>
+    <tr><td>5장 강남은 어떻게 살아왔는가</td><td>도시는 유기체: 로마(순환계) → 파리(신경계) → 뉴욕(전화망).</td><td>123</td></tr>
+    <tr><td>6장 강북의 도로</td><td>팰림시스트, 포도주 같은 건축, 시티콥 센터, 베트남 기념관.</td><td>143</td></tr>
+    <tr><td>7장 교회는 왜 들어가기 어려운가</td><td>절 vs 교회, 성막 → 성전 → 바실리카 → 고딕, 이슬람 사원.</td><td>161</td></tr>
+    <tr><td>8장 공원이 부족한 이유</td><td>하이드 파크, 골목길 = 공동의 거실, 마당과 TV, 서울숲, 한강.</td><td>187</td></tr>
+    <tr><td>9장 열린 공간과 그 적들</td><td>사무실의 탄생, 시계탑, 자리 배치, 형광등, 자동차와 익명성.</td><td>205</td></tr>
+    <tr><td>10장 죽은 아파트의 사회</td><td>카페와 방 문화, 한강의 만리장성, 아파트와 돼지, 수목적 관계, 프리츠커상. (p.245까지)</td><td>229</td></tr>
+    <tr><td>14장 동과 서</td><td>관계·비움의 동양 vs 기하학·절대 가치의 서양, 밥상 vs 코스 요리, 강수량. (p.325부터)</td><td>—</td></tr>
+    <tr><td>15장 건축이 자연을 대하는 방식</td><td>성 베네딕트 채플, 두 주택, 아사히야마, 잠수교, 옹벽, 울타리, 정자, 한국적이란?</td><td>341</td></tr>
+    <tr><td>맺음말</td><td>강수량·기온·재료가 만든 다양성, 문화 다양성의 위기, 우리 모두는 건축주.</td><td>377</td></tr>
+  </table>
+  <h3>책 전체를 관통하는 키워드</h3>
+  <div class="two"><ul class="items">
+    <li><span class="term">휴먼 스케일</span> — 사람의 걸음(시속 4킬로미터)에 맞는 공간</li>
+    <li><span class="term">공간과 권력</span> — 보는 자와 보이는 자, 보안의 단계, 체적</li>
+    <li><span class="term">도시는 유기체</span> — 설계자의 의도를 넘어 진화한다</li>
+    <li><span class="term">관계와 비움</span> — 동양의 공간(空間) 개념</li>
+    <li><span class="term">자연과 대화</span> — 극복·이용이 아닌 동등한 상대로</li>
+    <li><span class="term">보이지 않는 벽</span> — 옹벽, 동, 임대주택, 울타리</li>
+    <li><span class="term">시간</span> — 전통을 만드는 절대적인 재료</li>
+    <li><span class="term">다양성</span> — 생태뿐 아니라 문화의 다양성도 지켜야</li>
+  </ul></div>
+</section>
+
+<section class="chapter">
+  <div class="chap-head"><h2>추천사 · 머리말</h2><span>p.11–18</span></div>
+  <div class="claim"><b>핵심</b> — 추천사를 쓴 최재천 교수는 이 책에서 “생물학의 결”을 본다. 필자는 건축물이 그 나라와 시대의 단면이며, 인간의 이성적·감성적 행동의 결집체라고 말한다.</div>
+  <ul class="items">
+    <li>추천사(최재천): 건축은 전형적인 <span class="term">통섭</span> 분야. 도시는 유기체, 좋은 건축물은 소주가 아니라 포도주. 개미와 꿀벌 비교. 보스턴 코먼이 센트럴 파크보다 안전 — 공원 폭은 충분히 좁고 내려다볼 건물이 있어야. <span class="p">(p.11–13)</span></li>
+    <li><span class="star">★</span> 교보문고 앞 “사람은 책을 만들고 책은 사람을 만든다” → “<b>사람은 도시를 만들고 도시는 사람을 만든다</b>”(5장 부제와 같은 맥락). 광화문 광장을 옛 저잣거리처럼 만들 구상이 있었다는 소문. <span class="p">(p.13)</span></li>
+    <li><span class="star">★</span> 피라미드: 공사 인부를 위한 <b>도시를 건설</b>하고 왕족과 같은 <b>최신 의료 서비스</b>를 주며 지음 → 건축 기술 + 사회·의료·경제의 결정체. “건축물은 사람이다.” <span class="p">(p.15–16)</span></li>
+    <li><span class="star">★</span> 괴테 “건축은 얼려진 <b>음악</b>”(리듬·멜로디·화음·가사). 건축만의 전달 매체 = 비어 있는 <span class="term">보이드</span> 공간. 윈스턴 처칠의 말처럼 공간은 다시 우리를 만든다. <span class="p">(p.16–17)</span></li>
+    <li>필자가 학교 때 배운 과목 21개 → 우리 교육은 건축을 이해하기 좋은 환경. 머리말 2014년 12월. <span class="p">(p.17–18)</span></li>
+  </ul>
+</section>
+<section class="chapter">
+  <div class="chap-head"><h2>1장 · 왜 어떤 거리는 걷고 싶은가</h2><span>p.21–46</span></div>
+  <div class="claim"><b>핵심</b> — 걷고 싶은 거리는 휴먼 스케일의 체험을 준다. 필자는 이를 <b>이벤트 밀도</b>(100미터당 출입구 수)와 <b>공간의 속도</b>(면적×속도의 평균)로 정량화한다. 시속 4킬로미터에 가까울수록 걷고 싶다.</div>
+  <ul class="items">
+    <li>걷고 싶은 거리 ≠ 성공적인 거리. 테헤란로 = 성공적이지만 걷기 싫음, 명동 = 둘 다. 세종로는 압도적 스케일로 상징성. <span class="p">(p.21)</span></li>
+    <li><span class="star">★</span> 걷는 속도 <b>시속 4킬로미터</b>, 자동차 시속 60킬로미터. <span class="star">★</span> 4평방킬로미터 코너 수: <b>바르셀로나 2,025 vs 시카고 1,075</b>(약 두 배). 유럽은 마차 길 → 결절점 자주, 미국은 자동차 → 큰 블록. <span class="p">(p.23–24)</span></li>
+    <li><span class="star">★</span> <span class="term">이벤트 밀도</span>: 상점 n개 → 선택 경우의 수 2ⁿ. 의미 셋: ①보행자에게 권력(주도권) 이양 ②변화의 체험(5미터마다 입구, <b>4.5초</b>마다 새 쇼윈도 = 케이블 TV 채널 바꾸기) ③같은 거리도 매번 새로운 체험. 미국 대사관 앞(정문 하나) vs 홍대 앞. <span class="p">(p.25–27)</span></li>
+    <li><span class="star">★</span> 표: <b>명동 36 = 가로수길 36</b> &gt; 홍대 앞 34 &gt; 강남대로 14 &gt; 테헤란로 8. 명동·가로수길은 테헤란로의 4.5배. <span class="p">(p.29)</span></li>
+    <li><span class="star">★</span> 명동: <b>일제 강점기 일본 도시 계획가</b>가 가로변은 좁고 세로로 긴 필지로 구획, 50년대 재건축 때 대규모 PF 불가 → 작은 필지 유지. 합벽. 다섯 거리 중 유일한 보행자 전용 거리(폭 10미터). 점포 최소 폭 약 5미터. <span class="p">(p.30–31)</span></li>
+    <li><span class="star">★</span> <span class="term">공간의 속도</span>: 움직이는 개체의 운동에너지 E=½mv². 사진작가 <b>김아타</b> 「타임스퀘어」(셔터 속도를 길게 → 사람·차가 사라져 시간 정지). <span class="star">★</span> 록펠러 센터 <b>선큰가든</b>: 여름 레스토랑, 겨울 스케이트장. <span class="p">(p.32–37)</span></li>
+    <li><span class="star">★</span> 공식 = (차도 면적×차 속도 + 인도 면적×보행 속도 + <b>데크·주차장 면적×1km/h</b>) ÷ 전체 면적. <span class="star">★</span> Ss: 홍대 앞 4.86 &lt; 가로수길 5.41 &lt; 명동 6.5 &lt; 강남대로 47.96 &lt; <b>테헤란로 52.03</b>. 합친 순위 = 가로수길 &gt; 홍대 앞 = 명동 &gt; 강남대로 &gt; 테헤란로(데이트 코스 선호 순서). <span class="p">(p.38–40)</span></li>
+    <li>세종로: 16차선 → 10차선(샹젤리제와 같음)인데 걷기 싫은 이유 = 가게가 없고 데크가 없음, 대형 건물만 → 가운데를 보게 되어 광화문 광장이 늘 정치적 시위 공간. 해법: 건물 앞 한 줄 가게, 노천카페. <span class="p">(p.43)</span></li>
+    <li>너무 느린 거리(4Ss 미만)는 런웨이처럼 부담. 걷고 싶은 거리 요소: 이벤트·물건·자연환경·사람(사람은 완성하는 요소). <span class="p">(p.44–46)</span></li>
+  </ul>
+</section>
+<section class="chapter">
+  <div class="chap-head"><h2>2장 · 현대 도시들은 왜 아름답지 않은가</h2><span>p.49–68</span></div>
+  <div class="claim"><b>핵심</b> — 옛 도시는 재료가 통일되고 형태는 지형에 맞춰 다양했다. 현대 도시는 크레인·철골로 대형화되고 수입 재료가 난무한다. 골목·하늘·발코니를 잃었고, 감정을 일으키는 건축이 부족하다.</div>
+  <ul class="items">
+    <li>엽서 도시: 산토리니(흰 회벽), 토스카나(벽돌). 과거 건축은 휴먼 스케일(소달구지로 옮길 나무, 몇 사람이 드는 대들보). 피렌체·베니스 = 두오모 + 작은 건물의 강약 조화. <span class="p">(p.49–50)</span></li>
+    <li>현대 도시 = 전 세계 수입 재료 → 통일성·컨텍스트 없는 카오스. 간판만 정리하면 뒤의 혼돈이 보임. <span class="star">★</span> 서울은 가로수·잡초가 가려 주는 여름이 볼 만 → 아름다운 도시가 되려면 <b>겨울에 아름다워야</b>. <span class="p">(p.51)</span></li>
+    <li><span class="star">★</span> 도시 4분류(형태·재료): 단순·단순 = <b>아파트 단지</b> / 복잡·단순 = <b>산토리니</b> / 단순·복잡 = <b>논현동 뒷골목</b> / 다양·다양 = <b>청담동 플래그샵 거리</b>. 보스턴 뉴베리 거리 = 붉은 벽돌 규제. <span class="p">(p.52–54)</span></li>
+    <li><span class="star">★</span> <b>르 코르뷔지에</b> ‘빛나는 도시’(파리 도심을 고층 아파트 단지로) → 우리 아파트 단지 계획. 공원을 얻는 대신 골목을 잃음. <span class="star">★</span> 골목과 복도의 차이 = <b>하늘</b>이 있느냐. <span class="p">(p.54–56)</span></li>
+    <li><span class="star">★</span> “빨래가 사라진 도시” 주범 = <b>발코니 확장법</b>. 베니스·홍콩의 빨래. 보디가드 속옷 광고. 대안: 경사지·구릉지의 <b>테라스</b>. <span class="p">(p.57–60)</span></li>
+    <li>스카이라인: “신은 지평선을, 인간은 스카이라인을 만든다.” 로마 = 돔의 곡선(돔 = 아치를 180도 회전). <span class="star">★</span> <b>부르넬레스키</b>: 목재를 적게 쓰는 구조법으로 피렌체 대성당 돔 → <b>인류 최초의 특허권</b>. <span class="star">★</span> 뉴욕 = <b>엘리베이터가 만든 스카이라인</b>. 서울 = 북한산·관악산·남산 능선 → 연필을 떼지 않고 그릴 수 있어야. <span class="p">(p.61–65)</span></li>
+    <li>감정 시장: 「비긴 어게인」(2014, 340만). <span class="star">★</span> 필자의 예술 정의 = <b>인간의 감정을 일으키는 무엇</b>. 코르뷔지에 “주택은 사람이 살 수 있게 하는 기계” → 기능은 두 바퀴 중 하나. 프랭크 게리 디즈니 콘서트 홀. <span class="p">(p.65–68)</span></li>
+  </ul>
+</section>
+<section class="chapter">
+  <div class="chap-head"><h2>3장 · 펜트하우스가 비싼 이유</h2><span>p.71–93</span></div>
+  <div class="claim"><b>핵심</b> — 공간은 권력을 만든다. 볼 수 있는 자가 권력을 갖고, 여러 단계의 보안을 통과해야 하는 공간일수록 중요해진다. 감시는 때로 안전을 만든다. 공간의 권력은 면적이 아니라 체적이다.</div>
+  <ul class="items">
+    <li><span class="star">★</span> 2013년 상반기 가장 비싼 아파트 = 성수동 <b>갤러리아포레</b>(82평, 54억 9913만 원, 평당 6700만 원, 45층). <span class="p">(p.71)</span></li>
+    <li><span class="star">★</span> <span class="term">팬옵티콘</span>(pan + opticon = 모두 본다): <b>제러미 벤담</b>, 1791년 감옥. 1975년 <b>미셸 푸코</b> 『감시와 처벌』로 유명. 감시탑은 어둡고 죄수 방은 밝음 → 죄수는 스스로 감시. <span class="p">(p.72–75)</span></li>
+    <li><span class="star">★</span> 19세기 파리: 프랑스혁명 후 권력자의 걱정 → <b>방사형 도로망</b>, 개선문 위 대포 몇 개로 봉기 제압. 방사형 = 권력 차등, <b>격자형 = 평등·민주적</b>. 뉴욕은 격자 + 대각선 브로드웨이 → 타임스퀘어. <span class="p">(p.75–76)</span></li>
+    <li>펜트하우스 = 모든 것을 내려다보고 자신은 안 보임 → 돈으로 공간의 권력을 삼. <span class="star">★</span> 관음증 = <b>보이어리즘</b>(영화관, 연극 극장, 인터넷 익명 댓글), 악플 = 밴덜리즘. <span class="p">(p.77–78)</span></li>
+    <li><span class="star">★</span> 옥탑방이 안 비싼 이유 = <b>보안 취약</b>(옆 옥상에서 넘어옴). 타워팰리스 짜장면. 자금성: 여러 겹 벽, 좌우 대칭, 수공간(물을 건넘) = 다른 공간으로 넘어가는 장치 → 사신의 기가 눌림. 클럽의 문지기. <span class="p">(p.78–82)</span></li>
+    <li>감시의 장점: <span class="star">★</span> 센트럴 파크는 폭이 커서 밤에 <b>약 85퍼센트</b>가 감시 없는 우범지대, 보스턴 코먼은 작고 주변에서 내려다봄(둘 다 옴스테드). 학교 운동장 주변에 문방구·분식점 → 광장 + 보안(악어와 악어새). <span class="p">(p.82–86)</span></li>
+    <li><span class="star">★</span> 호텔과 모텔의 가장 큰 차이 = <b>창문의 크기</b>. 모텔 = 항상 밤이기를 원함, 호텔 = 보고 보이기를 원함(파크 하얏트). 리차드 마이어 찰스 스트리트 아파트. 모텔 창문만 키워 호텔로. <span class="p">(p.86–89)</span></li>
+    <li><span class="star">★</span> 공간의 권력은 <b>체적</b>으로: 성 베드로 성당 천장 130미터 → 같은 면적 사무실의 20배, 발다키노 기둥 약 11미터. 필자는 경사 천장·복층을 권함 → 집도 체적으로 팔아야. <span class="p">(p.89–93)</span></li>
+  </ul>
+</section>
+<section class="chapter">
+  <div class="chap-head"><h2>4장 · 도시는 무엇으로 사는가: 뉴욕 이야기</h2><span>p.97–119</span></div>
+  <div class="claim"><b>핵심</b> — 도시는 태어나고 성장하고 쇠퇴하는 생명체다. 죽은 부분에 새 생명이 돋게 하는 것이 도시 재생이며, 건축 문화재는 하드웨어가 아니라 소프트웨어로 보아야 한다.</div>
+  <ul class="items">
+    <li><span class="star">★</span> <span class="term">로프트</span> = <b>공장</b>을 개조(높은 천장, 넓은 기둥 간격, 화물엘리베이터, 큰 창) → 헐값에 예술가 임대 → 갤러리 → 여피 → 임대료↑ → 예술가는 첼시로. 오스카 와일드 은행가·예술가 농담. 설계사무소 밀집 지역은 20년 후 핫한 곳. 홍대 앞 = 당인리 발전소 천연가스 전환. <span class="p">(p.97–100)</span></li>
+    <li><span class="star">★</span> 깨진 유리창의 법칙: 스탠포드 <b>필립 짐바르도</b>, 유리창 깬 차는 10분 만에 배터리 도난, 일주일 후 폐차 상태. 할렘은 원래 부유한 유태인 동네. <span class="p">(p.100–102)</span></li>
+    <li><span class="star">★</span> 도시를 바꾼 발명품 = <b>냉장고</b>(GE 광고) + 고속도로·자동차 → 교외 주택(달걀 프라이처럼 퍼진 도시), 유태인은 뉴저지·롱아일랜드로. <span class="p">(p.102–104)</span></li>
+    <li><span class="star">★</span> 할렘 건물을 <b>한 채당 1달러에 100년 임대</b>, 블록 단위 개발, 철제 비상계단 제거. <span class="star">★</span> 비밀 무기 = <b>스타벅스 + 반스앤드노블</b>. 빛과 그림자: 저소득층이 쫓겨남. <span class="p">(p.104–107)</span></li>
+    <li><span class="star">★</span> <span class="term">도시 재생</span>: 재개발(환골탈태)과 달리 하드웨어 유지 + 소프트웨어(용도) 변경. 북촌 = 일제강점기 모듈화된 도심형 한옥, 2000년대 보존지구 → 게스트하우스·공방. <span class="p">(p.107–109)</span></li>
+    <li><span class="star">★</span> <b>하이라인 공원</b>: 버려진 고가 철도, 두 명의 시민이 보존. 2층 높이라 차가 안 보이고 하늘에 가까움. 단, 고가도로는 지상층을 죽이는 괴물 → 서울역 고가 공원화는 시너지 기대 어려움. <span class="p">(p.110–112)</span></li>
+    <li>뉴욕 격자: 블록 가로 250 × 세로 60미터. <span class="star">★</span> 스트리트 한 블록 <b>약 3분 45초</b>, 에버뉴 약 1분 → 에버뉴가 인기(피프스·파크 에버뉴). 코리아타운 32번가 = 격리된 장소성. <span class="p">(p.112–114)</span></li>
+    <li>남대문 복원 논란: 가치는 오래된 나무가 아니라 그 <b>생각(소프트웨어)</b>. 만리장성도 명나라 때 개축. <span class="star">★</span> <b>오르세 미술관</b>(기차역), 루브르(요새 → 왕궁 → 박물관, 미테랑의 유리 피라미드). <span class="p">(p.115–119)</span></li>
+  </ul>
+</section>
+<section class="chapter">
+  <div class="chap-head"><h2>5장 · 강남은 어떻게 살아왔는가</h2><span>p.123–139</span></div>
+  <div class="claim"><b>핵심</b> — 도시는 설계자의 의도를 넘어 스스로 진화하는 유기체다. 도시의 진화는 생물의 진화와 닮았다. 다만 에너지 관점에서 현대 도시는 아직 원시적이다.</div>
+  <ul class="items">
+    <li>강남역 뒷골목 = 20대의 욕망(성형외과·유학원·모텔). 격자 도로망 + 학군제·베이비 붐·핵가족화·부동산 정책 → 자연 발생 생태계. <span class="p">(p.123–126)</span></li>
+    <li>기계 = 닫힌 시스템, 생명 = 열린 시스템. <span class="star">★</span> 2002년 노벨상 MIT <b>호비츠</b>: 세포 자살. 카프라 『생명의 그물』: 스스로 만들어지는 네트워크. 로저 르윈: 과거 경험은 DNA의 유전 메시지. <span class="p">(p.125–128)</span></li>
+    <li>진화 순서: 순환계 → 단순 신경계 → 척추 신경계. <span class="star">★</span> <b>로마</b> = 상수도(<b>아퀴덕트</b>, 1000분의 1 기울기, 카라칼라 목욕탕, SPQR) / <span class="star">★</span> <b>파리</b> = 오스만의 방사형 도로망 + 하수도 + 지하철 / <b>뉴욕</b> = 전화망(척추 신경계). 서울 = 무선인터넷 신경망, 교통 체증은 동맥경화. <span class="p">(p.129–134)</span></li>
+    <li><span class="star">★</span> 에너지 관점에선 아직 고대 도시 수준 → <b>식물성</b> 유기체 특징이 필요, 「매트릭스」 스미스: 바이러스에 가까울지도. <span class="p">(p.134–135)</span></li>
+    <li><span class="star">★</span> 화폐 속 건축가: <b>스위스 프랑 = 르 코르뷔지에, 핀란드 = 알바 알토</b>. 우리 화폐는 왕·정치가·군인, 신사임당(2009, 5만 원권). 스트라스부르 노트르담 대성당 700년. 석공 이야기. <span class="p">(p.135–138)</span></li>
+    <li>강남과 북한: 건축 설계 대학 200곳 이상(미국 50여 곳). 도시화 80퍼센트면 마무리, 우리나라 85퍼센트 → 북한은 한국 건축계의 강남이자 중동. <span class="p">(p.138–139)</span></li>
+  </ul>
+</section>
+<section class="chapter">
+  <div class="chap-head"><h2>6장 · 강북의 도로는 왜 구불구불한가: 포도주 같은 건축</h2><span>p.143–158</span></div>
+  <div class="claim"><b>핵심</b> — 역사의 흔적은 층층이 쌓여 현재 공간을 만든다. 좋은 건축은 땅·프로그램·건축가가 만나 단 하나의 결과를 내는 포도주 같아야 하며, 제한된 조건에서 창의적인 해법을 찾는다.</div>
+  <ul class="items">
+    <li><span class="star">★</span> <span class="term">팰림시스트</span>(복기지): 양피지 위 겹친 글자 → 역사의 흔적이 현재에 영향. <span class="star">★</span> 강북 도로 = 실개천 주거지의 <b>하천이 복개</b>되어 도로. <span class="p">(p.143–144)</span></li>
+    <li>로마: 수도 이전 후 타이버 강 범람, 6미터 퇴적. <span class="star">★</span> <b>나보나 광장 = 도미티아누스 경기장</b>의 모양(말굽형), 베르니니 분수. 콜로세움 돌을 뜯어 가 달걀 모양 광장. 도시 = 여러 장의 트레이싱페이퍼. <span class="p">(p.144–146)</span></li>
+    <li>건축가는 먼저 삶(시나리오)을 디자인. <span class="star">★</span> 좋은 건축물은 소주가 아니라 <b>포도주</b>(종자·토양·기후·사람). 땅은 세상에 하나뿐. <span class="p">(p.147–149)</span></li>
+    <li><span class="star">★</span> <b>시티콥 센터</b>(뉴욕): 알박이 교회 → <b>공중권</b>(남은 층수 권리를 파는 법) 양도, 교회당 새로 지어 줌, 12층 높이까지 비운 지상 광장 → 인센티브. 기둥 네 개가 각 변의 중앙. 튠드 매스 댐퍼(바람 대비 추), 남향 사선 지붕(태양광). 마이클 조던 레이업 비유. <span class="p">(p.149–153)</span></li>
+    <li><span class="star">★</span> <b>베트남 기념관</b>: 전사·실종 <b>58,202명</b>, 예일대 21세 <b>마야 린</b>. V자로 땅을 깎고 검은 돌에 이름, 양 끝은 워싱턴 기념탑·링컨 기념관. 물갈기로 자기 얼굴이 비침. 현상 설계 = 49퍼센트 건축가 + 51퍼센트 심사위원. <span class="p">(p.154–158)</span></li>
+  </ul>
+</section>
+<section class="chapter">
+  <div class="chap-head"><h2>7장 · 교회는 왜 들어가기 어려운가</h2><span>p.161–183</span></div>
+  <div class="claim"><b>핵심</b> — 종교 건축은 예배 방식과 지역 기후·문화에 맞춰 기능적으로 결정되었다. 제사 → 설교, 소수 → 군중으로 바뀌며 공간이 커지고, 빛과 거리감이 신앙관을 반영했다.</div>
+  <ul class="items">
+    <li><span class="star">★</span> 봉은사 vs 충현교회: <b>절 = 미술관, 교회 = 경기장</b>. 절은 단층·처마·마당, 교회는 대형 예배당·광장 없음·주중 문 잠김 → 전도를 중시하는데 더 폐쇄적. 유럽 성당 앞 광장은 돌 쪼던 작업장이었음. <span class="p">(p.161–165)</span></li>
+    <li>모세: 40세까지 이집트 왕자(농경), 40년 양치기(유목). <span class="star">★</span> <b>금송아지</b> 사건(이집트 다산·풍요의 신). <span class="star">★</span> 성막: 마당(물두멍 → 성수 그릇) / 성소(제사장) / <b>지성소</b>(대제사장, 1년에 한 번, 방울과 밧줄). 예수의 죽음 후 휘장이 찢어짐. <span class="p">(p.166–170)</span></li>
+    <li>솔로몬 성전(돌) = 정착의 상징, 통곡의 벽. 바울 = 헬라식 틀로 전파. 신약: 제사 → 설교. 카타콤 → 콘스탄티누스 국교 → <span class="star">★</span> <b>바실리카</b>(법정·상업 거래소) = 성당의 원형 + 판테온의 돔 → 하기아 소피아. <span class="p">(p.171–173)</span></li>
+    <li><span class="star">★</span> <b>플라잉버트레스</b> → 벽에 큰 창 → 스테인드글라스(글 못 읽는 신도의 컬러 TV). 수도원 = 출판사. <span class="p">(p.174–176)</span></li>
+    <li><span class="star">★</span> 평면: 르네상스까지 제단이 멀어 보이게(좁은 변) → <b>롱샹 성당(르 코르뷔지에)</b>은 제단이 넓은 변 쪽 → 하나님이 가깝게. 최근 교회 = 교육 공간, 학교 건물 겸용. <span class="p">(p.176–179)</span></li>
+    <li>불교 사찰: 산골, 개별 수양 → 외부 공간(석가탄신일 조계사). <span class="star">★</span> 이슬람 사원의 원형 = <b>하기아 소피아</b>(미나레트만 추가), 블루 모스크, 아라베스크. <span class="star">★</span> 교회와 이슬람 사원의 가장 큰 차이 = <b>신발</b>을 벗느냐. <span class="p">(p.179–183)</span></li>
+  </ul>
+</section>
+<section class="chapter">
+  <div class="chap-head"><h2>8장 · 우리는 왜 공원이 부족하다고 말할까</h2><span>p.187–202</span></div>
+  <div class="claim"><b>핵심</b> — 우리는 가까이 있던 마당과 골목길을 자동차와 아파트에 팔았다. 녹지는 많지만 주변과 단절되고 경사져 있어 공원이 부족하게 느껴진다. 한강 고수부지는 세계적인 평지 공원이다.</div>
+  <ul class="items">
+    <li><span class="star">★</span> 세계 최초 도심 공원 = 런던 <b>하이드 파크</b>(산업혁명, 런던의 허파) → <span class="star">★</span> <b>옴스테드</b>의 보스턴 코먼 → 센트럴 파크. <span class="p">(p.187–189)</span></li>
+    <li><span class="star">★</span> <b>도로(路)</b> = 이동·자동차 중심 vs 거리(街) = 이벤트·사람 중심. 오스만 파리, 31고가도로. 골목길 = 공동의 거실(북경 잠옷). 마이카 시대에 마당 → 주차장. <span class="p">(p.189–193)</span></li>
+    <li>TV를 많이 보는 이유: 마당은 매일 바뀌는 거실 → 마당이 없으니 TV. <span class="star">★</span> 좁고 긴 <b>발코니 = 한 방향</b>, 정방형 <b>마당 = 쌍방향</b>(수건돌리기). 공간은 기억. 천장: 아파트 2.25미터, 주상복합 2.4미터. <span class="p">(p.193–196)</span></li>
+    <li><span class="star">★</span> 공원이 부족하게 느껴지는 이유 = <b>녹지 주변 상황 + 땅의 기울기</b>. <span class="star">★</span> 서울숲은 강변북로·내부순환도로로 단절, 남산·북한산은 경사 → 앞사람 등만. 용산공원에 기대. <span class="p">(p.196–199)</span></li>
+    <li><span class="star">★</span> 한강: 다리 25개, 한강 폭 750미터(자금성도 들어감), 센 강 135미터·31개 → 총 길이 서울 18,750 vs 파리 4,185 → <b>약 4.5배</b>. 오세훈 요트 구상. 한강 = 비움의 마당. 24시간 수변 공원. <span class="p">(p.199–202)</span></li>
+  </ul>
+</section>
+<section class="chapter">
+  <div class="chap-head"><h2>9장 · 열린 공간과 그 적들: 사무실은 어떻게 만들어지는가</h2><span>p.205–225</span></div>
+  <div class="claim"><b>핵심</b> — 산업화는 사람을 자연과 떼어 시계와 형광등 아래 두었다. 사무실 자리 배치는 권력을 드러내고, 사람들은 프라이버시를 찾아 자동차와 익명성으로 간다. 창의성은 빈둥거림과 적절한 개방에서 나온다.</div>
+  <ul class="items">
+    <li><span class="star">★</span> 릴케 「상상의 전기」: 학교 = <b>감옥</b>. 학교 12 + 대학 4 + 군대 2 = 18년. <span class="p">(p.205–206)</span></li>
+    <li><span class="star">★</span> 토플러 『제3의 물결』: <b>농업 → 산업화 → 정보통신</b>. 기마민족 농담(양궁·야구·골프). 『뇌의 배신』 앤드류 스마트. 농업 = 겨울에 노는 시간 → 문명. <span class="p">(p.207–208)</span></li>
+    <li><span class="star">★</span> 소돔과 고모라 = <b>소금</b> 상업 → 고밀화. 「살인의 추억」 화성. 산업혁명 → 고밀화. <span class="p">(p.209–211)</span></li>
+    <li><span class="star">★</span> 시계탑 <b>빅 벤</b> → 2012년 엘리자베스타워. 코리안 타임(자시·축시 두 시간 단위). <span class="p">(p.211–213)</span></li>
+    <li>자리 배치: 부장님은 창문을 등지고 → 후광, 부하 감시. 「미생」 영업 3팀. <span class="p">(p.213–216)</span></li>
+    <li><span class="star">★</span> 현대 건축 최고의 적 = <b>형광등</b>. <span class="star">★</span> 프랑스 <b>창문세</b>(14세기경, 넓은 창에 세금 → 세로로 긴 창, 베르사유). 동양은 모듈러 선형 배치, 99칸 = 모듈 수. <span class="p">(p.216–219)</span></li>
+    <li><span class="star">★</span> 열린 사무실: 업무 시간의 <b>45퍼센트</b>를 방해받아 다잡는 데 씀. 모니터 벽. 집보다 자동차를 먼저 사는 이유 = 가장 작은 완벽한 사적 공간 + 이동. 익명성 = 도시 전체를 소유. <span class="p">(p.219–224)</span></li>
+    <li><span class="star">★</span> 『뇌의 배신』 <b>디폴트 모드 네트워크</b>: 빈둥거릴 때 창의적. 천장 높은 사무실. 적절한 무질서. <span class="p">(p.224–225)</span></li>
+  </ul>
+</section>
+<section class="chapter">
+  <div class="chap-head"><h2>10장 · 죽은 아파트의 사회 (p.245까지)</h2><span>p.229–245</span></div>
+  <div class="claim"><b>핵심</b> — 욕망과 공간 부족이 카페·방 문화를 낳았고, 두꺼운 아파트 단지는 한강을 막았다. 아파트는 돼지처럼 재산을 저장하는 수단이 되었지만, 시간이 지나면 보존의 대상이 될 수도 있다. 한옥처럼 관계를 살린 평면이 필요하다.</div>
+  <ul class="items">
+    <li>모닥불 → TV(거실)와 가스 불(부엌). 남편은 최소 30분 멍하게 TV. <span class="star">★</span> <b>카페 = 우리의 파트타임 거실</b>, 모텔·노래방·PC방 = 욕망 + 공간 제약의 해결책. <span class="p">(p.229–231)</span></li>
+    <li><span class="star">★</span> 한강 접근을 막는 것 = 모양이 아니라 <b>단지의 두께</b>(300~700미터, 상업가로 관통 X) = 서울의 <b>만리장성</b>. 토지공사가 도로 없이 큰 덩어리로 매각. <span class="star">★</span> 성공 예 = <b>가로수길</b>(한강 접근성, 미성아파트·현대고·토끼 굴, 300미터·5분). <span class="p">(p.231–233)</span></li>
+    <li>아파트와 돼지: 돼지 = 남는 식량을 보존하는 기술(보신탕도), 아파트 = 환금성 높은 저장 수단 → 은퇴 후 처분. 고령화 → 도살을 기다리는 아파트 돼지. <span class="p">(p.234–235)</span></li>
+    <li>재개발 = 새 도화지를 달라고 떼쓰는 아이. 가장 큰 이유 = 오래된 건축물이 없음. 200년 후엔 80년대 콘크리트 아파트가 고풍스러울지도 → 보존의 대상. 30년 된 단지의 나무. <span class="p">(p.235–237)</span></li>
+    <li><span class="star">★</span> 케네디 생가 = <b>30평형대보다 작음</b>, 부엌은 15평형대. 50년간 미국 중산층 집 두 배 → 물건 → 악순환. <span class="p">(p.237–238)</span></li>
+    <li>한옥 = 마당이 거실, 대청마루가 식탁 자리(쓰리베이). 툇마루 = 처마 아래 중간 공간(발코니는 신 신고 + 높은 난간). <span class="star">★</span> 아파트 = <b><span class="term">수목적 관계</span></b>(방끼리 단절), 한옥 = 순환형. 제안: 모든 방이 거실 쪽 창문. 문 = 프라이버시 0, 창문 = 느슨한 관계. <span class="p">(p.239–244)</span></li>
+    <li><span class="star">★</span> 프리츠커상(1979, 하얏트 재단): 한국 0회, 포르투갈 알바로 시자, <b>일본 6회</b>(한일전 6 대 0). 원인 = 아파트. 일본은 주택 수요로 소형 설계사무소 시장. <span class="p">(p.244–245)</span></li>
+  </ul>
+</section>
+<section class="chapter">
+  <div class="chap-head"><h2>14장 · 동과 서: 서로 다른 생각의 기원 (p.325부터)</h2><span>p.325–340</span></div>
+  <div class="claim"><b>핵심</b> — 동양은 관계와 비움, 서양은 절대 가치와 수학·기하학을 중시했다. 이 차이는 정원·종교 건축·집·음식·웹사이트까지 이어진다. 강수량의 차이는 벽의 건축과 지붕의 건축을 낳았다.</div>
+  <ul class="items">
+    <li>유교의 효 = 관계 속 가치(바둑돌), 서양 = 십계명 같은 절대 선. <span class="star">★</span> 노자 <b>『도덕경』</b> 11장 “그릇이 쓰임을 가지는 것은…” → 쓰임은 비움에서. <span class="p">(p.325)</span></li>
+    <li><span class="star">★</span> 교토 <b>료안지(용안사)</b> 선의 정원: 모래 파도 위 돌 15개, 어디서 봐도 14개만 → 일인칭 관점 디자인. 서양 정원 = 직사각형·원·사선. <span class="p">(p.325–327)</span></li>
+    <li>서양의 절대적 가치: 플라톤 이데아·동굴의 비유, 샹그릴라·무릉도원(현세 어딘가). 피타고라스, 플라톤 아카데미 입학 조건 = 수학. <span class="star">★</span> <b>판테온</b> = 평면·단면 모두 원, 하기아 소피아 = 돔 3개가 큰 돔 1개(삼위일체). 1453년 동로마 멸망 → 학자들 이탈리아 → 르네상스. <span class="p">(p.327–330)</span></li>
+    <li><span class="star">★</span> <b>개미집 = 동양(관계, 땅)</b>, <b>벌집 = 서양(기하학, 공중, 육각형 모듈)</b>. 극동아시아 = 유교·현생·충효, 유럽 = 사후 세계·이데아 → 피라미드·황금비율·판테온. <span class="p">(p.331–332)</span></li>
+    <li>空間과 SPACE: space = cosmos(chaos의 반대, 수학적 규칙) → 서양 공간 = “수학적 규칙을 가진 비어 있는 것”, 동양 공간 = 공(空, 비움) + 간(間, 관계). <span class="p">(p.333)</span></li>
+    <li><span class="star">★</span> 한식 밥상(한눈에, 관계, 음식 궁합) vs 코스 요리(선형) → <b>구글 = 코스 요리, 네이버 = 밥상</b>. 복잡한 시대엔 밥상 먹는 사람이 적응 → 우리 미래가 밝은 이유. <span class="p">(p.334–335)</span></li>
+    <li>테이블과 마루: 신 벗고 올라가면 가까워짐(방어를 내려놓음, 냄새 허락) → 접대는 좌식 일식집. 쌀 = 강수량 → 진흙 → 신 벗는 문화. <span class="p">(p.336–337)</span></li>
+    <li>장마와 건축: 유럽 돌 vs 동아시아 나무(석굴암·첨성대만 진품). <span class="star">★</span> 벼 <b>1,000</b> / 밀 <b>800</b>(책 표기 밀리리터), 벼 재배 면적 90퍼센트 아시아. 무른 땅 → 주춧돌 스폿 기초, 급경사 지붕, 긴 처마, 툇마루. <span class="star">★</span> “유럽 건축은 벽, 동양 건축은 <b>지붕</b>.” 세계가 하나의 스타일 → 다양성 위기. <span class="p">(p.337–340)</span></li>
+  </ul>
+</section>
+<section class="chapter">
+  <div class="chap-head"><h2>15장 · 건축이 자연을 대하는 방식</h2><span>p.341–375</span></div>
+  <div class="claim"><b>핵심</b> — 건축이 자연을 대하는 방식은 극복·이용·대화 세 가지다. 가장 성숙한 방식은 자연을 동등한 대화의 상대로 보는 것이다. 옹벽과 울타리, 보이지 않는 벽은 자연과 사람을 가른다. 한국적인 것은 그 시대의 수요·기술·시간이 만든다.</div>
+  <ul class="items">
+    <li><span class="star">★</span> <b>성 베네딕트 채플</b>(스위스, <b>페터 춤토르</b>): 타원형 실린더, 평평한 마루와 경사 대지 사이를 비움 → 음향 공명, “땅의 소리를 들을 수 있는 교회”. <span class="star">★</span> 세 방식: ①극복(아파트 축대) ②이용(경사면 객석) ③<b>동등한 대화의 상대</b>(채플, 정자). <span class="p">(p.343–347)</span></li>
+    <li><span class="star">★</span> 두 주택: <b>글라스 하우스(필립 존슨)</b> = 벽이 모두 유리, 화장실만 원형 벽, 수십 에이커가 자기 땅 / <b>스미요시 주택(안도 다다오)</b> = 중정을 지나야 방 이동, 비 오면 우산, 노출 콘크리트, 주인은 30년간 이사 안 한 “성자”. 안도 = 권투선수 출신, 더우면 더워야. <span class="p">(p.347–350)</span></li>
+    <li><span class="star">★</span> <b>아사히야마 동물원</b>(홋카이도 삿포로 근처): 연 <b>300만 명</b> 이상, 동선을 복잡하게 → 좁은 공간을 넓게, 바다사자 아크릴 튜브, “건축의 승리”. 72억 명, 1950년 24억. <span class="p">(p.350–352)</span></li>
+    <li><span class="star">★</span> <b>잠수교</b>: 한강 다리 31개. 폭격에도 쉽게 잇도록 짧은 교각, 수면에 가장 가까움, <b>장마철 저항을 줄이려 난간 없음</b>, 유람선용 아치, 2층 반포대교. 자연에 져 주는 다리(징검다리). 마포대교 → 여의도 = 서울의 맨해튼. <span class="p">(p.353–355)</span></li>
+    <li>시간의 이름: 입동(24절기) vs 11월 7일, 하버드(카펜터 센터) vs MIT(숫자), 정동진. 지명은 두 글자 한자 → 장소도 인격. 아파트 몇 동 몇 호 → 정체성 상실. <span class="p">(p.355–356)</span></li>
+    <li>옹벽의 역사: 국토 70퍼센트 산지. <span class="star">★</span> 정도전 <b>배산임수</b>. 서울 인구 15세기 초 10만, 구한말 25만(1785년 영국 5만 넘는 도시는 4개). 연탄 → 뒷산이 달동네(난곡동). 달동네 = 휴먼 스케일, 아파트 = 100세대 이상 → 계단식 택지 → 콘크리트 옹벽. 옹벽과 동 → 단절. <span class="p">(p.356–361)</span></li>
+    <li><span class="star">★</span> 보이지 않는 벽: 임대 단지 통학 구역, 행복주택 반대, <b><span class="term">님비</span></b>(Not In My Backyard). 결혼 정보 회사 등급. 경제 성공 원동력 = 신분 사회 철폐. 아메리칸 드림, 피로 사회. <span class="p">(p.361–364)</span></li>
+    <li>울타리: 21세기 = 가장 많은 지주. 자연에는 경계가 없다. <span class="star">★</span> 영국 귀족의 <b>하하(Ha-ha)</b> = 안 보이는 웅덩이 울타리. <span class="p">(p.364–366)</span></li>
+    <li><span class="star">★</span> 한국의 정자: <b>독락당</b> 비교는 불공정(<b>건폐율·용적률 5퍼센트 미만</b>). 정자 = 수백 년 전 룸살롱? → 예(藝)로 도를 닦는 공간. <span class="star">★</span> 일본 <b>다도</b> = 매뉴얼(신사 20년마다 새로, 북동쪽 기둥은 북동풍 맞은 나무) vs 한국 = 임기응변, 휜 서까래, 조선 도공의 찌그러진 찻잔, 프랭크 게리 댄싱 하우스. <span class="p">(p.366–369)</span></li>
+    <li>정자 = 벽 없이 기둥, 주춧돌 = 자연과 땅의 매개, 도가의 무위자연. 현대 = “불도저가 있으니 땅 모양을 바꿀 수 있다.” <span class="p">(p.370–371)</span></li>
+    <li>한국적이란? 한국적 ≠ 조선적. 한옥 = 그 시대의 재료·기술(소달구지, 흙벽 → 처마, 곡선이 더 쉬움, 기와, 좁은 방 폭, 주춧돌, 마당 결혼식). 전통을 만드는 절대 재료 = <b>시간</b>. 유홍준 “호화 주택 허용”. 북촌·강남 뒷골목의 가능성. <span class="p">(p.372–375)</span></li>
+  </ul>
+</section>
+<section class="chapter" style="page-break-before: auto; margin-top: 8mm;">
+  <div class="chap-head"><h2>맺음말</h2><span>p.377–383</span></div>
+  <div class="claim"><b>핵심</b> — 건축은 동굴에서 시작해 복잡한 대도시가 되었다. 강수량·기온·재료가 다양한 건축을 만들었지만 지금은 문화의 다양성이 사라지는 위기다. 그래도 비관하지 않는다. 우리 모두는 일종의 건축주다.</div>
+  <ul class="items">
+    <li>모닥불 = 최초의 난방이자 조명. 농경 → 정착 → 상업 → 도시화. <span class="star">★</span> 다양한 건축의 세 변수 = <b>강수량(지붕 모양)·기온(창문 크기)·건축 재료</b>. <span class="p">(p.377–378)</span></li>
+    <li>범선 → 도자기 무역 → 유럽 정원, 고흐. 하이브리드 문화 = 르네상스(동로마 학자), 갈릴레오. 물감이 너무 섞이면 회색. <span class="p">(p.378–379)</span></li>
+    <li><span class="star">★</span> 반지 디자이너와 자하 하디드(동대문디자인플라자)가 같은 소프트웨어 <b>라이노</b> → 형태 만들기와 구축 순서가 뒤바뀜, 디자인 생태계 파괴. 포스트모더니즘·해체주의. <span class="p">(p.379–380)</span></li>
+    <li>가장 편리·안전·평화로운 시대, 뉴스와 보험회사가 공간을 망침. 런던 석탄 오염 → 석유·내연기관으로 극복. 지금은 과도기(청소년기). <span class="p">(p.380–381)</span></li>
+    <li>학기 말 채점 때 말로 설명 금지 → 건축은 말이 아니라 공간이 말함(알타미라 벽화). 19세기 의학은 과학, 건축은 예술을 택함. 건축 = 예술+과학+경제학·정치학·사회학. 이 책 = 비전공자에게 보내는 편지. 우리 모두는 건축주(2015년 2월). <span class="p">(p.381–383)</span></li>
+  </ul>
+</section>
+<section class="chapter">
+  <div class="chap-head"><h2>시험 직전 ① 헷갈리기 쉬운 짝</h2><span>오답 보기로 자주 나오는 조합</span></div>
+  <table>
+    <tr><th style="width:28%">A</th><th style="width:28%">B</th><th>구별 포인트</th></tr>
+    <tr><td>이벤트 밀도</td><td>공간의 속도</td><td>100미터당 출입구 수(높을수록 좋음) / 면적×속도 평균(시속 4km에 가까울수록 좋음)</td></tr>
+    <tr><td>명동·가로수길 36</td><td>테헤란로 8 · 52.03</td><td>이벤트 밀도 공동 1위 / 이벤트 밀도 꼴찌 · 공간의 속도 가장 빠름</td></tr>
+    <tr><td>방사형 (파리)</td><td>격자형 (뉴욕)</td><td>권력 차등·통제 / 평등·민주적(지루하지만 브로드웨이 대각선)</td></tr>
+    <tr><td>펜트하우스</td><td>옥탑방</td><td>내려다보고 보안 단계 많음 / 보안 취약</td></tr>
+    <tr><td>호텔</td><td>모텔</td><td>큰 창문, 보고 보이기 / 작은 창문, 항상 밤</td></tr>
+    <tr><td>보스턴 코먼</td><td>센트럴 파크</td><td>작고 감시 가능 → 밤에 안전 / 넓어 85퍼센트 사각지대 (둘 다 옴스테드)</td></tr>
+    <tr><td>재개발</td><td>도시 재생</td><td>모두 철거하고 새로 / 하드웨어 유지, 소프트웨어(용도) 변경</td></tr>
+    <tr><td>로마</td><td>파리 · 뉴욕</td><td>상수도(아퀴덕트) / 오스만 도로망·하수도 · 전화망</td></tr>
+    <tr><td>스위스 프랑</td><td>핀란드</td><td>르 코르뷔지에 / 알바 알토</td></tr>
+    <tr><td>나보나 광장</td><td>콜로세움 주변</td><td>도미티아누스 경기장 모양(말굽) / 돌을 뜯어 간 뒤 달걀 모양</td></tr>
+    <tr><td>성소</td><td>지성소</td><td>제사장만 / 대제사장만, 1년에 한 번, 성궤</td></tr>
+    <tr><td>르네상스 성당</td><td>롱샹 성당</td><td>제단이 좁은 변 쪽(멀게) / 넓은 변 쪽(가깝게)</td></tr>
+    <tr><td>도로(路)</td><td>거리(街)</td><td>이동·자동차 중심 / 이벤트·사람 중심</td></tr>
+    <tr><td>발코니</td><td>정방형 마당</td><td>한 방향 / 쌍방향</td></tr>
+    <tr><td>수목적 관계 (아파트)</td><td>순환형 네트워크 (한옥)</td><td>방에 들어가면 단절 / 마당→방→창문→마당</td></tr>
+    <tr><td>문</td><td>창문</td><td>바라보고 들어갈 수 있음, 프라이버시 0 / 바라보되 건너갈 수 없음</td></tr>
+    <tr><td>개미집</td><td>벌집</td><td>동양·관계·땅 / 서양·기하학·공중·육각형</td></tr>
+    <tr><td>구글</td><td>네이버</td><td>코스 요리(미니멀) / 한상 밥상</td></tr>
+    <tr><td>벼 1,000</td><td>밀 800</td><td>동아시아·몬순 / 유럽·서늘함</td></tr>
+    <tr><td>글라스 하우스</td><td>스미요시 주택</td><td>필립 존슨, 유리로 바라봄 / 안도 다다오, 중정으로 몸으로 부딪침</td></tr>
+    <tr><td>성 베네딕트 채플</td><td>아사히야마 동물원</td><td>페터 춤토르, 자연과 대화 / 동선 교합, 연 300만 명</td></tr>
+    <tr><td>일본 다도</td><td>한국 예(藝)</td><td>매뉴얼로 도 / 임기응변, 서예·시·그림·음악으로 도</td></tr>
+  </table>
+</section>
+
+<section class="chapter">
+  <div class="chap-head"><h2>시험 직전 ② 숫자 총정리</h2><span>★ = 앱 출제</span></div>
+  <table>
+    <tr><th style="width:28%">숫자</th><th>내용</th><th style="width:12%">쪽</th></tr>
+    <tr><td>★ 시속 4km / 60km</td><td>걷는 속도 / 자동차 속도</td><td>23</td></tr>
+    <tr><td>★ 2,025 / 1,075</td><td>바르셀로나 / 시카고 코너 수 (4평방킬로미터)</td><td>23</td></tr>
+    <tr><td>4.5초 · 2.5초 · 11초</td><td>쇼윈도 변화 · 명동·가로수길 · 테헤란로</td><td>26–29</td></tr>
+    <tr><td>★ 36 · 34 · 14 · 8</td><td>명동=가로수길 · 홍대 앞 · 강남대로 · 테헤란로 (이벤트 밀도)</td><td>29</td></tr>
+    <tr><td>★ 4.86 · 5.41 · 6.5 · 47.96 · 52.03</td><td>홍대 앞 · 가로수길 · 명동 · 강남대로 · 테헤란로 (Ss)</td><td>40</td></tr>
+    <tr><td>★ 54억 9913만 · 45층</td><td>갤러리아포레 82평</td><td>71</td></tr>
+    <tr><td>★ 1791 · 1975</td><td>벤담 팬옵티콘 · 푸코 『감시와 처벌』</td><td>73</td></tr>
+    <tr><td>★ 85퍼센트</td><td>밤에 감시 없는 센트럴 파크</td><td>83</td></tr>
+    <tr><td>130미터 · 20배</td><td>성 베드로 성당 천장 · 체적</td><td>90</td></tr>
+    <tr><td>★ 10분 · 일주일</td><td>짐바르도 실험: 배터리 도난 · 폐차 상태</td><td>101</td></tr>
+    <tr><td>★ 1달러 · 100년</td><td>할렘 건물 임대 조건</td><td>104</td></tr>
+    <tr><td>★ 250 × 60미터 · 3분 45초 / 1분</td><td>뉴욕 블록 · 스트리트 / 에버뉴</td><td>114</td></tr>
+    <tr><td>★ 2002년</td><td>호비츠 노벨상 (세포 자살)</td><td>125</td></tr>
+    <tr><td>1000분의 1</td><td>아퀴덕트 기울기</td><td>130</td></tr>
+    <tr><td>80 / 85퍼센트</td><td>도시화 마무리 / 우리나라 도시화</td><td>138</td></tr>
+    <tr><td>6미터</td><td>로마 타이버 강 퇴적층</td><td>144</td></tr>
+    <tr><td>★ 58,202명 · 21세</td><td>베트남 전쟁 전사·실종 · 마야 린</td><td>154</td></tr>
+    <tr><td>49 / 51퍼센트</td><td>건축가 / 심사위원</td><td>154</td></tr>
+    <tr><td>★ 25개 · 750미터 / 31개 · 135미터 · 4.5배</td><td>한강 다리·폭 / 센 강 · 다리 총 길이 차이</td><td>199–201</td></tr>
+    <tr><td>2.25 / 2.4미터</td><td>아파트 / 주상복합 천장</td><td>195</td></tr>
+    <tr><td>★ 2012년</td><td>빅 벤 → 엘리자베스타워</td><td>212</td></tr>
+    <tr><td>★ 45퍼센트</td><td>열린 사무실에서 방해받는 시간</td><td>220</td></tr>
+    <tr><td>★ 300~700미터 · 300미터</td><td>두꺼운 아파트 단지 · 가로수길 관통 길이</td><td>231–233</td></tr>
+    <tr><td>★ 30평형대 · 15평형대</td><td>케네디 생가 · 부엌</td><td>238</td></tr>
+    <tr><td>★ 1979 · 0회 · 6회</td><td>프리츠커상 제1회 · 한국 · 일본</td><td>244–245</td></tr>
+    <tr><td>★ 15개 / 14개</td><td>료안지 돌 / 보이는 돌</td><td>325</td></tr>
+    <tr><td>1453년</td><td>동로마 멸망</td><td>330</td></tr>
+    <tr><td>★ 1,000 / 800 · 90퍼센트</td><td>벼 / 밀 강수량 · 아시아 벼 재배 면적</td><td>339</td></tr>
+    <tr><td>★ 300만 명</td><td>아사히야마 동물원 연간 방문객</td><td>350</td></tr>
+    <tr><td>72억 · 24억(1950)</td><td>세계 인구</td><td>352</td></tr>
+    <tr><td>10만 · 25만 · 1000만</td><td>서울 인구 15세기 초 · 구한말 · 현재</td><td>357</td></tr>
+    <tr><td>★ 5퍼센트</td><td>독락당 당시 건폐율·용적률</td><td>366</td></tr>
+    <tr><td>20년</td><td>일본 신사를 새로 짓는 주기</td><td>368</td></tr>
+  </table>
+</section>
+
+<section class="chapter">
+  <div class="chap-head"><h2>시험 직전 ③ 인물 · 건축물 색인</h2><span>이름 → 이 책에서 연결되는 것</span></div>
+  <table>
+    <tr><th style="width:26%">인물</th><th>연결</th></tr>
+    <tr><td>최재천</td><td>추천사, 통섭, 교보문고 문구</td></tr>
+    <tr><td>괴테</td><td>건축은 얼려진 음악</td></tr>
+    <tr><td>김아타</td><td>셔터를 오래 연 「타임스퀘어」</td></tr>
+    <tr><td>르 코르뷔지에</td><td>빛나는 도시, 주택은 기계, 롱샹 성당, 스위스 화폐</td></tr>
+    <tr><td>부르넬레스키</td><td>피렌체 대성당 돔, 인류 최초 특허권</td></tr>
+    <tr><td>제러미 벤담 · 미셸 푸코</td><td>팬옵티콘(1791) · 『감시와 처벌』(1975)</td></tr>
+    <tr><td>옴스테드</td><td>보스턴 코먼, 센트럴 파크</td></tr>
+    <tr><td>필립 짐바르도</td><td>깨진 유리창의 법칙</td></tr>
+    <tr><td>호비츠</td><td>세포 자살, 2002년 노벨상</td></tr>
+    <tr><td>오스만</td><td>파리 방사형 도로망, 하수도</td></tr>
+    <tr><td>알바 알토</td><td>핀란드 화폐</td></tr>
+    <tr><td>마야 린</td><td>베트남 기념관, 21세 예일대생</td></tr>
+    <tr><td>릴케 · 토플러 · 앤드류 스마트</td><td>학교 = 감옥 · 『제3의 물결』 · 『뇌의 배신』 디폴트 모드 네트워크</td></tr>
+    <tr><td>페터 춤토르</td><td>성 베네딕트 채플</td></tr>
+    <tr><td>필립 존슨 · 안도 다다오</td><td>글라스 하우스 · 스미요시 주택</td></tr>
+    <tr><td>정도전 · 유홍준</td><td>배산임수 · 호화 주택 허용 칼럼</td></tr>
+    <tr><td>자하 하디드 · 프랭크 게리</td><td>동대문디자인플라자, 라이노 · 디즈니 콘서트 홀, 댄싱 하우스</td></tr>
+  </table>
+  <table>
+    <tr><th style="width:26%">건축물·장소</th><th>연결</th></tr>
+    <tr><td>록펠러 센터 선큰가든</td><td>여름 레스토랑, 겨울 스케이트장</td></tr>
+    <tr><td>갤러리아포레</td><td>2013년 가장 비싼 아파트</td></tr>
+    <tr><td>자금성</td><td>여러 겹 보안, 좌우 대칭, 수공간</td></tr>
+    <tr><td>하이라인 공원 · 오르세 미술관</td><td>고가 철도 공원 · 기차역 개조</td></tr>
+    <tr><td>나보나 광장</td><td>도미티아누스 경기장</td></tr>
+    <tr><td>시티콥 센터</td><td>공중권, 기둥 네 개, 튠드 매스 댐퍼</td></tr>
+    <tr><td>바실리카 · 하기아 소피아 · 판테온</td><td>성당의 원형 · 이슬람 사원의 원형 · 원의 기하학</td></tr>
+    <tr><td>하이드 파크</td><td>세계 최초 도심 공원</td></tr>
+    <tr><td>빅 벤</td><td>엘리자베스타워(2012)</td></tr>
+    <tr><td>료안지</td><td>돌 15개, 14개만 보임</td></tr>
+    <tr><td>잠수교</td><td>난간 없음, 자연에 양보</td></tr>
+    <tr><td>독락당</td><td>건폐율·용적률 5퍼센트 미만</td></tr>
+  </table>
+  <p class="legend" style="margin-top:6mm">문제풀이 앱: https://zzangii1020.github.io/-goldenbell/ — 책 선택 화면에서 《도시는 무엇으로 사는가》를 고르세요.</p>
+</section>
+</body>
+</html>

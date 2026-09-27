@@ -3,10 +3,12 @@ import * as extinction from './extinction/questions';
 import * as extinctionPages from './extinction/pages';
 import * as plant from './plant/questions';
 import * as plantPages from './plant/pages';
+import * as city from './city/questions';
+import * as cityPages from './city/pages';
 
 export interface Book {
   /** 학습 기록 저장 키에 쓰인다. 바꾸면 기존 기록을 못 불러오므로 바꾸지 말 것 */
-  id: 'extinction' | 'plant';
+  id: 'extinction' | 'plant' | 'city';
   title: string;
   author: string;
   publisher: string;
@@ -43,6 +45,17 @@ export const BOOKS: Book[] = [
     formatSource: plantPages.formatSource,
     studyGuide: 'study-guide-plant.pdf',
     coverage: '책 p.1~320, 1장~13장·맺음말',
+  },
+  {
+    id: 'city',
+    title: '도시는 무엇으로 사는가',
+    author: '유현준',
+    publisher: '을유문화사',
+    tagline: '도시를 보는 열다섯 가지 인문적 시선',
+    questions: city.questions,
+    formatSource: cityPages.formatSource,
+    studyGuide: 'study-guide-city.pdf',
+    coverage: '책 p.11~245와 p.325~383, 11~13장은 PDF에 없어 제외',
   },
 ];
 

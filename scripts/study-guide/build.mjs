@@ -6,6 +6,7 @@ import { chromium } from 'playwright-core';
 const GUIDES = [
   { html: './guide.html', out: 'public/study-guide.pdf', title: '《경험의 멸종》 골든벨 요약 노트' },
   { html: './guide-plant.html', out: 'public/study-guide-plant.pdf', title: '《식물의 사회생활》 골든벨 요약 노트' },
+  { html: './guide-city.html', out: 'public/study-guide-city.pdf', title: '《도시는 무엇으로 사는가》 골든벨 요약 노트' },
 ];
 
 const executablePath = [process.env.CHROMIUM_PATH, '/opt/pw-browsers/chromium-1194/chrome-linux/chrome'].find(

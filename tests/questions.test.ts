@@ -4,6 +4,8 @@ import * as extinction from '../src/data/extinction/questions';
 import * as extinctionPages from '../src/data/extinction/pages';
 import * as plant from '../src/data/plant/questions';
 import * as plantPages from '../src/data/plant/pages';
+import * as city from '../src/data/city/questions';
+import * as cityPages from '../src/data/city/pages';
 import type { Difficulty, Question } from '../src/data/types';
 import { normalizeAnswer } from '../src/lib/grading';
 
@@ -45,14 +47,25 @@ const CASES: Case[] = [
     minPerChapter: (c) =>
       c.startsWith('11장') ? 1 : c === '맺음말' ? 2 : c.startsWith('6장') ? 5 : 7,
   },
+  {
+    name: '도시는 무엇으로 사는가',
+    ...city,
+    toPdfPage: cityPages.toPdfPage,
+    maxBookPage: 383,
+    pdfPages: 357,
+    // 받은 PDF 는 책 p.11~245, p.325~383 뿐이다.
+    skip: () => false,
+    chapters: 14,
+    minPerChapter: (c) => (c === '추천사·머리말' ? 3 : c === '맺음말' ? 2 : 6),
+  },
 ];
 
 describe('책 목록', () => {
-  it('두 권의 책이 있고 id 가 고유하다', () => {
-    expect(BOOKS.map((b) => b.id)).toEqual(['extinction', 'plant']);
+  it('세 권의 책이 있고 id 가 고유하다', () => {
+    expect(BOOKS.map((b) => b.id)).toEqual(['extinction', 'plant', 'city']);
   });
 
-  it('두 책의 문제 id 가 서로 겹치지 않는다', () => {
+  it('책들의 문제 id 가 서로 겹치지 않는다', () => {
     const all = BOOKS.flatMap((b) => b.questions.map((q) => q.id));
     expect(new Set(all).size).toBe(all.length);
   });
@@ -151,6 +164,11 @@ describe('출처 표시', () => {
     expect(plantPages.formatSource(19)).toBe('책 p.19 · PDF p.11 (001-069 파일)');
     expect(plantPages.formatSource(271)).toBe('책 p.271 · PDF p.281 (277-341 파일, 파일 안 5쪽)');
   });
+  it('도시는 무엇으로 사는가: 파일 안 쪽수, 받지 못한 쪽은 책 쪽수만', () => {
+    expect(cityPages.formatSource(29)).toBe('책 p.29 · PDF p.23 (001-075 파일, 파일 안 23쪽)');
+    expect(cityPages.formatSource(343)).toBe('책 p.343 · PDF p.318 (301-357 파일, 파일 안 18쪽)');
+    expect(cityPages.formatSource(300)).toBe('책 p.300');
+  });
 });
 
 describe('쪽수 변환이 PDF 에서 직접 확인한 기준점과 일치한다', () => {
@@ -184,5 +202,31 @@ describe('쪽수 변환이 PDF 에서 직접 확인한 기준점과 일치한다
     expect(p(271)).toBe(281); // 13장
     expect(p(316)).toBe(326); // 맺음말
     expect(p(331)).toBe(341); // 추가 파일 마지막 쪽
+  });
+
+  it('도시는 무엇으로 사는가', () => {
+    const p = cityPages.toPdfPage;
+    expect(p(11)).toBe(8); // 추천사
+    expect(p(13)).toBe(10);
+    expect(p(15)).toBe(11); // 머리말
+    expect(p(18)).toBe(14);
+    expect(p(21)).toBe(15); // 1장
+    expect(p(49)).toBe(42); // 2장
+    expect(p(64)).toBe(57);
+    expect(p(97)).toBe(87); // 4장
+    expect(p(123)).toBe(111); // 5장
+    expect(p(143)).toBe(129); // 6장
+    expect(p(161)).toBe(147); // 7장
+    expect(p(187)).toBe(171); // 8장
+    expect(p(205)).toBe(187); // 9장
+    expect(p(229)).toBe(209); // 10장
+    expect(p(245)).toBe(225); // 151-225 파일 마지막 쪽
+    expect(p(300)).toBe(0); // 받지 못한 부분
+    expect(p(325)).toBe(301); // 301-357 파일 첫 쪽
+    expect(p(341)).toBe(317); // 15장 속표지
+    expect(p(343)).toBe(318);
+    expect(p(375)).toBe(350);
+    expect(p(377)).toBe(351); // 맺음말
+    expect(p(383)).toBe(357); // 마지막 쪽
   });
 });

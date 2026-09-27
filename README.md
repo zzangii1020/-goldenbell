@@ -8,6 +8,7 @@
 |---|---|---|
 | 《경험의 멸종》 크리스틴 로젠 (이영래 옮김, 어크로스) | 객관식 50 + 주관식 50 | 책 p.1~331, 프롤로그~에필로그 |
 | 《식물의 사회생활》 이영숙·최배영 (동아시아) | 객관식 50 + 주관식 50 | 책 p.1~320, 1장~13장·맺음말 |
+| 《도시는 무엇으로 사는가》 유현준 (을유문화사) | 객관식 50 + 주관식 50 | 책 p.11~245, p.325~383 (11~13장은 PDF에 없음) |
 
 학습 기록(오답·즐겨찾기·진도)은 책마다 따로 저장됩니다.
 
@@ -48,8 +49,9 @@ npm run build && npm run test:e2e   # 실제 Chromium 브라우저(아이폰 화
 
 - 경험의 멸종: https://zzangii1020.github.io/-goldenbell/study-guide.pdf
 - 식물의 사회생활: https://zzangii1020.github.io/-goldenbell/study-guide-plant.pdf
+- 도시는 무엇으로 사는가: https://zzangii1020.github.io/-goldenbell/study-guide-city.pdf
 - 각 책 홈 화면의 "📄 요약 노트 PDF" 버튼으로도 열 수 있습니다.
-- 원본: `scripts/study-guide/guide.html`, `guide-plant.html` → `node scripts/study-guide/build.mjs` 로 `public/` 의 PDF를 다시 만듭니다.
+- 원본: `scripts/study-guide/guide.html`, `guide-plant.html`, `guide-city.html` → `node scripts/study-guide/build.mjs` 로 `public/` 의 PDF를 다시 만듭니다.
 
 ## 주요 기능
 
@@ -64,7 +66,7 @@ npm run build && npm run test:e2e   # 실제 Chromium 브라우저(아이폰 화
 
 ## 문제 수정·추가
 
-문제는 책마다 `src/data/extinction/questions.ts`, `src/data/plant/questions.ts` 에 있습니다.
+문제는 책마다 `src/data/extinction/questions.ts`, `src/data/plant/questions.ts`, `src/data/city/questions.ts` 에 있습니다.
 
 ```ts
 {
@@ -101,6 +103,11 @@ PDF p.93~112에 끼어 있는 다른 책(《역사 속의 문화기행》) 20쪽
 남은 문제의 id는 그대로여서 기존 학습 기록이 이어집니다.
 장별 문제 수: 1장 9 · 2장 8 · 3장 8 · 4장 8 · 5장 7 · 6장 5 · 7장 9 · 8장 7 · 9장 7 · 10장 7 · 11장 1 · 12장 9 · 13장 13 · 맺음말 2
 
+### 《도시는 무엇으로 사는가》
+첨부 PDF 4개 파일(001-075, 076-150, 151-225, 301-357)은 책 p.11~245(추천사~10장 중간)와 p.325~383(14장 중간~맺음말)을 담고 있습니다.
+PDF p.226~300(책 p.246~324: 10장 뒷부분, 11장, 12장, 13장, 14장 앞부분)은 받지 못해 출제하지 않았습니다.
+장별 문제 수: 추천사·머리말 3 · 1장 9 · 2장 8 · 3장 9 · 4장 9 · 5장 6 · 6장 7 · 7장 8 · 8장 7 · 9장 8 · 10장 7 · 14장 7 · 15장 10 · 맺음말 2
+
 책 쪽수 → PDF 쪽수 변환표는 `src/data/<책>/pages.ts` 에 있습니다.
 
 ## 구조
@@ -112,13 +119,14 @@ src/
   data/books.ts              책 목록 (제목·문제·출처 변환·요약 노트)
   data/extinction/           경험의 멸종: questions.ts, pages.ts
   data/plant/                식물의 사회생활: questions.ts, pages.ts
+  data/city/                 도시는 무엇으로 사는가: questions.ts, pages.ts
   lib/grading.ts             채점(주관식 정규화)
   lib/progress.ts            학습 기록 모델(오답/정답 확인/즐겨찾기 규칙)
   lib/session.ts             풀이 세션(모드별 문제 목록, 랜덤)
   lib/storage.ts             localStorage 입출력 (책별 키)
   components/                BookSelect, Home, Quiz, QuestionCard, MultipleChoiceQuestion,
                              ShortAnswerQuestion, AnswerFeedback, JumpSheet, Result, Progress
-tests/                       단위 테스트 (두 책 모두)
-scripts/e2e.mjs              브라우저 E2E 테스트 (두 책 200문제 전체 풀이 포함)
+tests/                       단위 테스트 (세 책 모두)
+scripts/e2e.mjs              브라우저 E2E 테스트 (세 책 300문제 전체 풀이 포함)
 scripts/study-guide/         요약 노트 원본 HTML과 PDF 생성 스크립트
 ```
