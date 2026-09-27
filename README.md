@@ -1,9 +1,15 @@
 # -goldenbell
 
-## 《경험의 멸종》 독서 골든벨 문제풀이 앱
+## 독서 골든벨 문제풀이 앱
 
-크리스틴 로젠 《경험의 멸종》(이영래 옮김, 어크로스) 독서 골든벨 대비용 웹앱입니다.
-객관식 50문제 + 주관식 50문제, 총 100문제입니다.
+독서 골든벨 대비용 웹앱입니다. 앱을 열면 책을 고르는 화면이 먼저 나옵니다.
+
+| 책 | 문제 | 출제 범위 |
+|---|---|---|
+| 《경험의 멸종》 크리스틴 로젠 (이영래 옮김, 어크로스) | 객관식 50 + 주관식 50 | 책 p.1~331, 프롤로그~에필로그 |
+| 《식물의 사회생활》 이영숙·최배영 (동아시아) | 객관식 50 + 주관식 50 | 책 p.1~266, 1장~12장 중간 |
+
+학습 기록(오답·즐겨찾기·진도)은 책마다 따로 저장됩니다.
 
 ## 실행 방법
 
@@ -40,8 +46,10 @@ npm run build && npm run test:e2e   # 실제 Chromium 브라우저(아이폰 화
 
 ## 요약 노트 PDF
 
-- 사이트: https://zzangii1020.github.io/-goldenbell/study-guide.pdf (홈 화면의 "📄 요약 노트 PDF" 버튼)
-- 원본: `scripts/study-guide/guide.html` → `node scripts/study-guide/build.mjs` 로 `public/study-guide.pdf` 를 다시 만듭니다.
+- 경험의 멸종: https://zzangii1020.github.io/-goldenbell/study-guide.pdf
+- 식물의 사회생활: https://zzangii1020.github.io/-goldenbell/study-guide-plant.pdf
+- 각 책 홈 화면의 "📄 요약 노트 PDF" 버튼으로도 열 수 있습니다.
+- 원본: `scripts/study-guide/guide.html`, `guide-plant.html` → `node scripts/study-guide/build.mjs` 로 `public/` 의 PDF를 다시 만듭니다.
 
 ## 주요 기능
 
@@ -56,7 +64,7 @@ npm run build && npm run test:e2e   # 실제 Chromium 브라우저(아이폰 화
 
 ## 문제 수정·추가
 
-문제는 `src/data/questions.ts` 한 파일에 있습니다.
+문제는 책마다 `src/data/extinction/questions.ts`, `src/data/plant/questions.ts` 에 있습니다.
 
 ```ts
 {
@@ -80,25 +88,34 @@ npm run build && npm run test:e2e   # 실제 Chromium 브라우저(아이폰 화
 
 ## 출제 범위
 
-첨부 PDF(촬영본 4개 파일 001-220 + 추가 zip 221-317, 총 317쪽)는 책 전체(프롤로그~7장·에필로그,
-p.1~334)를 담고 있으며, PDF에서 빠진 5장 p.209~213은 별도 사진으로 받아 반영했습니다. 모든 문제는 이 범위의 실제 내용만으로
-출제했습니다(감사의 말과 6장의 성인 내용 부분은 출제 제외).
-
+### 《경험의 멸종》
+첨부 PDF(촬영본 4개 파일 001-220 + 추가 zip 221-317, 총 317쪽)는 책 전체(p.1~334)를 담고 있으며, PDF에서 빠진 5장 p.209~213은
+별도 사진으로 받아 반영했습니다(감사의 말과 6장의 성인 내용 부분은 출제 제외).
 장별 문제 수: 프롤로그 9 · 1장 12 · 2장 13 · 3장 12 · 4장 12 · 5장 13 · 6장 14 · 7장 10 · 에필로그 5
-책 쪽수 → PDF 쪽수 변환표는 `src/data/pages.ts` 에 있습니다.
+
+### 《식물의 사회생활》
+첨부 PDF(촬영본 4개 파일, 총 276쪽)는 책 p.1~266(1장~12장 중간)을 담고 있습니다. 13장과 맺음말은 PDF에 없어 출제하지 않았고,
+PDF p.93~112에 끼어 있는 다른 책(《역사 속의 문화기행》) 20쪽은 제외했습니다.
+장별 문제 수: 1장 11 · 2장 10 · 3장 8 · 4장 12 · 5장 9 · 6장 5 · 7장 14 · 8장 7 · 9장 8 · 10장 7 · 11장 1 · 12장 8
+
+책 쪽수 → PDF 쪽수 변환표는 `src/data/<책>/pages.ts` 에 있습니다.
 
 ## 구조
 
 ```
 src/
-  data/questions.ts     문제 100개
-  data/pages.ts         책 쪽수 → PDF 쪽수 변환
-  lib/grading.ts        채점(주관식 정규화)
-  lib/progress.ts       학습 기록 모델(오답/정답 확인/즐겨찾기 규칙)
-  lib/session.ts        풀이 세션(모드별 문제 목록, 랜덤)
-  lib/storage.ts        localStorage 입출력
-  components/           Home, Quiz, QuestionCard, MultipleChoiceQuestion,
-                        ShortAnswerQuestion, AnswerFeedback, JumpSheet, Result, Progress
-tests/                  단위 테스트
-scripts/e2e.mjs         브라우저 E2E 테스트
+  App.tsx                    책 선택 ↔ 책별 앱 전환
+  BookApp.tsx                한 권의 문제풀이 앱 (홈·풀이·결과·학습 현황)
+  data/books.ts              책 목록 (제목·문제·출처 변환·요약 노트)
+  data/extinction/           경험의 멸종: questions.ts, pages.ts
+  data/plant/                식물의 사회생활: questions.ts, pages.ts
+  lib/grading.ts             채점(주관식 정규화)
+  lib/progress.ts            학습 기록 모델(오답/정답 확인/즐겨찾기 규칙)
+  lib/session.ts             풀이 세션(모드별 문제 목록, 랜덤)
+  lib/storage.ts             localStorage 입출력 (책별 키)
+  components/                BookSelect, Home, Quiz, QuestionCard, MultipleChoiceQuestion,
+                             ShortAnswerQuestion, AnswerFeedback, JumpSheet, Result, Progress
+tests/                       단위 테스트 (두 책 모두)
+scripts/e2e.mjs              브라우저 E2E 테스트 (두 책 200문제 전체 풀이 포함)
+scripts/study-guide/         요약 노트 원본 HTML과 PDF 생성 스크립트
 ```

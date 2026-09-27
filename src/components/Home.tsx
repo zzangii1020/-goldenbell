@@ -1,4 +1,5 @@
 import type { Question } from '../data/types';
+import { useBook } from '../lib/bookContext';
 import { favoriteIds, wrongIds, type OrderMode, type StudyState } from '../lib/progress';
 import { MODE_LABEL, sessionSummary, type QuizMode, type SessionState } from '../lib/session';
 
@@ -12,6 +13,7 @@ interface Props {
   onResume: () => void;
   onProgress: () => void;
   onOrderChange: (order: OrderMode) => void;
+  onChangeBook: () => void;
 }
 
 export default function Home({
@@ -24,7 +26,9 @@ export default function Home({
   onResume,
   onProgress,
   onOrderChange,
+  onChangeBook,
 }: Props) {
+  const book = useBook();
   const allIds = questions.map((q) => q.id);
   const multipleCount = questions.filter((q) => q.type === 'multiple').length;
   const shortCount = questions.length - multipleCount;
@@ -34,10 +38,15 @@ export default function Home({
 
   return (
     <main className="page home">
+      <button type="button" className="icon-btn back book-switch" onClick={onChangeBook}>
+        ‹ 책 선택
+      </button>
       <header className="home-header">
         <p className="eyebrow">독서 골든벨 대비</p>
-        <h1>《경험의 멸종》</h1>
-        <p className="subtitle">크리스틴 로젠 · 문제풀이 100</p>
+        <h1>《{book.title}》</h1>
+        <p className="subtitle">
+          {book.author} · 문제풀이 {questions.length}
+        </p>
       </header>
 
       <section className="stat-grid" aria-label="문제 현황">
@@ -115,13 +124,13 @@ export default function Home({
         <button type="button" className="btn btn-lg btn-ghost" onClick={onProgress}>
           학습 현황
         </button>
-        <a className="btn btn-lg btn-ghost" href={`${import.meta.env.BASE_URL}study-guide.pdf`} target="_blank" rel="noopener">
+        <a className="btn btn-lg btn-ghost" href={`${import.meta.env.BASE_URL}${book.studyGuide}`} target="_blank" rel="noopener">
           📄 요약 노트 PDF <small>문제 풀기 전에 먼저 읽어보세요</small>
         </a>
       </nav>
 
       <footer className="home-footer">
-        문제는 첨부된 《경험의 멸종》 PDF(책 p.1~331, 프롤로그~에필로그)의 내용만으로 출제되었습니다.
+        문제는 첨부된 《{book.title}》 PDF({book.coverage})의 내용만으로 출제되었습니다.
         <br />
         학습 기록은 이 기기의 브라우저에 자동 저장됩니다.
       </footer>

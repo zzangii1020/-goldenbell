@@ -1,4 +1,4 @@
-import type { Category, Question } from './types';
+import type { Question } from '../types';
 
 /**
  * 《경험의 멸종》(크리스틴 로젠 지음, 이영래 옮김, 어크로스) 골든벨 대비 문제
@@ -8,15 +8,15 @@ import type { Category, Question } from './types';
  * - 문제를 추가할 때는 id 를 새로 만들고(기존 id 는 바꾸지 말 것), `npm test` 로 형식을 검사한다.
  */
 
-const P: Category = '프롤로그';
-const C1: Category = '1장 직접 경험의 내리막';
-const C2: Category = '2장 대면 상호작용의 필요성';
-const C3: Category = '3장 손으로 써야만 배울 수 있는 것';
-const C4: Category = '4장 기다림과 지루함의 기능';
-const C5: Category = '5장 감정 길들이기';
-const C6: Category = '6장 기술로 매개된 쾌락';
-const C7: Category = '7장 소멸하는 장소, 개인화된 공간';
-const EP: Category = '에필로그';
+const P = '프롤로그';
+const C1 = '1장 직접 경험의 내리막';
+const C2 = '2장 대면 상호작용의 필요성';
+const C3 = '3장 손으로 써야만 배울 수 있는 것';
+const C4 = '4장 기다림과 지루함의 기능';
+const C5 = '5장 감정 길들이기';
+const C6 = '6장 기술로 매개된 쾌락';
+const C7 = '7장 소멸하는 장소, 개인화된 공간';
+const EP = '에필로그';
 
 export const multipleQuestions: Question[] = [
   // ───────────── 프롤로그 ─────────────

@@ -1,5 +1,5 @@
 import type { Question } from '../data/types';
-import { formatSource } from '../data/pages';
+import { useBook } from '../lib/bookContext';
 import { CIRCLED } from '../lib/labels';
 import type { SessionAnswer } from '../lib/session';
 
@@ -11,6 +11,7 @@ interface Props {
 }
 
 export default function AnswerFeedback({ question: q, sessionAnswer, order }: Props) {
+  const { formatSource } = useBook();
   const { result, answer } = sessionAnswer;
 
   const status =

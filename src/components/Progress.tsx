@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import type { Category, Question } from '../data/types';
-import { formatSource } from '../data/pages';
+import type { Question } from '../data/types';
+import { useBook } from '../lib/bookContext';
 import { formatTime } from '../lib/labels';
 import { favoriteIds, wrongIds, type StudyState } from '../lib/progress';
 
@@ -14,6 +14,7 @@ interface Props {
 const RESULT_LABEL = { correct: '맞음', wrong: '틀림', revealed: '정답 확인' } as const;
 
 export default function Progress({ state, questions, onBack, onReset }: Props) {
+  const { formatSource } = useBook();
   const [confirming, setConfirming] = useState(false);
   const allIds = questions.map((q) => q.id);
   const byId = new Map(questions.map((q) => [q.id, q]));
@@ -42,7 +43,7 @@ export default function Progress({ state, questions, onBack, onReset }: Props) {
   const favCount = favoriteIds(state, allIds).length;
   const everWrong = allIds.filter((id) => state.records[id]?.everWrong).length;
 
-  const categories = Array.from(new Set(questions.map((q) => q.category))) as Category[];
+  const categories = Array.from(new Set(questions.map((q) => q.category)));
 
   return (
     <main className="page progress-page">

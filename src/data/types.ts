@@ -9,23 +9,15 @@ export type QuestionType = 'multiple' | 'short';
  */
 export type Difficulty = 'basic' | 'detail' | 'tricky' | 'hard';
 
-export type Category =
-  | '프롤로그'
-  | '1장 직접 경험의 내리막'
-  | '2장 대면 상호작용의 필요성'
-  | '3장 손으로 써야만 배울 수 있는 것'
-  | '4장 기다림과 지루함의 기능'
-  | '5장 감정 길들이기'
-  | '6장 기술로 매개된 쾌락'
-  | '7장 소멸하는 장소, 개인화된 공간'
-  | '에필로그';
+/** 장(章) 이름. 책마다 다르므로 문자열로 둔다. */
+export type Category = string;
 
 interface BaseQuestion {
   /** 고유 ID. 한 번 정한 뒤에는 바꾸지 말 것 (학습 기록이 ID 기준으로 저장됨) */
   id: string;
   question: string;
   explanation: string;
-  /** 책(인쇄본) 쪽수. PDF 쪽수는 src/data/pages.ts 에서 자동 계산 */
+  /** 책(인쇄본) 쪽수. PDF 쪽수는 src/data/<책>/pages.ts 에서 자동 계산 */
   sourcePage: number;
   difficulty: Difficulty;
   category: Category;

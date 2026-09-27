@@ -21,7 +21,7 @@ export default class ErrorBoundary extends Component<{ children: ReactNode }, St
 
   private goHome = () => {
     try {
-      window.localStorage.removeItem('goldenbell.extinction.v1.session');
+      for (const k of Object.keys(window.localStorage)) if (k.endsWith('.v1.session')) window.localStorage.removeItem(k);
     } catch {
       // 저장소를 쓸 수 없어도 새로고침은 한다
     }
@@ -30,8 +30,7 @@ export default class ErrorBoundary extends Component<{ children: ReactNode }, St
 
   private resetAll = () => {
     try {
-      window.localStorage.removeItem('goldenbell.extinction.v1.session');
-      window.localStorage.removeItem('goldenbell.extinction.v1.state');
+      for (const k of Object.keys(window.localStorage)) if (k.startsWith('goldenbell.')) window.localStorage.removeItem(k);
     } catch {
       // 무시
     }

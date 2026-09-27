@@ -6,9 +6,13 @@ import { existsSync, mkdirSync } from 'node:fs';
 import { chromium } from 'playwright-core';
 import { build } from 'esbuild';
 
-// 실제 문제 데이터(src/data/questions.ts)를 불러와 전체 문제 풀이에 사용한다.
-const bundled = await build({ entryPoints: ['src/data/questions.ts'], bundle: true, write: false, format: 'esm' });
-const { questions } = await import('data:text/javascript;base64,' + Buffer.from(bundled.outputFiles[0].text).toString('base64'));
+// 실제 문제 데이터를 불러와 전체 문제 풀이에 사용한다.
+const loadData = async (entry) => {
+  const out = await build({ entryPoints: [entry], bundle: true, write: false, format: 'esm' });
+  return import('data:text/javascript;base64,' + Buffer.from(out.outputFiles[0].text).toString('base64'));
+};
+const { questions } = await loadData('src/data/extinction/questions.ts');
+const { questions: plantQuestions } = await loadData('src/data/plant/questions.ts');
 
 const PORT = 4179;
 const URL = `http://127.0.0.1:${PORT}/-goldenbell/`;
@@ -62,13 +66,29 @@ const errors = [];
 page.on('pageerror', (e) => errors.push(String(e)));
 page.on('console', (m) => m.type() === 'error' && errors.push(m.text()));
 
+const checkGuide = async (file) => {
+  const href = await page.getByRole('link', { name: /요약 노트 PDF/ }).getAttribute('href');
+  const res = await page.request.get(new globalThis.URL(href, URL).href);
+  check(href.endsWith(file) && res.ok() && (res.headers()['content-type'] || '').includes('pdf'), `요약 노트 PDF 링크 동작 (${href})`);
+};
+
 const statValue = (label) =>
   page.locator('.stat', { has: page.locator('.stat-label', { hasText: new RegExp(`^${label}$`) }) }).locator('.stat-value').innerText();
 
 try {
   await page.goto(URL);
-  await page.evaluate(() => localStorage.clear());
+  await page.evaluate(() => {
+    localStorage.clear();
+    sessionStorage.clear();
+  });
   await page.reload();
+
+  // 0. 첫 화면: 책 선택
+  check(await page.getByRole('heading', { name: '어떤 책을 공부할까요?' }).isVisible(), '첫 화면: 책 선택');
+  check((await page.locator('.book-card').count()) === 2, '책 선택: 2권');
+  await page.screenshot({ path: `${SHOTS}/00-book-select.png`, fullPage: true });
+  await page.locator('.book-card', { hasText: '경험의 멸종' }).click();
+  check(await page.getByRole('heading', { name: '《경험의 멸종》' }).isVisible(), '경험의 멸종 선택 → 홈');
 
   // 1. 홈 화면
   check((await statValue('전체 문제')) === '100', '홈: 전체 문제 100');
@@ -260,11 +280,55 @@ try {
   check((await page.locator('.quiz-count').innerText()).startsWith('1 / 3'), '틀린 문제 다시 풀기: 1 / 3');
 
   // 요약 노트 PDF 링크
-  await page.getByRole('button', { name: '홈으로' }).click().catch(() => {});
   await page.goto(URL);
-  const pdfHref = await page.getByRole('link', { name: /요약 노트 PDF/ }).getAttribute('href');
-  const pdfRes = await page.request.get(new globalThis.URL(pdfHref, URL).href);
-  check(pdfRes.ok() && (pdfRes.headers()['content-type'] || '').includes('pdf'), `요약 노트 PDF 링크 동작 (${pdfHref})`);
+  check(await page.getByRole('heading', { name: '《경험의 멸종》' }).isVisible(), '새로고침해도 보던 책(경험의 멸종)에 머묾');
+  await checkGuide('study-guide.pdf');
+
+  // ───────── 9. 식물의 사회생활 ─────────
+  await page.getByRole('button', { name: '‹ 책 선택' }).click();
+  const extCard = await page.locator('.book-card', { hasText: '경험의 멸종' }).innerText();
+  check(extCard.includes('푼 문제 100 / 100'), '책 선택 화면: 경험의 멸종 진도 100 / 100 표시');
+  await page.locator('.book-card', { hasText: '식물의 사회생활' }).click();
+  check(await page.getByRole('heading', { name: '《식물의 사회생활》' }).isVisible(), '식물의 사회생활 선택 → 홈');
+  check((await statValue('전체 문제')) === '100', '식물: 전체 문제 100');
+  check((await statValue('틀린 문제')) === '0', '식물: 경험의 멸종과 기록이 분리됨 (틀린 문제 0)');
+  await page.screenshot({ path: `${SHOTS}/10-plant-home.png`, fullPage: true });
+  await page.getByRole('radio', { name: '순서대로' }).click();
+  const pMc = plantQuestions.filter((q) => q.type === 'multiple');
+  const pSa = plantQuestions.filter((q) => q.type === 'short');
+  check(pMc.length === 50 && pSa.length === 50, `식물 데이터: 객관식 ${pMc.length} / 주관식 ${pSa.length}`);
+  await page.getByRole('button', { name: /객관식만 풀기/ }).click();
+  await page.screenshot({ path: `${SHOTS}/11-plant-question.png`, fullPage: true });
+  await page.getByRole('button', { name: '홈으로' }).click();
+  const pMcOk = await runAll('multiple', pMc, '객관식만 풀기');
+  check(pMcOk === 50, `식물 객관식 50문제 전부 정답 처리 (${pMcOk}/50)`);
+  await page.getByRole('button', { name: '홈으로' }).click();
+  const pSaOk = await runAll('short', pSa, '주관식만 풀기');
+  check(pSaOk === 50, `식물 주관식 50문제 입력 채점 전부 정답 (${pSaOk}/50)`);
+  await page.getByRole('button', { name: '홈으로' }).click();
+  await page.getByRole('button', { name: /주관식만 풀기/ }).click();
+  await page.getByRole('button', { name: '정답 확인' }).click();
+  check(await page.getByText('정답을 확인했으므로 틀린 문제로 기록했습니다.').isVisible(), '식물: 정답 확인 → 틀린 문제로 기록');
+  check(await page.getByText(/책 p\.19 · PDF p\.11 \(001-069 파일\)/).isVisible(), '식물: 출처에 책/PDF 쪽수 표시');
+  await page.screenshot({ path: `${SHOTS}/12-plant-reveal.png`, fullPage: true });
+  await page.getByRole('button', { name: '홈으로' }).click();
+  await page.reload();
+  check(await page.getByRole('heading', { name: '《식물의 사회생활》' }).isVisible(), '새로고침해도 식물의 사회생활에 머묾');
+  check((await statValue('틀린 문제')) === '1', '식물: 새로고침 후 틀린 문제 1 유지');
+  const keys = await page.evaluate(() => Object.keys(localStorage).filter((k) => k.endsWith('.state')).sort());
+  check(JSON.stringify(keys) === JSON.stringify(['goldenbell.extinction.v1.state', 'goldenbell.plant.v1.state']), `책별 localStorage 저장 (${keys.join(', ')})`);
+  await checkGuide('study-guide-plant.pdf');
+  await page.getByRole('button', { name: '학습 현황' }).click();
+  const pm = await page.locator('.meter-num').allInnerTexts();
+  check(pm[0].startsWith('100 / 100'), `식물 학습 현황: 전체 진행률 ${pm[0]}`);
+  check(await page.getByText('12장 사람들이 만든 지구환경의 변화와 식물').isVisible(), '식물 학습 현황: 장별 진행 표시');
+  await page.getByRole('button', { name: '‹ 홈' }).click();
+
+  // 앱을 새로 열면 책 선택 화면부터
+  const fresh = await context.newPage();
+  await fresh.goto(URL);
+  check(await fresh.getByRole('heading', { name: '어떤 책을 공부할까요?' }).isVisible(), '새 탭으로 열면 책 선택 화면부터 시작');
+  await fresh.close();
 
   // 가로 스크롤 없음
   const overflow = await page.evaluate(() => document.documentElement.scrollWidth > window.innerWidth);

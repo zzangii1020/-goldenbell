@@ -1,8 +1,9 @@
 import { sanitizeState, type StudyState } from './progress';
 import type { SessionState } from './session';
 
-const STATE_KEY = 'goldenbell.extinction.v1.state';
-const SESSION_KEY = 'goldenbell.extinction.v1.session';
+// 책마다 기록을 따로 저장한다. (경험의 멸종은 예전 키를 그대로 써서 기존 기록이 유지된다)
+const stateKey = (bookId: string) => `goldenbell.${bookId}.v1.state`;
+const sessionKey = (bookId: string) => `goldenbell.${bookId}.v1.session`;
 
 function read(key: string): unknown {
   try {
@@ -22,11 +23,11 @@ function write(key: string, value: unknown) {
   }
 }
 
-export const loadState = (): StudyState => sanitizeState(read(STATE_KEY));
-export const saveState = (s: StudyState) => write(STATE_KEY, s);
+export const loadState = (bookId: string): StudyState => sanitizeState(read(stateKey(bookId)));
+export const saveState = (bookId: string, s: StudyState) => write(stateKey(bookId), s);
 
-export const loadSession = (): SessionState | null => {
-  const s = read(SESSION_KEY) as Partial<SessionState> | null;
+export const loadSession = (bookId: string): SessionState | null => {
+  const s = read(sessionKey(bookId)) as Partial<SessionState> | null;
   if (!s || !Array.isArray(s.questionIds) || typeof s.index !== 'number') return null;
   // 이전 형식이거나 손상된 값이어도 앱이 멈추지 않도록 보정
   return {
@@ -40,4 +41,4 @@ export const loadSession = (): SessionState | null => {
     finished: !!s.finished,
   };
 };
-export const saveSession = (s: SessionState | null) => write(SESSION_KEY, s);
+export const saveSession = (bookId: string, s: SessionState | null) => write(sessionKey(bookId), s);

@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
-import { questions } from '../src/data/questions';
+import { questions } from '../src/data/extinction/questions';
+import { questions as plantQuestions } from '../src/data/plant/questions';
 import type { ShortQuestion } from '../src/data/types';
 import { gradeAnswer, gradeShort, normalizeAnswer } from '../src/lib/grading';
 import {
@@ -115,5 +116,25 @@ describe('오답·정답 확인·즐겨찾기 규칙', () => {
   it('손상된 저장값도 안전하게 복구한다', () => {
     expect(sanitizeState('garbage').records).toEqual({});
     expect(sanitizeState({ records: { m01: { attempts: 2 } }, favorites: ['m01', 3] }).favorites).toEqual(['m01']);
+  });
+});
+
+describe('식물의 사회생활 주관식 채점', () => {
+  const p = (id: string) => plantQuestions.find((q) => q.id === id) as ShortQuestion;
+  it('인정 답안과 표기 차이를 허용한다', () => {
+    const check = (id: string, input: string) => expect(gradeShort(p(id), input), `${id}:${input}`).toBe(true);
+    for (const q of plantQuestions) {
+      if (q.type !== 'short') continue;
+      check(q.id, q.answer);
+      check(q.id, ` ${q.answer.toUpperCase()} `);
+      for (const a of q.acceptableAnswers) check(q.id, a);
+    }
+  });
+  it('다른 문제의 정답은 틀린 것으로 처리한다', () => {
+    const shorts = plantQuestions.filter((q): q is ShortQuestion => q.type === 'short');
+    for (let i = 0; i < shorts.length; i++) {
+      const other = shorts[(i + 1) % shorts.length];
+      expect(gradeShort(shorts[i], other.answer), `${shorts[i].id} ← ${other.answer}`).toBe(false);
+    }
   });
 });
