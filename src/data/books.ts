@@ -42,7 +42,7 @@ export const BOOKS: Book[] = [
     questions: plant.questions,
     formatSource: plantPages.formatSource,
     studyGuide: 'study-guide-plant.pdf',
-    coverage: '책 p.1~266, 1장~12장 중간',
+    coverage: '책 p.1~320, 1장~13장·맺음말',
   },
 ];
 

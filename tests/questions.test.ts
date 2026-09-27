@@ -38,11 +38,12 @@ const CASES: Case[] = [
     name: '식물의 사회생활',
     ...plant,
     toPdfPage: plantPages.toPdfPage,
-    maxBookPage: 266,
-    pdfPages: 276,
+    maxBookPage: 320,
+    pdfPages: 341,
     skip: () => false,
-    chapters: 12,
-    minPerChapter: (c) => (c.startsWith('11장') ? 1 : c.startsWith('6장') ? 5 : 7),
+    chapters: 14,
+    minPerChapter: (c) =>
+      c.startsWith('11장') ? 1 : c === '맺음말' ? 2 : c.startsWith('6장') ? 5 : 7,
   },
 ];
 
@@ -145,6 +146,13 @@ for (const c of CASES) {
   });
 }
 
+describe('출처 표시', () => {
+  it('식물의 사회생활: 추가 파일은 파일 안 쪽수도 보여준다', () => {
+    expect(plantPages.formatSource(19)).toBe('책 p.19 · PDF p.11 (001-069 파일)');
+    expect(plantPages.formatSource(271)).toBe('책 p.271 · PDF p.281 (277-341 파일, 파일 안 5쪽)');
+  });
+});
+
 describe('쪽수 변환이 PDF 에서 직접 확인한 기준점과 일치한다', () => {
   it('경험의 멸종', () => {
     const p = extinctionPages.toPdfPage;
@@ -171,6 +179,10 @@ describe('쪽수 변환이 PDF 에서 직접 확인한 기준점과 일치한다
     expect(p(207)).toBe(218);
     expect(p(221)).toBe(231); // 9장
     expect(p(264)).toBe(274);
-    expect(p(266)).toBe(276); // PDF 마지막 쪽
+    expect(p(266)).toBe(276); // 첫 PDF 4개 파일의 마지막 쪽
+    expect(p(267)).toBe(277); // 추가 파일 277-341 첫 쪽
+    expect(p(271)).toBe(281); // 13장
+    expect(p(316)).toBe(326); // 맺음말
+    expect(p(331)).toBe(341); // 추가 파일 마지막 쪽
   });
 });

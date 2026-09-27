@@ -322,6 +322,8 @@ try {
   const pm = await page.locator('.meter-num').allInnerTexts();
   check(pm[0].startsWith('100 / 100'), `식물 학습 현황: 전체 진행률 ${pm[0]}`);
   check(await page.getByText('12장 사람들이 만든 지구환경의 변화와 식물').isVisible(), '식물 학습 현황: 장별 진행 표시');
+  check(await page.getByText('13장 미래의 식물과 사람의 관계').isVisible(), '식물 학습 현황: 13장 표시');
+  check(await page.getByText('맺음말', { exact: true }).isVisible(), '식물 학습 현황: 맺음말 표시');
   await page.getByRole('button', { name: '‹ 홈' }).click();
 
   // 앱을 새로 열면 책 선택 화면부터
