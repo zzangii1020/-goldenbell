@@ -53,9 +53,8 @@ const CASES: Case[] = [
     toPdfPage: cityPages.toPdfPage,
     maxBookPage: 383,
     pdfPages: 357,
-    // 받은 PDF 는 책 p.11~245, p.325~383 뿐이다.
     skip: () => false,
-    chapters: 14,
+    chapters: 17,
     minPerChapter: (c) => (c === '추천사·머리말' ? 3 : c === '맺음말' ? 2 : 6),
   },
 ];
@@ -164,10 +163,11 @@ describe('출처 표시', () => {
     expect(plantPages.formatSource(19)).toBe('책 p.19 · PDF p.11 (001-069 파일)');
     expect(plantPages.formatSource(271)).toBe('책 p.271 · PDF p.281 (277-341 파일, 파일 안 5쪽)');
   });
-  it('도시는 무엇으로 사는가: 파일 안 쪽수, 받지 못한 쪽은 책 쪽수만', () => {
+  it('도시는 무엇으로 사는가: 파일 안 쪽수', () => {
     expect(cityPages.formatSource(29)).toBe('책 p.29 · PDF p.23 (001-075 파일, 파일 안 23쪽)');
     expect(cityPages.formatSource(343)).toBe('책 p.343 · PDF p.318 (301-357 파일, 파일 안 18쪽)');
-    expect(cityPages.formatSource(300)).toBe('책 p.300');
+    expect(cityPages.formatSource(264)).toBe('책 p.264 · PDF p.243 (226-300 zip의 01-40 파일, 파일 안 18쪽)');
+    expect(cityPages.formatSource(308)).toBe('책 p.308 · PDF p.285 (226-300 zip의 41-75 파일, 파일 안 20쪽)');
   });
 });
 
@@ -221,7 +221,15 @@ describe('쪽수 변환이 PDF 에서 직접 확인한 기준점과 일치한다
     expect(p(205)).toBe(187); // 9장
     expect(p(229)).toBe(209); // 10장
     expect(p(245)).toBe(225); // 151-225 파일 마지막 쪽
-    expect(p(300)).toBe(0); // 받지 못한 부분
+    expect(p(246)).toBe(226); // 추가 zip 첫 쪽
+    expect(p(249)).toBe(228); // 11장
+    expect(p(270)).toBe(249);
+    expect(p(273)).toBe(251); // 12장
+    expect(p(294)).toBe(272);
+    expect(p(297)).toBe(274); // 13장
+    expect(p(318)).toBe(295);
+    expect(p(321)).toBe(297); // 14장
+    expect(p(324)).toBe(300); // 추가 zip 마지막 쪽
     expect(p(325)).toBe(301); // 301-357 파일 첫 쪽
     expect(p(341)).toBe(317); // 15장 속표지
     expect(p(343)).toBe(318);

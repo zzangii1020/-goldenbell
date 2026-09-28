@@ -55,7 +55,7 @@ export const BOOKS: Book[] = [
     questions: city.questions,
     formatSource: cityPages.formatSource,
     studyGuide: 'study-guide-city.pdf',
-    coverage: '책 p.11~245와 p.325~383, 11~13장은 PDF에 없어 제외',
+    coverage: '책 p.11~383, 추천사~맺음말',
   },
 ];
 
