@@ -23,6 +23,8 @@ export interface Book {
   formatSource: (bookPage: number) => string;
   /** 요약 노트 PDF (public/ 폴더 기준 파일명) */
   studyGuide: string;
+  /** 주관식 정답표 PDF (public/ 폴더 기준 파일명) */
+  answerSheet: string;
   /** 출제 범위 안내 */
   coverage: string;
 }
@@ -37,6 +39,7 @@ export const BOOKS: Book[] = [
     questions: [...extinction.questions, ...extinctionFromMultiple],
     formatSource: extinctionPages.formatSource,
     studyGuide: 'study-guide.pdf',
+    answerSheet: 'answer-sheet-extinction.pdf',
     coverage: '책 p.1~331, 프롤로그~에필로그',
   },
   {
@@ -48,6 +51,7 @@ export const BOOKS: Book[] = [
     questions: [...plant.questions, ...plantFromMultiple],
     formatSource: plantPages.formatSource,
     studyGuide: 'study-guide-plant.pdf',
+    answerSheet: 'answer-sheet-plant.pdf',
     coverage: '책 p.1~320, 1장~13장·맺음말',
   },
   {
@@ -59,6 +63,7 @@ export const BOOKS: Book[] = [
     questions: [...city.questions, ...cityFromMultiple],
     formatSource: cityPages.formatSource,
     studyGuide: 'study-guide-city.pdf',
+    answerSheet: 'answer-sheet-city.pdf',
     coverage: '책 p.11~383, 추천사~맺음말',
   },
 ];

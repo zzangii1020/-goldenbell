@@ -75,6 +75,9 @@ const checkGuide = async (file) => {
   const href = await page.getByRole('link', { name: /요약 노트 PDF/ }).getAttribute('href');
   const res = await page.request.get(new globalThis.URL(href, URL).href);
   check(href.endsWith(file) && res.ok() && (res.headers()['content-type'] || '').includes('pdf'), `요약 노트 PDF 링크 동작 (${href})`);
+  const sheet = await page.getByRole('link', { name: /주관식 정답표 PDF/ }).getAttribute('href');
+  const sres = await page.request.get(new globalThis.URL(sheet, URL).href);
+  check(/answer-sheet-\w+\.pdf$/.test(sheet) && sres.ok() && (sres.headers()['content-type'] || '').includes('pdf'), `주관식 정답표 PDF 링크 동작 (${sheet})`);
 };
 
 const statValue = (label) =>

@@ -55,6 +55,7 @@ npm run build && npm run test:e2e   # 실제 Chromium 브라우저(아이폰 화
 - 식물의 사회생활: https://zzangii1020.github.io/-goldenbell/study-guide-plant.pdf
 - 도시는 무엇으로 사는가: https://zzangii1020.github.io/-goldenbell/study-guide-city.pdf
 - 각 책 홈 화면의 "📄 요약 노트 PDF" 버튼으로도 열 수 있습니다.
+- 주관식 정답표(정답 열을 가리고 외우는 용도): `answer-sheet-extinction.pdf`, `answer-sheet-plant.pdf`, `answer-sheet-city.pdf` — `node scripts/answer-sheet/build.mjs` 로 문제 데이터에서 바로 만듭니다.
 - 원본: `scripts/study-guide/guide.html`, `guide-plant.html`, `guide-city.html` → `node scripts/study-guide/build.mjs` 로 `public/` 의 PDF를 다시 만듭니다.
 
 ## 주요 기능

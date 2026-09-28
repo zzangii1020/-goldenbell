@@ -133,6 +133,9 @@ export default function Home({
         <a className="btn btn-lg btn-ghost" href={`${import.meta.env.BASE_URL}${book.studyGuide}`} target="_blank" rel="noopener">
           📄 요약 노트 PDF <small>문제 풀기 전에 먼저 읽어보세요</small>
         </a>
+        <a className="btn btn-lg btn-ghost" href={`${import.meta.env.BASE_URL}${book.answerSheet}`} target="_blank" rel="noopener">
+          📝 주관식 정답표 PDF <small>정답 열을 가리고 외우기</small>
+        </a>
       </nav>
 
       <footer className="home-footer">
