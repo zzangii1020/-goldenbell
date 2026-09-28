@@ -8,12 +8,13 @@ import {
   type StudyState,
 } from './progress';
 
-export type QuizMode = 'all' | 'multiple' | 'short' | 'wrong' | 'favorite';
+export type QuizMode = 'all' | 'multiple' | 'short' | 'converted' | 'wrong' | 'favorite';
 
 export const MODE_LABEL: Record<QuizMode, string> = {
   all: '전체 문제',
   multiple: '객관식',
   short: '주관식',
+  converted: '객관식 정답을 주관식으로',
   wrong: '틀린 문제 다시 풀기',
   favorite: '즐겨찾기 문제',
 };
@@ -44,7 +45,9 @@ export function idsForMode(mode: QuizMode, all: Question[], state: StudyState): 
     case 'multiple':
       return all.filter((q) => q.type === 'multiple').map((q) => q.id);
     case 'short':
-      return all.filter((q) => q.type === 'short').map((q) => q.id);
+      return all.filter((q) => q.type === 'short' && !q.fromMultiple).map((q) => q.id);
+    case 'converted':
+      return all.filter((q) => q.type === 'short' && q.fromMultiple).map((q) => q.id);
     case 'wrong':
       return wrongIds(state, allIds);
     case 'favorite':

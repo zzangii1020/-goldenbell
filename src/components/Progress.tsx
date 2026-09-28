@@ -38,7 +38,8 @@ export default function Progress({ state, questions, onBack, onReset }: Props) {
 
   const all = stats(questions);
   const mc = stats(questions.filter((q) => q.type === 'multiple'));
-  const sa = stats(questions.filter((q) => q.type === 'short'));
+  const sa = stats(questions.filter((q) => q.type === 'short' && !q.fromMultiple));
+  const cv = stats(questions.filter((q) => q.type === 'short' && q.fromMultiple));
   const wrongCount = wrongIds(state, allIds).length;
   const favCount = favoriteIds(state, allIds).length;
   const everWrong = allIds.filter((id) => state.records[id]?.everWrong).length;
@@ -58,6 +59,7 @@ export default function Progress({ state, questions, onBack, onReset }: Props) {
         <Meter label="전체 진행률" value={all.solved} total={all.total} />
         <Meter label="객관식" value={mc.solved} total={mc.total} />
         <Meter label="주관식" value={sa.solved} total={sa.total} />
+        {cv.total > 0 && <Meter label="객관식 정답을 주관식으로" value={cv.solved} total={cv.total} />}
       </section>
 
       <section className="stat-grid">
@@ -73,6 +75,7 @@ export default function Progress({ state, questions, onBack, onReset }: Props) {
         <Rate label="전체" s={all} />
         <Rate label="객관식" s={mc} />
         <Rate label="주관식" s={sa} />
+        {cv.total > 0 && <Rate label="객관식 정답을 주관식으로" s={cv} />}
         <p className="muted small">정답률 = 맞힌 횟수 ÷ 전체 풀이 횟수 (정답 확인은 틀린 것으로 계산)</p>
       </section>
 
@@ -100,7 +103,7 @@ export default function Progress({ state, questions, onBack, onReset }: Props) {
                   </span>
                   <span className="history-q">{q.question}</span>
                   <span className="history-meta">
-                    {formatTime(h.at)} · {q.type === 'multiple' ? '객관식' : '주관식'} · {formatSource(q.sourcePage).split(' · ')[0]}
+                    {formatTime(h.at)} · {q.type === 'multiple' ? '객관식' : q.fromMultiple ? '객관식 정답 주관식' : '주관식'} · {formatSource(q.sourcePage).split(' · ')[0]}
                   </span>
                 </li>
               );

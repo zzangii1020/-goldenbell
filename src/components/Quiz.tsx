@@ -33,9 +33,9 @@ export default function Quiz({
   const answeredCount = Object.keys(session.answers).length;
   const isLast = index === total - 1;
   const isFav = state.favorites.includes(q.id);
-  const typeLabel = q.type === 'multiple' ? '객관식' : '주관식';
+  const typeLabel = q.type === 'multiple' ? '객관식' : q.fromMultiple ? '주관식 · 객관식 정답' : '주관식';
   const modeLabel =
-    session.mode === 'all' || session.mode === 'multiple' || session.mode === 'short'
+    session.mode === 'all' || session.mode === 'multiple' || session.mode === 'short' || session.mode === 'converted'
       ? typeLabel
       : `${MODE_LABEL[session.mode]} · ${typeLabel}`;
 

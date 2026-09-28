@@ -14,6 +14,10 @@ const loadData = async (entry) => {
 const { questions } = await loadData('src/data/extinction/questions.ts');
 const { questions: plantQuestions } = await loadData('src/data/plant/questions.ts');
 const { questions: cityQuestions } = await loadData('src/data/city/questions.ts');
+const { fromMultiple: extConv } = await loadData('src/data/extinction/fromMultiple.ts');
+const { fromMultiple: plantConv } = await loadData('src/data/plant/fromMultiple.ts');
+const { fromMultiple: cityConv } = await loadData('src/data/city/fromMultiple.ts');
+const CONV_LABEL = '객관식 정답을 주관식으로 풀기';
 
 const PORT = 4179;
 const URL = `http://127.0.0.1:${PORT}/-goldenbell/`;
@@ -92,7 +96,7 @@ try {
   check(await page.getByRole('heading', { name: '《경험의 멸종》' }).isVisible(), '경험의 멸종 선택 → 홈');
 
   // 1. 홈 화면
-  check((await statValue('전체 문제')) === '100', '홈: 전체 문제 100');
+  check((await statValue('전체 문제')) === '150', '홈: 전체 문제 150');
   check((await statValue('객관식')) === '50', '홈: 객관식 50');
   check((await statValue('주관식')) === '50', '홈: 주관식 50');
   check((await statValue('틀린 문제')) === '0', '홈: 틀린 문제 0');
@@ -197,7 +201,7 @@ try {
   // 6. 학습 현황
   await page.getByRole('button', { name: '학습 현황' }).click();
   const meters = await page.locator('.meter-num').allInnerTexts();
-  check(meters[0].startsWith('5 / 100'), `학습 현황: 전체 진행률 5 / 100 (${meters[0]})`);
+  check(meters[0].startsWith('5 / 150'), `학습 현황: 전체 진행률 5 / 150 (${meters[0]})`);
   check(meters[1].startsWith('3 / 50'), `학습 현황: 객관식 3 / 50 (${meters[1]})`);
   check(meters[2].startsWith('2 / 50'), `학습 현황: 주관식 2 / 50 (${meters[2]})`);
   check((await statValue('한 번이라도 틀린 문제')) === '3', '학습 현황: 한 번이라도 틀린 문제 3 (m02·m03·s02)');
@@ -210,7 +214,7 @@ try {
   await page.getByRole('button', { name: '‹ 홈' }).click();
   await page.getByRole('radio', { name: '랜덤' }).click();
   await page.getByRole('button', { name: /전체 문제 풀기/ }).click();
-  check((await page.locator('.quiz-count').innerText()).startsWith('1 / 100'), '전체 모드: 1 / 100');
+  check((await page.locator('.quiz-count').innerText()).startsWith('1 / 150'), '전체 모드: 1 / 150');
 
 
   // ───────── 8. 전체 100문제 실제 풀이 (객관식 50 + 주관식 50) ─────────
@@ -252,6 +256,10 @@ try {
   const saOk = await runAll('short', saList, '주관식만 풀기');
   check(saOk === 50, `주관식 50문제 입력 채점 전부 정답 (${saOk}/50)`);
   await page.getByRole('button', { name: '홈으로' }).click();
+  check(extConv.length === 50, `데이터: 객관식 정답을 주관식으로 ${extConv.length}`);
+  const cvOk = await runAll('short', extConv, CONV_LABEL);
+  check(cvOk === 50, `객관식 정답을 주관식으로 50문제 입력 채점 전부 정답 (${cvOk}/50)`);
+  await page.getByRole('button', { name: '홈으로' }).click();
 
   // 오답 입력 채점: 주관식 오답 3개 + 정답 확인 2개
   await page.getByRole('button', { name: /주관식만 풀기/ }).click();
@@ -271,11 +279,14 @@ try {
   await page.reload();
   await page.getByRole('button', { name: '학습 현황' }).click();
   const m2 = await page.locator('.meter-num').allInnerTexts();
-  check(m2[0].startsWith('100 / 100') && m2[1].startsWith('50 / 50') && m2[2].startsWith('50 / 50'), `새로고침 후 진도율 100/100·50/50·50/50 유지 (${m2.slice(0, 3).join(', ')})`);
-  check((await statValue('맞힌 문제')) === '97', '새로고침 후 맞힌 문제 97 유지');
+  check(
+    m2[0].startsWith('150 / 150') && m2[1].startsWith('50 / 50') && m2[2].startsWith('50 / 50') && m2[3].startsWith('50 / 50'),
+    `새로고침 후 진도율 150/150·50/50·50/50·50/50 유지 (${m2.slice(0, 4).join(', ')})`,
+  );
+  check((await statValue('맞힌 문제')) === '147', '새로고침 후 맞힌 문제 147 유지');
   check((await statValue('안 푼 문제')) === '0', '안 푼 문제 0');
   const stored = await page.evaluate(() => Object.keys(JSON.parse(localStorage.getItem('goldenbell.extinction.v1.state')).records).length);
-  check(stored === 100, `localStorage 에 100문제 기록 저장 (${stored})`);
+  check(stored === 150, `localStorage 에 150문제 기록 저장 (${stored})`);
   await page.getByRole('button', { name: '‹ 홈' }).click();
   await page.getByRole('button', { name: /틀린 문제 다시 풀기/ }).click();
   check((await page.locator('.quiz-count').innerText()).startsWith('1 / 3'), '틀린 문제 다시 풀기: 1 / 3');
@@ -288,10 +299,10 @@ try {
   // ───────── 9. 식물의 사회생활 ─────────
   await page.getByRole('button', { name: '‹ 책 선택' }).click();
   const extCard = await page.locator('.book-card', { hasText: '경험의 멸종' }).innerText();
-  check(extCard.includes('푼 문제 100 / 100'), '책 선택 화면: 경험의 멸종 진도 100 / 100 표시');
+  check(extCard.includes('푼 문제 150 / 150'), '책 선택 화면: 경험의 멸종 진도 150 / 150 표시');
   await page.locator('.book-card', { hasText: '식물의 사회생활' }).click();
   check(await page.getByRole('heading', { name: '《식물의 사회생활》' }).isVisible(), '식물의 사회생활 선택 → 홈');
-  check((await statValue('전체 문제')) === '100', '식물: 전체 문제 100');
+  check((await statValue('전체 문제')) === '150', '식물: 전체 문제 150');
   check((await statValue('틀린 문제')) === '0', '식물: 경험의 멸종과 기록이 분리됨 (틀린 문제 0)');
   await page.screenshot({ path: `${SHOTS}/10-plant-home.png`, fullPage: true });
   await page.getByRole('radio', { name: '순서대로' }).click();
@@ -307,6 +318,9 @@ try {
   const pSaOk = await runAll('short', pSa, '주관식만 풀기');
   check(pSaOk === 50, `식물 주관식 50문제 입력 채점 전부 정답 (${pSaOk}/50)`);
   await page.getByRole('button', { name: '홈으로' }).click();
+  const pCvOk = await runAll('short', plantConv, CONV_LABEL);
+  check(pCvOk === 50, `식물 객관식 정답을 주관식으로 50문제 전부 정답 (${pCvOk}/50)`);
+  await page.getByRole('button', { name: '홈으로' }).click();
   await page.getByRole('button', { name: /주관식만 풀기/ }).click();
   await page.getByRole('button', { name: '정답 확인' }).click();
   check(await page.getByText('정답을 확인했으므로 틀린 문제로 기록했습니다.').isVisible(), '식물: 정답 확인 → 틀린 문제로 기록');
@@ -321,7 +335,7 @@ try {
   await checkGuide('study-guide-plant.pdf');
   await page.getByRole('button', { name: '학습 현황' }).click();
   const pm = await page.locator('.meter-num').allInnerTexts();
-  check(pm[0].startsWith('100 / 100'), `식물 학습 현황: 전체 진행률 ${pm[0]}`);
+  check(pm[0].startsWith('150 / 150'), `식물 학습 현황: 전체 진행률 ${pm[0]}`);
   check(await page.getByText('12장 사람들이 만든 지구환경의 변화와 식물').isVisible(), '식물 학습 현황: 장별 진행 표시');
   check(await page.getByText('13장 미래의 식물과 사람의 관계').isVisible(), '식물 학습 현황: 13장 표시');
   check(await page.getByText('맺음말', { exact: true }).isVisible(), '식물 학습 현황: 맺음말 표시');
@@ -331,7 +345,7 @@ try {
   await page.getByRole('button', { name: '‹ 책 선택' }).click();
   await page.locator('.book-card', { hasText: '도시는 무엇으로 사는가' }).click();
   check(await page.getByRole('heading', { name: '《도시는 무엇으로 사는가》' }).isVisible(), '도시는 무엇으로 사는가 선택 → 홈');
-  check((await statValue('전체 문제')) === '100', '도시: 전체 문제 100');
+  check((await statValue('전체 문제')) === '150', '도시: 전체 문제 150');
   check((await statValue('틀린 문제')) === '0', '도시: 다른 책과 기록이 분리됨 (틀린 문제 0)');
   await page.screenshot({ path: `${SHOTS}/13-city-home.png`, fullPage: true });
   await page.getByRole('radio', { name: '순서대로' }).click();
@@ -343,6 +357,9 @@ try {
   await page.getByRole('button', { name: '홈으로' }).click();
   const cSaOk = await runAll('short', cSa, '주관식만 풀기');
   check(cSaOk === 50, `도시 주관식 50문제 입력 채점 전부 정답 (${cSaOk}/50)`);
+  await page.getByRole('button', { name: '홈으로' }).click();
+  const cCvOk = await runAll('short', cityConv, CONV_LABEL);
+  check(cCvOk === 50, `도시 객관식 정답을 주관식으로 50문제 전부 정답 (${cCvOk}/50)`);
   await page.getByRole('button', { name: '홈으로' }).click();
   await page.getByRole('button', { name: /주관식만 풀기/ }).click();
   await page.getByRole('button', { name: '정답 확인' }).click();

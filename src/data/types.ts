@@ -39,6 +39,8 @@ export interface ShortQuestion extends BaseQuestion {
   answer: string;
   /** 띄어쓰기·표기 차이를 고려한 인정 답안 (대표 정답은 자동 포함) */
   acceptableAnswers: string[];
+  /** 객관식 문제의 정답을 주관식으로 다시 묻는 문제면, 그 객관식 문제의 id */
+  fromMultiple?: string;
 }
 
 export type Question = MultipleQuestion | ShortQuestion;

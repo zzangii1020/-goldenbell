@@ -31,7 +31,8 @@ export default function Home({
   const book = useBook();
   const allIds = questions.map((q) => q.id);
   const multipleCount = questions.filter((q) => q.type === 'multiple').length;
-  const shortCount = questions.length - multipleCount;
+  const convertedCount = questions.filter((q) => q.type === 'short' && q.fromMultiple).length;
+  const shortCount = questions.length - multipleCount - convertedCount;
   const wrongCount = wrongIds(state, allIds).length;
   const favCount = favoriteIds(state, allIds).length;
   const summary = session ? sessionSummary(session) : null;
@@ -105,6 +106,11 @@ export default function Home({
             주관식만 풀기 <small>{shortCount}문제</small>
           </button>
         </div>
+        {convertedCount > 0 && (
+          <button type="button" className="btn btn-lg" onClick={() => onStart('converted')}>
+            객관식 정답을 주관식으로 풀기 <small>{convertedCount}문제 · 객관식 문제의 답을 직접 써 보기</small>
+          </button>
+        )}
         <button
           type="button"
           className="btn btn-lg btn-wrong"
