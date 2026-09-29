@@ -17,6 +17,7 @@ const { questions: cityQuestions } = await loadData('src/data/city/questions.ts'
 const { fromMultiple: extConv } = await loadData('src/data/extinction/fromMultiple.ts');
 const { fromMultiple: plantConv } = await loadData('src/data/plant/fromMultiple.ts');
 const { fromMultiple: cityConv } = await loadData('src/data/city/fromMultiple.ts');
+const { questions: authorQuestions } = await loadData('src/data/authors/questions.ts');
 const CONV_LABEL = '객관식 정답을 주관식으로 풀기';
 
 const PORT = 4179;
@@ -93,7 +94,7 @@ try {
 
   // 0. 첫 화면: 책 선택
   check(await page.getByRole('heading', { name: '어떤 책을 공부할까요?' }).isVisible(), '첫 화면: 책 선택');
-  check((await page.locator('.book-card').count()) === 3, '책 선택: 3권');
+  check((await page.locator('.book-card').count()) === 4, '책 선택: 3권 + 지은이·출판사');
   await page.screenshot({ path: `${SHOTS}/00-book-select.png`, fullPage: true });
   await page.locator('.book-card', { hasText: '경험의 멸종' }).click();
   check(await page.getByRole('heading', { name: '《경험의 멸종》' }).isVisible(), '경험의 멸종 선택 → 홈');
@@ -375,6 +376,17 @@ try {
   await page.getByRole('button', { name: '‹ 홈' }).click();
   const cityKeys = await page.evaluate(() => Object.keys(localStorage).filter((k) => k.endsWith('.state')).sort());
   check(cityKeys.includes('goldenbell.city.v1.state'), `세 번째 책도 따로 저장 (${cityKeys.join(', ')})`);
+
+  // ───────── 11. 지은이·출판사 (네 번째 버튼, 주관식만) ─────────
+  await page.getByRole('button', { name: '‹ 책 선택' }).click();
+  await page.locator('.book-card', { hasText: '지은이·출판사' }).click();
+  check(await page.getByRole('heading', { name: '지은이·출판사' }).isVisible(), '지은이·출판사 선택 → 홈');
+  check((await page.getByRole('button', { name: /객관식만 풀기/ }).count()) === 0, '지은이·출판사: 객관식 버튼 없음 (주관식만)');
+  await page.getByRole('radio', { name: '순서대로' }).click();
+  const aOk = await runAll('short', authorQuestions, '전체 문제 풀기');
+  check(aOk === authorQuestions.length, `지은이·출판사 ${authorQuestions.length}문제 입력 채점 전부 정답 (${aOk})`);
+  await page.getByRole('button', { name: '홈으로' }).click();
+  await page.screenshot({ path: `${SHOTS}/15-authors-home.png`, fullPage: true });
 
   // 앱을 새로 열면 책 선택 화면부터
   const fresh = await context.newPage();

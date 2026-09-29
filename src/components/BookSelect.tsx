@@ -13,7 +13,7 @@ export default function BookSelect({ onSelect }: Props) {
       <header className="home-header">
         <p className="eyebrow">독서 골든벨 대비</p>
         <h1>어떤 책을 공부할까요?</h1>
-        <p className="subtitle">책마다 문제 100개 · 학습 기록은 책별로 따로 저장됩니다.</p>
+        <p className="subtitle">책마다 문제 150개 · 학습 기록은 책별로 따로 저장됩니다.</p>
       </header>
 
       <nav className="book-list" aria-label="책 선택">
@@ -24,9 +24,9 @@ export default function BookSelect({ onSelect }: Props) {
           const wrong = wrongIds(state, ids).length;
           return (
             <button key={book.id} type="button" className="book-card" onClick={() => onSelect(book.id)}>
-              <span className="book-title">《{book.title}》</span>
+              <span className="book-title">{book.kind === 'book' ? `《${book.title}》` : book.title}</span>
               <span className="book-meta">
-                {book.author} · {book.publisher}
+                {book.kind === 'book' ? `${book.author} · ${book.publisher}` : `세 책 공통 · 주관식 ${ids.length}문제`}
               </span>
               <span className="book-tagline">{book.tagline}</span>
               <span className="book-progress">

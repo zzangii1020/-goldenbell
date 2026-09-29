@@ -60,8 +60,8 @@ const CASES: Case[] = [
 ];
 
 describe('책 목록', () => {
-  it('세 권의 책이 있고 id 가 고유하다', () => {
-    expect(BOOKS.map((b) => b.id)).toEqual(['extinction', 'plant', 'city']);
+  it('세 권의 책과 지은이·출판사 문제가 있고 id 가 고유하다', () => {
+    expect(BOOKS.map((b) => b.id)).toEqual(['extinction', 'plant', 'city', 'authors']);
   });
 
   it('책들의 문제 id 가 서로 겹치지 않는다', () => {

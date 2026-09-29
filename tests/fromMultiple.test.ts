@@ -5,7 +5,7 @@ import { gradeShort, normalizeAnswer } from '../src/lib/grading';
 import { emptyState } from '../src/lib/progress';
 import { idsForMode } from '../src/lib/session';
 
-for (const book of BOOKS) {
+for (const book of BOOKS.filter((b) => b.kind === 'book')) {
   const mcs = book.questions.filter((q) => q.type === 'multiple');
   const converted = book.questions.filter((q): q is ShortQuestion => q.type === 'short' && !!q.fromMultiple);
   const originalShort = book.questions.filter((q): q is ShortQuestion => q.type === 'short' && !q.fromMultiple);

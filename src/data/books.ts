@@ -8,10 +8,13 @@ import * as cityPages from './city/pages';
 import { fromMultiple as extinctionFromMultiple } from './extinction/fromMultiple';
 import { fromMultiple as plantFromMultiple } from './plant/fromMultiple';
 import { fromMultiple as cityFromMultiple } from './city/fromMultiple';
+import * as authors from './authors/questions';
 
 export interface Book {
   /** 학습 기록 저장 키에 쓰인다. 바꾸면 기존 기록을 못 불러오므로 바꾸지 말 것 */
-  id: 'extinction' | 'plant' | 'city';
+  id: 'extinction' | 'plant' | 'city' | 'authors';
+  /** book = 책 한 권, extra = 세 책을 함께 묻는 추가 문제(지은이·출판사) */
+  kind: 'book' | 'extra';
   title: string;
   author: string;
   publisher: string;
@@ -22,9 +25,9 @@ export interface Book {
   /** 책 쪽수 → "책 p.00 · PDF p.00 (파일)" */
   formatSource: (bookPage: number) => string;
   /** 요약 노트 PDF (public/ 폴더 기준 파일명) */
-  studyGuide: string;
+  studyGuide?: string;
   /** 주관식 정답표 PDF (public/ 폴더 기준 파일명) */
-  answerSheet: string;
+  answerSheet?: string;
   /** 출제 범위 안내 */
   coverage: string;
 }
@@ -32,6 +35,7 @@ export interface Book {
 export const BOOKS: Book[] = [
   {
     id: 'extinction',
+    kind: 'book',
     title: '경험의 멸종',
     author: '크리스틴 로젠',
     publisher: '어크로스',
@@ -44,6 +48,7 @@ export const BOOKS: Book[] = [
   },
   {
     id: 'plant',
+    kind: 'book',
     title: '식물의 사회생활',
     author: '이영숙·최배영',
     publisher: '동아시아',
@@ -56,6 +61,7 @@ export const BOOKS: Book[] = [
   },
   {
     id: 'city',
+    kind: 'book',
     title: '도시는 무엇으로 사는가',
     author: '유현준',
     publisher: '을유문화사',
@@ -65,6 +71,17 @@ export const BOOKS: Book[] = [
     studyGuide: 'study-guide-city.pdf',
     answerSheet: 'answer-sheet-city.pdf',
     coverage: '책 p.11~383, 추천사~맺음말',
+  },
+  {
+    id: 'authors',
+    kind: 'extra',
+    title: '지은이·출판사',
+    author: '세 책',
+    publisher: '주관식',
+    tagline: '세 책의 지은이·옮긴이·출판사를 주관식으로 맞히기',
+    questions: authors.questions,
+    formatSource: () => '각 책의 표지·판권',
+    coverage: '세 책의 표지·판권',
   },
 ];
 

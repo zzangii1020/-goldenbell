@@ -71,7 +71,7 @@ const executablePath = [process.env.CHROMIUM_PATH, '/opt/pw-browsers/chromium-11
   (p) => p && existsSync(p),
 );
 const browser = await chromium.launch(executablePath ? { executablePath } : {});
-for (const book of BOOKS) {
+for (const book of BOOKS.filter((b) => b.answerSheet)) {
   const page = await browser.newPage();
   await page.setContent(html(book), { waitUntil: 'load' });
   await page.evaluate(() => document.fonts.ready);
