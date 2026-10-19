@@ -18,6 +18,7 @@ const { fromMultiple: extConv } = await loadData('src/data/extinction/fromMultip
 const { fromMultiple: plantConv } = await loadData('src/data/plant/fromMultiple.ts');
 const { fromMultiple: cityConv } = await loadData('src/data/city/fromMultiple.ts');
 const { questions: authorQuestions } = await loadData('src/data/authors/questions.ts');
+const { questions: webQuestions } = await loadData('src/data/web/questions.ts');
 const CONV_LABEL = '객관식 정답을 주관식으로 풀기';
 
 const PORT = 4179;
@@ -94,7 +95,7 @@ try {
 
   // 0. 첫 화면: 책 선택
   check(await page.getByRole('heading', { name: '어떤 책을 공부할까요?' }).isVisible(), '첫 화면: 책 선택');
-  check((await page.locator('.book-card').count()) === 4, '책 선택: 3권 + 지은이·출판사');
+  check((await page.locator('.book-card').count()) === 5, '책 선택: 3권 + 웹프로그래밍 + 지은이·출판사');
   await page.screenshot({ path: `${SHOTS}/00-book-select.png`, fullPage: true });
   await page.locator('.book-card', { hasText: '경험의 멸종' }).click();
   check(await page.getByRole('heading', { name: '《경험의 멸종》' }).isVisible(), '경험의 멸종 선택 → 홈');
@@ -387,6 +388,31 @@ try {
   check(aOk === authorQuestions.length, `지은이·출판사 ${authorQuestions.length}문제 입력 채점 전부 정답 (${aOk})`);
   await page.getByRole('button', { name: '홈으로' }).click();
   await page.screenshot({ path: `${SHOTS}/15-authors-home.png`, fullPage: true });
+
+  // ───────── 12. 웹프로그래밍 (서술형, 스스로 채점) ─────────
+  await page.getByRole('button', { name: '‹ 책 선택' }).click();
+  await page.locator('.book-card', { hasText: '웹프로그래밍' }).click();
+  check(await page.getByRole('heading', { name: '웹프로그래밍' }).isVisible(), '웹프로그래밍 선택 → 홈');
+  check((await statValue('전체 문제')) === String(webQuestions.length), `웹프로그래밍: 전체 문제 ${webQuestions.length}`);
+  await page.getByRole('radio', { name: '순서대로' }).click();
+  await page.getByRole('button', { name: /전체 문제 풀기/ }).click();
+  let webOk = 0;
+  for (let i = 0; i < webQuestions.length; i++) {
+    const q = webQuestions[i];
+    if (!(await page.locator('.q-text').innerText()).includes(q.question)) throw new Error(`${q.id}: 문제 순서 불일치`);
+    if (i === 0) await page.locator('.self-input').fill('실행환경');
+    await page.getByRole('button', { name: '정답 보기' }).click();
+    const shown = await page.locator('.self-text').innerText();
+    if (shown.replace(/\s/g, '') !== q.answer.replace(/\s/g, '')) throw new Error(`${q.id}: 노트 정답 표시 불일치`);
+    if (i === 0) await page.screenshot({ path: `${SHOTS}/16-web-peek.png`, fullPage: true });
+    // 마지막 문제만 틀렸다고 표시
+    await page.getByRole('button', { name: i === webQuestions.length - 1 ? '❌ 틀렸어요' : '⭕ 맞았어요' }).click();
+    if (await page.getByText(i === webQuestions.length - 1 ? '틀렸어요.' : '정답입니다.', { exact: true }).isVisible()) webOk++;
+    await page.getByRole('button', { name: i === webQuestions.length - 1 ? '결과 보기' : '다음 문제' }).click();
+  }
+  check(webOk === webQuestions.length, `웹프로그래밍 ${webQuestions.length}문제: 정답 보기 → 스스로 채점 기록 (${webOk})`);
+  await page.getByRole('button', { name: '홈으로' }).click();
+  check((await statValue('틀린 문제')) === '1', '웹프로그래밍: 틀렸어요 고른 문제만 오답 노트에 (1)');
 
   // 앱을 새로 열면 책 선택 화면부터
   const fresh = await context.newPage();

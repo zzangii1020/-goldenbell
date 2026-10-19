@@ -9,11 +9,12 @@ import { fromMultiple as extinctionFromMultiple } from './extinction/fromMultipl
 import { fromMultiple as plantFromMultiple } from './plant/fromMultiple';
 import { fromMultiple as cityFromMultiple } from './city/fromMultiple';
 import * as authors from './authors/questions';
+import * as web from './web/questions';
 
 export interface Book {
   /** 학습 기록 저장 키에 쓰인다. 바꾸면 기존 기록을 못 불러오므로 바꾸지 말 것 */
-  id: 'extinction' | 'plant' | 'city' | 'authors';
-  /** book = 책 한 권, extra = 세 책을 함께 묻는 추가 문제(지은이·출판사) */
+  id: 'extinction' | 'plant' | 'city' | 'web' | 'authors';
+  /** book = 책 한 권, extra = 수업 노트·지은이/출판사처럼 책이 아닌 문제 묶음(주관식만) */
   kind: 'book' | 'extra';
   title: string;
   author: string;
@@ -73,15 +74,26 @@ export const BOOKS: Book[] = [
     coverage: '책 p.11~383, 추천사~맺음말',
   },
   {
+    id: 'web',
+    kind: 'extra',
+    title: '웹프로그래밍',
+    author: '수업 노트 Chapter 1',
+    publisher: '서술형',
+    tagline: '노트 왼쪽 용어를 보고 오른쪽 설명을 말하는 서술형 문제',
+    questions: web.questions,
+    formatSource: (no) => (no === 0 ? '수업 노트 Chapter 1 맨 위' : `수업 노트 Chapter 1 · ${no}번`),
+    coverage: '웹프로그래밍 수업 노트 Chapter 1',
+  },
+  {
     id: 'authors',
     kind: 'extra',
     title: '지은이·출판사',
-    author: '세 책',
+    author: '세 책 공통',
     publisher: '주관식',
     tagline: '세 책의 지은이·옮긴이·출판사를 주관식으로 맞히기',
     questions: authors.questions,
     formatSource: () => '각 책의 표지·판권',
-    coverage: '세 책의 표지·판권',
+    coverage: '세 책의 표지·판권에 적힌 지은이·옮긴이·출판사 정보',
   },
 ];
 

@@ -656,6 +656,51 @@ h2 {
 .fb-answer {
   font-size: 18px !important;
   font-weight: 800;
+  white-space: pre-line;
+}
+
+/* 서술형: 답을 보고 스스로 채점 */
+.self-input {
+  width: 100%;
+  font: inherit;
+  font-size: 17px;
+  line-height: 1.5;
+  padding: 14px 16px;
+  border-radius: var(--radius);
+  border: 1.5px solid var(--line);
+  background: var(--bg);
+  color: var(--text);
+  resize: vertical;
+}
+.self-answer {
+  border-radius: var(--radius);
+  background: var(--ok-soft);
+  border: 1.5px solid var(--ok);
+  padding: 14px 16px;
+}
+.self-label {
+  margin: 0 0 6px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--ok);
+}
+.self-text {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.6;
+  white-space: pre-line;
+  word-break: keep-all;
+}
+.btn-ok {
+  background: var(--ok);
+  border-color: var(--ok);
+  color: #fff;
+}
+.btn-ng {
+  background: var(--ng);
+  border-color: var(--ng);
+  color: #fff;
 }
 .fb-small {
   font-size: 14px !important;

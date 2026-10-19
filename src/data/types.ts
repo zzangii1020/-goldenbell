@@ -41,6 +41,8 @@ export interface ShortQuestion extends BaseQuestion {
   acceptableAnswers: string[];
   /** 객관식 문제의 정답을 주관식으로 다시 묻는 문제면, 그 객관식 문제의 id */
   fromMultiple?: string;
+  /** 서술형: 글자 그대로 채점하지 않고, 답을 본 뒤 스스로 맞음/틀림을 고른다 */
+  selfGrade?: boolean;
 }
 
 export type Question = MultipleQuestion | ShortQuestion;

@@ -17,6 +17,8 @@ export default function AnswerFeedback({ question: q, sessionAnswer, order }: Pr
   const status =
     result === 'correct'
       ? { cls: 'ok', title: '정답입니다.', sub: '맞은 문제로 기록했습니다.' }
+      : result === 'wrong' && q.type === 'short' && q.selfGrade
+        ? { cls: 'ng', title: '틀렸어요.', sub: '틀린 문제(오답 노트)에 추가했습니다.' }
       : result === 'wrong'
         ? { cls: 'ng', title: '틀렸습니다.', sub: '틀린 문제(오답 노트)에 추가했습니다.' }
         : { cls: 'rv', title: '정답 확인', sub: '정답을 확인했으므로 틀린 문제로 기록했습니다.' };

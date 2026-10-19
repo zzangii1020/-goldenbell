@@ -40,6 +40,9 @@ export default function QuestionCard({
   );
   const [text, setText] = useState(q.type === 'short' ? (sessionAnswer?.answer ?? '') : '');
   const [hint, setHint] = useState<string | null>(null);
+  // 서술형: 답을 먼저 본 뒤 스스로 맞음/틀림을 고른다
+  const selfGrade = q.type === 'short' && !!q.selfGrade;
+  const [peek, setPeek] = useState(false);
 
   const done = !!sessionAnswer;
   const feedbackRef = useRef<HTMLDivElement>(null);
@@ -84,6 +87,12 @@ export default function QuestionCard({
     setHint(null);
   };
 
+  const selfMark = (result: 'correct' | 'wrong') => {
+    if (done) return;
+    answeredHere.current = true;
+    onAnswer(result, text.trim() || null);
+  };
+
   const reveal = () => {
     if (done) return;
     const answer = q.type === 'multiple' ? (selected === null ? null : String(selected)) : text.trim() || null;
@@ -118,6 +127,21 @@ export default function QuestionCard({
             setHint(null);
           }}
         />
+      ) : selfGrade ? (
+        <div className="short-form">
+          <label htmlFor="self-answer" className="sr-only">
+            내 답
+          </label>
+          <textarea
+            id="self-answer"
+            className="self-input"
+            rows={3}
+            placeholder="답을 떠올리거나 써 보세요 (쓰지 않아도 됩니다)"
+            value={text}
+            disabled={done}
+            onChange={(e) => setText(e.target.value)}
+          />
+        </div>
       ) : (
         <ShortAnswerQuestion
           value={text}
@@ -136,7 +160,39 @@ export default function QuestionCard({
         </p>
       )}
 
-      {!done ? (
+      {!done && selfGrade ? (
+        <div className="actions">
+          {!peek ? (
+            <button type="button" className="btn btn-primary btn-lg" onClick={() => setPeek(true)}>
+              정답 보기
+            </button>
+          ) : (
+            <>
+              <section className="self-answer" aria-live="polite">
+                <p className="self-label">노트 정답</p>
+                <p className="self-text">{q.type === 'short' ? q.answer : ''}</p>
+              </section>
+              <p className="reveal-note">내 답과 비교해서 직접 고르세요.</p>
+              <div className="actions-row">
+                <button type="button" className="btn btn-lg btn-ok" onClick={() => selfMark('correct')}>
+                  ⭕ 맞았어요
+                </button>
+                <button type="button" className="btn btn-lg btn-ng" onClick={() => selfMark('wrong')}>
+                  ❌ 틀렸어요
+                </button>
+              </div>
+            </>
+          )}
+          <button
+            type="button"
+            className={`btn btn-lg btn-outline fav-toggle ${isFavorite ? 'on' : ''}`}
+            onClick={onToggleFavorite}
+            aria-pressed={isFavorite}
+          >
+            {isFavorite ? '★ 즐겨찾기됨' : '☆ 즐겨찾기'}
+          </button>
+        </div>
+      ) : !done ? (
         <div className="actions">
           <button type="button" className="btn btn-primary btn-lg" onClick={submit}>
             정답 제출

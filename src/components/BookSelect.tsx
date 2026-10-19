@@ -26,7 +26,7 @@ export default function BookSelect({ onSelect }: Props) {
             <button key={book.id} type="button" className="book-card" onClick={() => onSelect(book.id)}>
               <span className="book-title">{book.kind === 'book' ? `《${book.title}》` : book.title}</span>
               <span className="book-meta">
-                {book.kind === 'book' ? `${book.author} · ${book.publisher}` : `세 책 공통 · 주관식 ${ids.length}문제`}
+                {book.kind === 'book' ? `${book.author} · ${book.publisher}` : `${book.author} · ${book.questions.some((q) => q.type === 'short' && q.selfGrade) ? '서술형' : '주관식'} ${ids.length}문제`}
               </span>
               <span className="book-tagline">{book.tagline}</span>
               <span className="book-progress">

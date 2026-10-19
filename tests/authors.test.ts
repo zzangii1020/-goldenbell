@@ -34,8 +34,8 @@ describe('지은이·출판사 (세 책 공통, 주관식만)', () => {
     }
   });
 
-  it('책 선택 화면의 네 번째 항목이며, 객관식 없이 주관식만 푼다', () => {
-    const extra = BOOKS[3];
+  it('책 선택 화면의 마지막 항목이며, 객관식 없이 주관식만 푼다', () => {
+    const extra = BOOKS[BOOKS.length - 1];
     expect(extra.id).toBe('authors');
     expect(extra.kind).toBe('extra');
     const s = emptyState();
